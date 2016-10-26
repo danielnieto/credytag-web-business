@@ -1,6 +1,6 @@
 <section class="container-fluid">
     <div class="row">
-        <app-sidenav [class.collapsed]="navIsCollapsed" (toggleNav)="onToggleNav()">
+        <app-sidenav [class.collapsed]="navIsCollapsed" [navIsCollapsed]="navIsCollapsed" (toggleNav)="onToggleNav()">
             sidenav
         </app-sidenav>
         <app-content [class.expanded]="navIsCollapsed">

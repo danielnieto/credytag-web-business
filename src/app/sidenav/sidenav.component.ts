@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'app-sidenav',
@@ -8,7 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class SidenavComponent implements OnInit {
 
     @Output("toggleNav") toggleNavEvent = new EventEmitter();
-
+    @Input("navIsCollapsed") navIsCollapsed;
 
     constructor() { }
 

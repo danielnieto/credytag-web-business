@@ -12,8 +12,8 @@
     overflow-x: visible;
     overflow-y: auto;
     /* Scrollable contents if viewport is shorter than content. */
-    background-color: #eeeeee;
-    color: #000;
+    background-color: #53437d;
+    color: #9999cc;
     width: 200px;
     transition: width .2s;
 }
@@ -29,14 +29,14 @@
 }
 
 .sidebar a {
-    color: #000;
+    color: #9999cc;
 }
 
 
 /* Sidebar navigation */
 
 .nav-sidebar {
-    margin-right: -21px;
+    margin-right: -20px;
     /* 20px padding + 1px border */
     margin-bottom: 20px;
     margin-left: -20px;
@@ -51,25 +51,30 @@
 }
 
 .nav-sidebar>li>a {
-    padding-right: 0px;
-    padding-left: 0px;
     vertical-align: middle;
     white-space: nowrap;
+    height: 40px;
+    line-height: 40px;
+    padding:0;
 }
 
 .nav-sidebar i {
-    padding: 0 10px;
-    vertical-align: middle;
-    text-align: center;
+    font-size: 18px;
 }
 
-.nav-sidebar>.active>a, .nav-sidebar>.active>a:hover, .nav-sidebar>.active>a:focus {
+.nav-sidebar>.active a,
+.nav-sidebar>.active a:hover,
+.nav-sidebar>.active a:focus {
+    background-color: #4DB6AC;
     color: #fff;
-    background-color: #7e57c2;
 }
 
-.nav-sidebar a:hover {
-    background-color: #7e57c2;
+.nav-sidebar a:hover,
+.nav-sidebar a:focus,
+.nav-sidebar a:active
+ {
+    background-color: #6e59a6;
+    color: #fff;
 }
 
 
@@ -83,4 +88,10 @@
 :host.collapsed .sidebar .name {
     display: none;
     visibility: hidden;
+}
+
+.icon-wrapper{
+    text-align: center;
+    width: 50px;
+    display: inline-block;
 }
