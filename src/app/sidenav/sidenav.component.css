@@ -1,0 +1,86 @@
+:host {
+    width: 200px;
+}
+
+.sidebar {
+    display: none;
+    position: fixed;
+    left: 0;
+    height: 100%;
+    z-index: 0;
+    padding: 20px;
+    overflow-x: visible;
+    overflow-y: auto;
+    /* Scrollable contents if viewport is shorter than content. */
+    background-color: #eeeeee;
+    color: #000;
+    width: 200px;
+    transition: width .2s;
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        display: block;
+    }
+}
+
+.sidebar .name {
+    white-space: nowrap;
+}
+
+.sidebar a {
+    color: #000;
+}
+
+
+/* Sidebar navigation */
+
+.nav-sidebar {
+    margin-right: -21px;
+    /* 20px padding + 1px border */
+    margin-bottom: 20px;
+    margin-left: -20px;
+    -webkit-user-select: none;
+    /* Chrome all / Safari all */
+    -moz-user-select: none;
+    /* Firefox all */
+    -ms-user-select: none;
+    /* IE 10+ */
+    user-select: none;
+    /* Likely future */
+}
+
+.nav-sidebar>li>a {
+    padding-right: 0px;
+    padding-left: 0px;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.nav-sidebar i {
+    padding: 0 10px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.nav-sidebar>.active>a, .nav-sidebar>.active>a:hover, .nav-sidebar>.active>a:focus {
+    color: #fff;
+    background-color: #7e57c2;
+}
+
+.nav-sidebar a:hover {
+    background-color: #7e57c2;
+}
+
+
+/*:host.collapsed .nav-sidebar,*/
+
+:host.collapsed .sidebar {
+    width: 50px;
+    overflow: visible;
+}
+
+:host.collapsed .sidebar .name {
+    display: none;
+    visibility: hidden;
+}
