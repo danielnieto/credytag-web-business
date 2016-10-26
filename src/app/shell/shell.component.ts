@@ -13,12 +13,4 @@ export class ShellComponent implements OnInit {
     ngOnInit() {
     }
 
-    onToggleNav() {
-        if (this.navIsCollapsed) {
-            this.navIsCollapsed = false;
-        } else {
-            this.navIsCollapsed = true;
-        }
-    }
-
 }
