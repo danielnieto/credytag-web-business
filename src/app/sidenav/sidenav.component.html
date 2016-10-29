@@ -1,75 +1,73 @@
-<aside class="sidebar">
-    <ul class="nav nav-sidebar">
-        <li>
-            <a (click)="toggleNav();">
-                <i class="fa fa-2x fa-navicon"></i>
+
+<div class="logo">
+    <img class="imagetype" src="assets/svg/credytag-imagetype.svg" alt="">
+</div>
+<ul class="nav nav-sidebar">
+    <li class="active">
+        <a href="#" tooltipPlacement="right" tooltip="Cobros" [tooltipEnable]="navIsCollapsed" [tooltipAppendToBody]="true" >
+            <a class="icon-wrapper">
+                <i class="fa fa-money"></i>
             </a>
-        </li>
-    </ul>
-    <ul class="nav nav-sidebar">
-        <li class="active">
-            <a href="#" tooltipPlacement="right" tooltip="Cobros" [tooltipEnable]="navIsCollapsed">
-                <a class="icon-wrapper">
-                    <i class="fa fa-money"></i>
-                </a>
-                <span class="name">Cobros</span>
+            <span class="name">Cobros</span>
+        </a>
+    </li>
+    <li>
+        <a href="#" tooltipPlacement="right" tooltip="QR&nbsp;Admin" [tooltipEnable]="navIsCollapsed" [tooltipAppendToBody]="true">
+            <a class="icon-wrapper">
+                <i class="fa fa-qrcode"></i>
             </a>
-        </li>
-        <li>
-            <a href="#" tooltipPlacement="right" tooltip="QR&nbsp;Admin" [tooltipEnable]="navIsCollapsed">
-                <a class="icon-wrapper">
-                    <i class="fa fa-qrcode"></i>
-                </a>
-                <span class="name">QR Admin</span>
+            <span class="name">QR Admin</span>
+        </a>
+    </li>
+    <li>
+        <a href="#" tooltipPlacement="right" tooltip="Estadisticas" [tooltipEnable]="navIsCollapsed" [tooltipAppendToBody]="true">
+            <a class="icon-wrapper">
+                <i class="fa fa-pie-chart"></i>
             </a>
-        </li>
-        <li>
-            <a href="#" tooltipPlacement="right" tooltip="Estadisticas" [tooltipEnable]="navIsCollapsed">
-                <a class="icon-wrapper">
-                    <i class="fa fa-pie-chart"></i>
-                </a>
-                <span class="name">Estadisticas</span>
+            <span class="name">Estadisticas</span>
+        </a>
+    </li>
+    <li>
+        <a href="#" tooltipPlacement="right" tooltip="Productos" [tooltipEnable]="navIsCollapsed" [tooltipAppendToBody]="true">
+            <a class="icon-wrapper">
+                <i class="fa fa-shopping-cart"></i>
             </a>
-        </li>
-        <li>
-            <a href="#" tooltipPlacement="right" tooltip="Productos" [tooltipEnable]="navIsCollapsed">
-                <a class="icon-wrapper">
-                    <i class="fa fa-shopping-cart"></i>
-                </a>
-                <span class="name">Productos</span>
+            <span class="name">Productos</span>
+        </a>
+    </li>
+    <li>
+        <a href="#" tooltipPlacement="right" tooltip="Tickets" [tooltipEnable]="navIsCollapsed" [tooltipAppendToBody]="true">
+            <a class="icon-wrapper">
+                <i class="fa fa-ticket"></i>
             </a>
-        </li>
-        <li>
-            <a href="#" tooltipPlacement="right" tooltip="Tickets" [tooltipEnable]="navIsCollapsed">
-                <a class="icon-wrapper">
-                    <i class="fa fa-ticket"></i>
-                </a>
-                <span class="name">Tickets</span>
+            <span class="name">Tickets</span>
+        </a>
+    </li>
+    <li>
+        <a href="#" tooltipPlacement="right" tooltip="Promociones" [tooltipEnable]="navIsCollapsed" [tooltipAppendToBody]="true">
+            <a class="icon-wrapper">
+                <i class="fa fa-trophy"></i>
             </a>
-        </li>
-        <li>
-            <a href="#" tooltipPlacement="right" tooltip="Promociones" [tooltipEnable]="navIsCollapsed">
-                <a class="icon-wrapper">
-                    <i class="fa fa-trophy"></i>
-                </a>
-                <span class="name">Promociones</span>
+            <span class="name">Promociones</span>
+        </a>
+    </li>
+    <li>
+        <a href="#" tooltipPlacement="right" tooltip="Sucursales" [tooltipEnable]="navIsCollapsed" [tooltipAppendToBody]="true">
+            <a class="icon-wrapper">
+                <i class="fa fa-building"></i>
             </a>
-        </li>
-        <li>
-            <a href="#" tooltipPlacement="right" tooltip="Sucursales" [tooltipEnable]="navIsCollapsed">
-                <a class="icon-wrapper">
-                    <i class="fa fa-building"></i>
-                </a>
-                <span class="name">Sucursales</span>
+            <span class="name">Sucursales</span>
+        </a>
+    </li>
+    <li>
+        <a href="#" tooltipPlacement="right" tooltip="Administracion" [tooltipEnable]="navIsCollapsed" [tooltipAppendToBody]="true">
+            <a class="icon-wrapper">
+                <i class="fa fa-cog"></i>
             </a>
-        </li>
-        <li>
-            <a href="#" tooltipPlacement="right" tooltip="Administracion" [tooltipEnable]="navIsCollapsed">
-                <a class="icon-wrapper">
-                    <i class="fa fa-cog"></i>
-                </a>
-                <span class="name">Administracion</span>
-            </a>
-        </li>
-    </ul>
-</aside>
+            <span class="name">Administracion</span>
+        </a>
+    </li>
+</ul>
+<a class="toggler" (click)="toggleNav()">
+    <i class="fa" [class.fa-caret-right]="navIsCollapsed" [class.fa-caret-left]="!navIsCollapsed"></i>
+</a>
