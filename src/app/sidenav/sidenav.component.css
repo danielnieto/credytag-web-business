@@ -1,19 +1,18 @@
-:host {
-    display: block;
-    position: fixed;
+aside {
     left: 0;
     height: 100%;
     padding: 0px;
-    overflow-y: auto;
-    overflow-x: hidden;
     background-color: #53437d;
     color: #9999cc;
     width: 220px;
+    overflow: visible;
     transition: width .2s;
+    height: 100%;
+    position: fixed;
 }
 
 @media (max-width: 768px) {
-    :host {
+    aside {
         display: none;
     }
 }
@@ -45,6 +44,9 @@ a {
     height: 40px;
     line-height: 40px;
     padding: 0;
+    transition: width .2s;
+    overflow: hidden;
+    width: 100%;
 }
 
 .nav-sidebar i {
@@ -56,6 +58,7 @@ a {
 .nav-sidebar > .active a:focus {
     background-color: #4DB6AC;
     color: #fff;
+
 }
 
 .nav-sidebar a:hover,
@@ -65,7 +68,7 @@ a {
     color: #fff;
 }
 
-:host.collapsed {
+:host.collapsed aside{
     width: 50px;
 }
 
@@ -83,8 +86,8 @@ a {
     height: 40px;
     line-height: 40px;
     width: 220px;
-    transition: width .2s;
     text-align: center;
+    transition: width .2s;
 }
 
 .toggler i {
@@ -99,6 +102,8 @@ a {
 
 .logo {
     height: 60px;
+    overflow: hidden;
+    width: 100%;
 }
 
 .logo .imagetype {
