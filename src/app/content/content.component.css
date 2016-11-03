@@ -5,6 +5,7 @@
     transition: margin-left .2s;
     transition: margin-right .2s;
     background-color: #f5f5f5;
+    padding:10px;
 }
 
 :host.navIsCollapsed{
@@ -13,4 +14,9 @@
 
 :host.feedIsCollapsed{
     margin-right: 50px;
+}
+
+section.content{
+    box-sizing: border-box;
+    background-color: #fff;
 }
