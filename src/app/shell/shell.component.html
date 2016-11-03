@@ -3,8 +3,11 @@
         <app-sidenav [class.collapsed]="navIsCollapsed" [navIsCollapsed]="navIsCollapsed" (toggleNav)="navIsCollapsed = !navIsCollapsed">
             sidenav
         </app-sidenav>
-        <app-content [class.expanded]="navIsCollapsed">
+        <app-content [class.navIsCollapsed]="navIsCollapsed" [class.feedIsCollapsed]="feedIsCollapsed">
             content
         </app-content>
+        <app-feed [class.collapsed]="feedIsCollapsed" [feedIsCollapsed]="feedIsCollapsed" (toggleFeed)="feedIsCollapsed = !feedIsCollapsed">
+            feed
+        </app-feed>
     </div>
 </section>

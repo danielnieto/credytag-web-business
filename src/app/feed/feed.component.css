@@ -1,0 +1,40 @@
+aside{
+    position: fixed;
+    width: 260px;
+    background-color: #fff;
+    right: 0;
+    top:0;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: block;
+    padding-bottom: 40px;
+    transition: width .2s;
+}
+
+.toggler {
+    display: block;
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    height: 40px;
+    line-height: 40px;
+    width: 260px;
+    text-align: center;
+    transition: width .2s;
+    border-top: 1px solid #c7c7c7;
+}
+
+.toggler i {
+    font-size: 18px;
+    width: 50px;
+    color: #999999;
+}
+
+:host.collapsed aside{
+    width: 50px;
+}
+
+:host.collapsed .toggler {
+    width: 50px;
+}

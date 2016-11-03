@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { ShellComponent } from './shell/shell.component';
 import { ContentComponent } from './content/content.component';
+import { FeedComponent } from './feed/feed.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         SidenavComponent,
         ShellComponent,
-        ContentComponent
+        ContentComponent,
+        FeedComponent
     ],
     imports: [
         BrowserModule,
