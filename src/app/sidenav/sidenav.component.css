@@ -37,7 +37,10 @@ a {
     /* Likely future */
 }
 
-.nav-sidebar>li>a {
+.nav-sidebar>li>a,
+.nav-sidebar>li>a:focus,
+.nav-sidebar>li>a:active
+{
     vertical-align: middle;
     white-space: nowrap;
     height: 40px;
@@ -46,6 +49,7 @@ a {
     transition: width .2s;
     overflow: hidden;
     width: 100%;
+    background-color: #53437d;
 }
 
 .nav-sidebar i {
