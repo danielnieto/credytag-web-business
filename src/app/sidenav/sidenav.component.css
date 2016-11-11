@@ -64,9 +64,7 @@ a {
 
 }
 
-.nav-sidebar a:hover,
-.nav-sidebar a:focus,
-.nav-sidebar a:active {
+.nav-sidebar>li>a:hover{
     background-color: #6e59a6;
     color: #fff;
 }
@@ -79,6 +77,10 @@ a {
     text-align: center;
     width: 50px;
     display: inline-block;
+}
+
+.nav-sidebar>li>a:hover .icon-wrapper{
+    color:#fff;
 }
 
 .toggler {
