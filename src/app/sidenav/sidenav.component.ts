@@ -10,7 +10,7 @@ export class SidenavComponent implements OnInit {
     @Output("toggleNav") toggleNavEvent = new EventEmitter();
     @Input("navIsCollapsed") navIsCollapsed;
 
-    tabs = [
+    navItems = [
         {name: "Cobros", icon: "money"},
         {name: "Códigos QR", icon: "qrcode"},
         {name: "Estadísticas", icon: "pie-chart"},
@@ -21,6 +21,8 @@ export class SidenavComponent implements OnInit {
         {name: "Preferencias", icon: "cog"}
     ]
 
+    activeNavItem = this.navItems[0];
+
     constructor() { }
 
     ngOnInit() {
@@ -28,6 +30,10 @@ export class SidenavComponent implements OnInit {
 
     toggleNav() {
         this.toggleNavEvent.emit();
+    }
+
+    onClickNavItem(navItem:any){
+        this.activeNavItem = navItem;
     }
 
 }

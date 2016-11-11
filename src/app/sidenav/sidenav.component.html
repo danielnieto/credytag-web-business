@@ -3,12 +3,12 @@
         <img class="imagetype" src="assets/svg/credytag-imagetype.svg" alt="Credytag">
     </div>
     <nav class="nav">
-        <li class="nav-item" *ngFor="let tab of tabs">
-            <a href="#" tooltipPlacement="right" [tooltip]="tab.name" [tooltipEnable]="navIsCollapsed">
+        <li class="nav-item" *ngFor="let navItem of navItems" (click)="onClickNavItem(navItem)" [class.active]="navItem===activeNavItem">
+            <a href="#" tooltipPlacement="right" [tooltip]="navItem.name" [tooltipEnable]="navIsCollapsed">
                 <div class="icon-wrapper">
-                    <i class="fa fa-{{tab.icon}}"></i>
+                    <i class="fa fa-{{navItem.icon}}"></i>
                 </div>
-                <span class="name">{{tab.name}}</span>
+                <span class="name">{{navItem.name}}</span>
             </a>
         </li>
     </nav>
