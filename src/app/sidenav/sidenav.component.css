@@ -107,3 +107,8 @@ nav i{
     margin-left: 11px;
     margin-top: 16px;
 }
+
+/deep/ .tooltip-inner{
+    white-space:nowrap;
+    max-width:none;
+}
