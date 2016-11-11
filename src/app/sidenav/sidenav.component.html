@@ -3,68 +3,12 @@
         <img class="imagetype" src="assets/svg/credytag-imagetype.svg" alt="Credytag">
     </div>
     <ul class="nav nav-sidebar">
-        <li class="active">
-            <a href="#" tooltipPlacement="right" tooltip="Cobros" [tooltipEnable]="navIsCollapsed">
+        <li *ngFor="let tab of tabs">
+            <a href="#" tooltipPlacement="right" [tooltip]="tab.name" [tooltipEnable]="navIsCollapsed">
                 <a class="icon-wrapper">
-                    <i class="fa fa-money"></i>
+                    <i class="fa fa-{{tab.icon}}"></i>
                 </a>
-                <span class="name">Cobros</span>
-            </a>
-        </li>
-        <li>
-            <a href="#" tooltipPlacement="right" tooltip="Códigos&nbsp;QR" [tooltipEnable]="navIsCollapsed">
-                <a class="icon-wrapper">
-                    <i class="fa fa-qrcode"></i>
-                </a>
-                <span class="name">Códigos QR</span>
-            </a>
-        </li>
-        <li>
-            <a href="#" tooltipPlacement="right" tooltip="Estadísticas" [tooltipEnable]="navIsCollapsed">
-                <a class="icon-wrapper">
-                    <i class="fa fa-pie-chart"></i>
-                </a>
-                <span class="name">Estadísticas</span>
-            </a>
-        </li>
-        <li>
-            <a href="#" tooltipPlacement="right" tooltip="Productos" [tooltipEnable]="navIsCollapsed">
-                <a class="icon-wrapper">
-                    <i class="fa fa-shopping-cart"></i>
-                </a>
-                <span class="name">Productos</span>
-            </a>
-        </li>
-        <li>
-            <a href="#" tooltipPlacement="right" tooltip="Tickets" [tooltipEnable]="navIsCollapsed">
-                <a class="icon-wrapper">
-                    <i class="fa fa-ticket"></i>
-                </a>
-                <span class="name">Tickets</span>
-            </a>
-        </li>
-        <li>
-            <a href="#" tooltipPlacement="right" tooltip="Promociones" [tooltipEnable]="navIsCollapsed">
-                <a class="icon-wrapper">
-                    <i class="fa fa-trophy"></i>
-                </a>
-                <span class="name">Promociones</span>
-            </a>
-        </li>
-        <li>
-            <a href="#" tooltipPlacement="right" tooltip="Sucursales" [tooltipEnable]="navIsCollapsed">
-                <a class="icon-wrapper">
-                    <i class="fa fa-building"></i>
-                </a>
-                <span class="name">Sucursales</span>
-            </a>
-        </li>
-        <li>
-            <a href="#" tooltipPlacement="right" tooltip="Preferencias" [tooltipEnable]="navIsCollapsed">
-                <a class="icon-wrapper">
-                    <i class="fa fa-cog"></i>
-                </a>
-                <span class="name">Preferencias</span>
+                <span class="name">{{tab.name}}</span>
             </a>
         </li>
     </ul>

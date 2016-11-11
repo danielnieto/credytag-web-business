@@ -10,6 +10,17 @@ export class SidenavComponent implements OnInit {
     @Output("toggleNav") toggleNavEvent = new EventEmitter();
     @Input("navIsCollapsed") navIsCollapsed;
 
+    tabs = [
+        {name: "Cobros", icon: "money"},
+        {name: "Códigos QR", icon: "qrcode"},
+        {name: "Estadísticas", icon: "pie-chart"},
+        {name: "Productos", icon: "shopping-cart"},
+        {name: "Tickets", icon: "ticket"},
+        {name: "Promociones", icon: "trophy"},
+        {name: "Sucursales", icon: "building"},
+        {name: "Preferencias", icon: "cog"}
+    ]
+
     constructor() { }
 
     ngOnInit() {
