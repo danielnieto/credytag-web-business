@@ -10,6 +10,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { ShellComponent } from './shell/shell.component';
 import { ContentComponent } from './content/content.component';
 import { FeedComponent } from './feed/feed.component';
+import { RouterModule }   from '@angular/router';
 import { QrcodesComponent } from './pages/qrcodes/qrcodes.component';
 import { PreferencesComponent } from './pages/preferences/preferences.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -42,7 +43,19 @@ import { BranchesComponent } from './pages/branches/branches.component';
         BrowserModule,
         FormsModule,
         HttpModule,
-        TooltipModule
+        TooltipModule,
+        RouterModule.forRoot([
+            { path: 'cobros', component: ChargesComponent },
+            { path: 'codigos-qr', component: QrcodesComponent },
+            { path: 'estadisticas', component: StatisticsComponent },
+            { path: 'productos', component: ProductsComponent },
+            { path: 'tickets', component: TicketsComponent },
+            { path: 'promociones', component: PromotionsComponent },
+            { path: 'sucursales', component: BranchesComponent },
+            { path: 'preferencias', component: PreferencesComponent },
+            { path: '', component: HomeComponent },
+        //   { path: '**', component: PageNotFoundComponent }
+        ])
     ],
     providers: [],
     bootstrap: [AppComponent]

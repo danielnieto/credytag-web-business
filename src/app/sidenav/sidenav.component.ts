@@ -11,14 +11,14 @@ export class SidenavComponent implements OnInit {
     @Input("navIsCollapsed") navIsCollapsed;
 
     navItems = [
-        {name: "Cobros", icon: "money"},
-        {name: "Códigos QR", icon: "qrcode"},
-        {name: "Estadísticas", icon: "pie-chart"},
-        {name: "Productos", icon: "shopping-cart"},
-        {name: "Tickets", icon: "ticket"},
-        {name: "Promociones", icon: "trophy"},
-        {name: "Sucursales", icon: "building"},
-        {name: "Preferencias", icon: "cog"}
+        {name: "Cobros", icon: "money", route: "cobros"},
+        {name: "Códigos QR", icon: "qrcode", route: "codigos-qr"},
+        {name: "Estadísticas", icon: "pie-chart", route: "estadisticas"},
+        {name: "Productos", icon: "shopping-cart", route: "productos"},
+        {name: "Tickets", icon: "ticket", route: "tickets"},
+        {name: "Promociones", icon: "trophy", route:"promociones"},
+        {name: "Sucursales", icon: "building", route: "sucursales"},
+        {name: "Preferencias", icon: "cog", route: "preferencias"}
     ]
 
     activeNavItem = this.navItems[0];
