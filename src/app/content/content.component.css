@@ -1,7 +1,7 @@
 :host{
     margin-left: 220px;
     margin-right: 260px;
-    display: inline-block;
+    display: block;
     transition: margin-left .2s;
     transition: margin-right .2s;
     background-color: #f5f5f5;
