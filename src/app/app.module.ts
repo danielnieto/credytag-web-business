@@ -43,7 +43,7 @@ import { BranchesComponent } from './pages/branches/branches.component';
         BrowserModule,
         FormsModule,
         HttpModule,
-        TooltipModule,
+        TooltipModule.forRoot(),
         RouterModule.forRoot([
             { path: 'cobros', component: ChargesComponent },
             { path: 'codigos-qr', component: QrcodesComponent },
