@@ -13,13 +13,7 @@ import { FeedComponent } from './feed/feed.component';
 import { RouterModule }   from '@angular/router';
 import { QrcodesComponent } from './pages/qrcodes/qrcodes.component';
 import { PreferencesComponent } from './pages/preferences/preferences.component';
-import { HomeComponent } from './pages/home/home.component';
-import { StatisticsComponent } from './pages/statistics/statistics.component';
-import { ProductsComponent } from './pages/products/products.component';
-import { TicketsComponent } from './pages/tickets/tickets.component';
-import { PromotionsComponent } from './pages/promotions/promotions.component';
 import { ChargesComponent } from './pages/charges/charges.component';
-import { BranchesComponent } from './pages/branches/branches.component';
 
 
 @NgModule({
@@ -31,13 +25,7 @@ import { BranchesComponent } from './pages/branches/branches.component';
         FeedComponent,
         QrcodesComponent,
         PreferencesComponent,
-        HomeComponent,
-        StatisticsComponent,
-        ProductsComponent,
-        TicketsComponent,
-        PromotionsComponent,
         ChargesComponent,
-        BranchesComponent
     ],
     imports: [
         BrowserModule,
@@ -47,13 +35,8 @@ import { BranchesComponent } from './pages/branches/branches.component';
         RouterModule.forRoot([
             { path: 'cobros', component: ChargesComponent },
             { path: 'codigos-qr', component: QrcodesComponent },
-            { path: 'estadisticas', component: StatisticsComponent },
-            { path: 'productos', component: ProductsComponent },
-            { path: 'tickets', component: TicketsComponent },
-            { path: 'promociones', component: PromotionsComponent },
-            { path: 'sucursales', component: BranchesComponent },
             { path: 'preferencias', component: PreferencesComponent },
-            { path: '', component: HomeComponent },
+            { path: '', component: ChargesComponent },
         //   { path: '**', component: PageNotFoundComponent }
         ])
     ],
