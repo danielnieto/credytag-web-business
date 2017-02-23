@@ -14,6 +14,7 @@ import { RouterModule }   from '@angular/router';
 import { QrcodesComponent } from './pages/qrcodes/qrcodes.component';
 import { PreferencesComponent } from './pages/preferences/preferences.component';
 import { ChargesComponent } from './pages/charges/charges.component';
+import { BankAccountComponent } from './pages/bank-account/bank-account.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { ChargesComponent } from './pages/charges/charges.component';
         QrcodesComponent,
         PreferencesComponent,
         ChargesComponent,
+        BankAccountComponent,
     ],
     imports: [
         BrowserModule,
@@ -35,6 +37,7 @@ import { ChargesComponent } from './pages/charges/charges.component';
         RouterModule.forRoot([
             { path: 'cobros', component: ChargesComponent },
             { path: 'codigos-qr', component: QrcodesComponent },
+            { path: 'cuenta-bancaria', component: BankAccountComponent },
             { path: 'preferencias', component: PreferencesComponent },
             { path: '', component: ChargesComponent },
         //   { path: '**', component: PageNotFoundComponent }

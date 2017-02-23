@@ -13,6 +13,7 @@ export class SidenavComponent implements OnInit {
     navItems = [
         {name: "Cobros", icon: "money", route: "cobros"},
         {name: "Códigos QR", icon: "qrcode", route: "codigos-qr"},
+        {name: "Cuenta Bancaria", icon: "bank", route: "cuenta-bancaria"},
         {name: "Preferencias", icon: "cog", route: "preferencias"}
     ]
 
