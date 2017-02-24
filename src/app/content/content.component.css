@@ -2,8 +2,7 @@
     margin-left: 220px;
     margin-right: 260px;
     display: block;
-    transition: margin-left .2s;
-    transition: margin-right .2s;
+    transition:  margin-left .2s, margin-right .2s;
     background-color: #f5f5f5;
     padding:10px;
 }
