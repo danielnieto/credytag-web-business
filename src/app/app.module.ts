@@ -15,6 +15,7 @@ import { QrcodesComponent } from './pages/qrcodes/qrcodes.component';
 import { PreferencesComponent } from './pages/preferences/preferences.component';
 import { ChargesComponent } from './pages/charges/charges.component';
 import { BankAccountComponent } from './pages/bank-account/bank-account.component';
+import { ChargeComponent } from './pages/charges/charge/charge.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { BankAccountComponent } from './pages/bank-account/bank-account.componen
         PreferencesComponent,
         ChargesComponent,
         BankAccountComponent,
+        ChargeComponent,
     ],
     imports: [
         BrowserModule,
