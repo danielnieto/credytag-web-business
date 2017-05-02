@@ -1,10 +1,10 @@
-import { CredytagWebBusinessPage } from './app.po';
+import { UpgradeProjectPage } from './app.po';
 
-describe('credytag-web-business App', function() {
-  let page: CredytagWebBusinessPage;
+describe('upgrade-project App', () => {
+  let page: UpgradeProjectPage;
 
   beforeEach(() => {
-    page = new CredytagWebBusinessPage();
+    page = new UpgradeProjectPage();
   });
 
   it('should display message saying app works', () => {
