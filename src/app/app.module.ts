@@ -17,6 +17,9 @@ import { ChargesComponent } from './pages/charges/charges.component';
 import { BankAccountComponent } from './pages/bank-account/bank-account.component';
 import { ChargeComponent } from './pages/charges/charge/charge.component';
 
+// services
+import { ResponsiveService } from './responsive.service';
+
 
 @NgModule({
     declarations: [
@@ -45,7 +48,7 @@ import { ChargeComponent } from './pages/charges/charge/charge.component';
         //   { path: '**', component: PageNotFoundComponent }
         ])
     ],
-    providers: [],
+    providers: [ResponsiveService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
