@@ -10,7 +10,7 @@ import 'rxjs/add/operator/startWith';
 export class ResponsiveService {
 
     resize$: Observable<Event>;
-    MAX_SCREEN_WIDTH = 1192;
+    MAX_SCREEN_WIDTH = 986;
 
     constructor() {
         //create a stream from window's resize event
