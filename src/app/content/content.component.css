@@ -10,12 +10,11 @@
     margin-left: 50px;
 }
 
-:host.feedIsCollapsed{
-    margin-right: 50px;
-}
-
 section.content{
     box-sizing: border-box;
     background-color: #fff;
     padding: 20px;
+    max-width: 870px;
+    min-width: 652px;
+    margin-right: 50px;
 }
