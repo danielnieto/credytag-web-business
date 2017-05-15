@@ -1,10 +1,9 @@
 :host{
-    margin-left: 220px;
-    margin-right: 260px;
+    margin-left: 216px;
     display: block;
     transition:  margin-left .2s, margin-right .2s;
     background-color: #f5f5f5;
-    padding:10px;
+    padding:8px;
 }
 
 :host.navIsCollapsed{

@@ -4,7 +4,7 @@ aside {
     padding: 0px;
     background-color: #53437d;
     color: #9999cc;
-    width: 220px;
+    width: 216px;
     overflow: visible;
     transition: width .2s;
     position: fixed;
@@ -81,7 +81,7 @@ nav i{
     bottom: 0;
     height: 40px;
     line-height: 40px;
-    width: 220px;
+    width: 216px;
     text-align: center;
     transition: width .2s;
 }
