@@ -14,7 +14,7 @@ export class ResponsiveService {
 
     constructor() {
         //create a stream from window's resize event
-        this.resize$ = Observable.fromEvent(window, "resize");
+        this.resize$ = Observable.fromEvent(window, "resize").startWith(this.getScreenWidth());
     }
 
     // returns an observable which is the current width of the screen
