@@ -10,12 +10,6 @@ aside {
     position: fixed;
 }
 
-@media (max-width: 768px) {
-    aside {
-        display: none;
-    }
-}
-
 .name {
     white-space: nowrap;
 }
@@ -94,6 +88,19 @@ nav i{
 
 :host.collapsed .toggler {
     width: 50px;
+}
+
+@media (max-width: 933px) {
+    .toggler {
+        display: none;
+    }
+
+}
+
+@media (min-width: 986px) {
+    aside{
+        left: calc(50% - 493px);
+    }
 }
 
 .logo {
