@@ -31,6 +31,22 @@ aside{
     color: #999999;
 }
 
+@media (min-width: 986px) {
+    aside{
+        right: calc(50% - 493px);
+    }
+}
+
+@media (min-width: 1410px) {
+    aside{
+        right: calc(50% - 707px);
+    }
+
+    .toggler{
+        display: none;
+    }
+}
+
 :host.collapsed aside{
     width: 50px;
 }
