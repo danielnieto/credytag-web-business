@@ -4,7 +4,7 @@
     </div>
     <nav class="nav">
         <li class="nav-item" *ngFor="let navItem of navItems" (click)="onClickNavItem(navItem)" [class.active]="navItem===activeNavItem">
-            <a routerLink="/{{navItem.route}}" placement="right" [tooltip]="navItem.name" [isDisabled]="navIsCollapsed">
+            <a routerLink="/{{navItem.route}}" placement="right" [tooltip]="navItem.name" [isDisabled]="!navIsCollapsed">
                 <div class="icon-wrapper">
                     <i class="fa fa-{{navItem.icon}}"></i>
                 </div>
