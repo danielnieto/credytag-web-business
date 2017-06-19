@@ -1,4 +1,4 @@
-<section class="container-fluid">
+<section class="container-fluid" [style.max-width]="maxScreenWidth + 'px'">
     <div class="row">
         <app-sidenav [class.collapsed]="navIsCollapsed" [navIsCollapsed]="navIsCollapsed" (toggleNav)="navIsCollapsed = !navIsCollapsed">
             sidenav
