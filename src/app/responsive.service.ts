@@ -5,16 +5,19 @@ import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/startWith';
+import {ReplaySubject} from 'rxjs/ReplaySubject';
 
 @Injectable()
 export class ResponsiveService {
 
     resize$: Observable<Event>;
     MAX_SCREEN_WIDTH = 986;
+    public navIsCollapsed$: ReplaySubject<boolean> = new ReplaySubject(1);
 
     constructor() {
         //create a stream from window's resize event
         this.resize$ = Observable.fromEvent(window, "resize").startWith(this.getScreenWidth());
+        this.navIsCollapsed$.next(true);
     }
 
     // returns an observable which is the current width of the screen
