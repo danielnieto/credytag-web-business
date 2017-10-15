@@ -36,10 +36,12 @@ export class ShellComponent implements OnInit {
 
         if (!this.navIsCollapsed && screenWidth < this.SIDENAV_COLLAPSE_TRESHOLD_MIN) {
             this.navIsCollapsed = true;
+            this.responsiveService.navIsCollapsed$.next(true);
         }
 
         if (this.navIsCollapsed && screenWidth >= this.SIDENAV_COLLAPSE_TRESHOLD_MAX) {
             this.navIsCollapsed = false;
+            this.responsiveService.navIsCollapsed$.next(false);
         }
     }
 
