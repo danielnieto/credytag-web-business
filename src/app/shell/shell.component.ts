@@ -10,9 +10,9 @@ export class ShellComponent implements OnInit {
     navIsCollapsed = true;
     feedIsCollapsed = true;
 
-    SIDENAV_COLLAPSE_TRESHOLD_MIN = 986;
-    SIDENAV_COLLAPSE_TRESHOLD_MAX = 1192;
-    FEED_COLLAPSE_TRESHOLD_MAX = 1410;
+    SIDENAV_COLLAPSE_THRESHOLD_MIN = 986;
+    SIDENAV_COLLAPSE_THRESHOLD_MAX = 1192;
+    FEED_COLLAPSE_THRESHOLD_MAX = 1410;
 
     maxScreenWidth: number;
 
@@ -34,12 +34,12 @@ export class ShellComponent implements OnInit {
 
     collapseSidenav(screenWidth:number): void{
 
-        if (!this.navIsCollapsed && screenWidth < this.SIDENAV_COLLAPSE_TRESHOLD_MIN) {
+        if (!this.navIsCollapsed && screenWidth < this.SIDENAV_COLLAPSE_THRESHOLD_MIN) {
             this.navIsCollapsed = true;
             this.responsiveService.navIsCollapsed$.next(true);
         }
 
-        if (this.navIsCollapsed && screenWidth >= this.SIDENAV_COLLAPSE_TRESHOLD_MAX) {
+        if (this.navIsCollapsed && screenWidth >= this.SIDENAV_COLLAPSE_THRESHOLD_MAX) {
             this.navIsCollapsed = false;
             this.responsiveService.navIsCollapsed$.next(false);
         }
@@ -47,7 +47,7 @@ export class ShellComponent implements OnInit {
 
     collapseFeed(screenWidth: number): void{
 
-        if (this.feedIsCollapsed && screenWidth >= this.FEED_COLLAPSE_TRESHOLD_MAX) {
+        if (this.feedIsCollapsed && screenWidth >= this.FEED_COLLAPSE_THRESHOLD_MAX) {
             this.feedIsCollapsed = false;
         }
 
