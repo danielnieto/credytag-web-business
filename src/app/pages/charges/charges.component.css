@@ -54,6 +54,11 @@
     flex-grow: 1;
     flex-basis: 136px;
     margin-right: 16px;
+    display: block;
+    min-width: 136px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .charge_summary > div.location{
@@ -141,7 +146,7 @@
 }
 
 .charge_details .column.fixed-2{
-    flex: 0 0 218px;
+    flex: 0 0 206px;
     padding-right: 14px;
 }
 
