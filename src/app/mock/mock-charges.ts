@@ -69,7 +69,7 @@ export const CHARGES: Charge[] = [
     },
     {
         id: "0183457775014",
-        client: "erika mejia",
+        client: "german daniel nieto gutierrez",
         timestamp: "08:07 PM",
         sell: 1268,
         comission: 245.5,
