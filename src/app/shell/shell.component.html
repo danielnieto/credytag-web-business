@@ -1,9 +1,9 @@
 <section class="container-fluid" [style.max-width]="maxScreenWidth + 'px'">
     <div class="row">
-        <app-sidenav [class.collapsed]="navIsCollapsed" [navIsCollapsed]="navIsCollapsed" (toggleNav)="navIsCollapsed = !navIsCollapsed">
+        <app-sidenav [class.collapsed]="responsiveService.navIsCollapsed">
             sidenav
         </app-sidenav>
-        <app-content [class.navIsCollapsed]="navIsCollapsed" [class.feedIsCollapsed]="feedIsCollapsed">
+        <app-content [class.navIsCollapsed]="responsiveService.navIsCollapsed" [class.feedIsCollapsed]="feedIsCollapsed">
             content
         </app-content>
         <app-feed [class.collapsed]="feedIsCollapsed" [feedIsCollapsed]="feedIsCollapsed" (toggleFeed)="feedIsCollapsed = !feedIsCollapsed">

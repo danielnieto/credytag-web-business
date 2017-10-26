@@ -8,9 +8,6 @@ import {ResponsiveService} from '../responsive.service';
 })
 export class SidenavComponent implements OnInit {
 
-    @Output("toggleNav") toggleNavEvent = new EventEmitter();
-    @Input("navIsCollapsed") navIsCollapsed;
-
     navItems = [
         {name: "Cobros", icon: "money", route: "cobros"},
         {name: "Códigos QR", icon: "qrcode", route: "codigos-qr"},
@@ -20,14 +17,9 @@ export class SidenavComponent implements OnInit {
 
     activeNavItem = this.navItems[0];
 
-    constructor(private responsiveService: ResponsiveService) { }
+    constructor(public responsiveService: ResponsiveService) {}
 
     ngOnInit() {
-    }
-
-    toggleNav() {
-        this.toggleNavEvent.emit();
-        this.responsiveService.navIsCollapsed$.next(!this.responsiveService.navIsCollapsed$.getValue());
     }
 
     onClickNavItem(navItem:any){

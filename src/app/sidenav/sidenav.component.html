@@ -4,7 +4,7 @@
     </div>
     <nav class="nav">
         <li class="nav-item" *ngFor="let navItem of navItems" (click)="onClickNavItem(navItem)" [class.active]="navItem===activeNavItem">
-            <a routerLink="/{{navItem.route}}" placement="right" [tooltip]="navItem.name" [isDisabled]="!navIsCollapsed">
+            <a routerLink="/{{navItem.route}}" placement="right" [tooltip]="navItem.name" [isDisabled]="!responsiveService.navIsCollapsed">
                 <div class="icon-wrapper">
                     <i class="fa fa-{{navItem.icon}}"></i>
                 </div>
@@ -12,7 +12,7 @@
             </a>
         </li>
     </nav>
-    <a class="toggler" (click)="toggleNav()">
-        <i class="fa" [class.fa-caret-right]="navIsCollapsed" [class.fa-caret-left]="!navIsCollapsed"></i>
+    <a class="toggler" (click)="responsiveService.toggleNav()">
+        <i class="fa" [class.fa-caret-right]="responsiveService.navIsCollapsed" [class.fa-caret-left]="!responsiveService.navIsCollapsed"></i>
     </a>
 </aside>
