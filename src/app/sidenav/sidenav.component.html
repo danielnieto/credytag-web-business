@@ -1,18 +1,18 @@
 <aside>
-    <div class="logo">
+    <div class="logo" (click)="responsiveService.toggleNav()">
         <img class="imagetype" src="assets/svg/credytag-imagetype.svg" alt="Credytag">
     </div>
     <nav class="nav">
         <li class="nav-item" *ngFor="let navItem of navItems" (click)="onClickNavItem(navItem)" [class.active]="navItem===activeNavItem">
             <a routerLink="/{{navItem.route}}" placement="right" [tooltip]="navItem.name" [isDisabled]="!responsiveService.navIsCollapsed">
                 <div class="icon-wrapper">
-                    <i class="fa fa-{{navItem.icon}}"></i>
+                    <i class="fa fa-fw fa-{{navItem.icon}}"></i>
                 </div>
                 <span class="name">{{navItem.name}}</span>
             </a>
         </li>
     </nav>
     <a class="toggler" (click)="responsiveService.toggleNav()">
-        <i class="fa" [class.fa-caret-right]="responsiveService.navIsCollapsed" [class.fa-caret-left]="!responsiveService.navIsCollapsed"></i>
+        <i class="fa fa-fw" [class.fa-caret-right]="responsiveService.navIsCollapsed" [class.fa-caret-left]="!responsiveService.navIsCollapsed"></i>
     </a>
 </aside>
