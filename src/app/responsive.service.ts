@@ -12,7 +12,7 @@ export class ResponsiveService {
 
     resize$: Observable<Event>;
     MAX_SCREEN_WIDTH = 986;
-    public navIsCollapsed$: BehaviorSubject<boolean> = new BehaviorSubject(true);
+    private navIsCollapsed$: BehaviorSubject<boolean> = new BehaviorSubject(true);
 
     constructor() {
         //create a stream from window's resize event
@@ -36,4 +36,23 @@ export class ResponsiveService {
         return window.document.documentElement.clientWidth;
     }
 
+    collapseNav(): void{
+        this.navIsCollapsed$.next(true);
+    }
+
+    expandNav(): void{
+        this.navIsCollapsed$.next(false);
+    }
+
+    toggleNav(): void{
+        if(this.navIsCollapsed$.getValue() === true){
+            this.expandNav();
+        } else {
+            this.collapseNav();
+        }
+    }
+
+    get navIsCollapsed():Boolean{
+        return this.navIsCollapsed$.getValue();
+    }
 }
