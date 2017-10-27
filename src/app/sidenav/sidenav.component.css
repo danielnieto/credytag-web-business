@@ -67,9 +67,12 @@ nav i{
 }
 
 .icon-wrapper {
-    text-align: center;
+    display: flex;
     width: 48px;
-    display: inline-block;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-shrink: 0;
 }
 
 .toggler {
@@ -113,12 +116,16 @@ nav i{
     overflow: hidden;
     display: flex;
     align-items: center;
+    align-content: center;
 }
 
-.logo .imagetype {
-    height: 36px;
-    margin-left: 10px;
-    margin-top: 10px;
+.logo .icon {
+    height: 26px;
+}
+
+.logo .logotype {
+    height: 34px;
+    margin-top:8px;
 }
 
 /deep/ .tooltip-inner{

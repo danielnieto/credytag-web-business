@@ -1,6 +1,9 @@
 <aside>
     <div class="logo" (click)="responsiveService.toggleNav()">
-        <img class="imagetype" src="assets/svg/credytag-imagetype.svg" alt="Credytag">
+        <div class="icon-wrapper">
+            <img class="icon" src="assets/svg/credytag-icon.svg" alt="Credytag">
+        </div>
+        <img class="logotype" src="assets/svg/credytag-logotype.svg" alt="Credytag">
     </div>
     <nav class="nav">
         <li class="nav-item" *ngFor="let navItem of navItems" (click)="onClickNavItem(navItem)" [class.active]="navItem===activeNavItem">
