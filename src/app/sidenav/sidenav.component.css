@@ -62,7 +62,7 @@ nav i{
     color: #fff;
 }
 
-:host.collapsed aside{
+:host.is-collapsed aside{
     width: 48px;
 }
 
@@ -94,7 +94,7 @@ nav i{
     color: #fff;
 }
 
-:host.collapsed .toggler {
+:host.is-collapsed .toggler {
     width: 48px;
 }
 
