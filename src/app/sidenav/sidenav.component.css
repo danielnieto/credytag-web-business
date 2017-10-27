@@ -98,19 +98,6 @@ nav i{
     width: 48px;
 }
 
-@media (max-width: 933px) {
-    .toggler {
-        display: none;
-    }
-
-}
-
-@media (min-width: 986px) {
-    aside{
-        left: calc(50% - 493px);
-    }
-}
-
 .logo {
     height: 48px;
     overflow: hidden;
@@ -131,4 +118,16 @@ nav i{
 /deep/ .tooltip-inner{
     white-space:nowrap;
     max-width:none;
+}
+
+@media (min-width: 880px) and (max-width: 933px) {
+    .toggler {
+        display: none;
+    }
+}
+
+@media (min-width: 986px) {
+    aside {
+        left: calc(50% - 493px);
+    }
 }
