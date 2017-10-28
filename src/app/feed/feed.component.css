@@ -27,7 +27,7 @@ aside{
 
 .toggler i {
     font-size: 18px;
-    width: 50px;
+    width: 48px;
     color: #999999;
 }
 
@@ -47,10 +47,10 @@ aside{
     }
 }
 
-:host.collapsed aside{
-    width: 50px;
+:host.is-collapsed aside{
+    width: 48px;
 }
 
-:host.collapsed .toggler {
-    width: 50px;
+:host.is-collapsed .toggler {
+    width: 48px;
 }
