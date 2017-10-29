@@ -6,7 +6,7 @@ aside {
     color: #9999cc;
     width: 216px;
     overflow: visible;
-    transition: width .2s;
+    transition: width .2s, height .2s;
     position: fixed;
 }
 
@@ -85,7 +85,7 @@ nav i{
     align-items: center;
     justify-content: center;
     width: 216px;
-    transition: width .2s;
+    transition: opacity .2s ease-in-out .2s, width .2s;
     text-decoration: none;
 }
 
@@ -130,4 +130,25 @@ nav i{
     aside {
         left: calc(50% - 493px);
     }
+}
+
+/* MOBILE STYLES */
+
+@media (max-width: 880px) {
+
+    :host.is-collapsed aside {
+        height: 48px;
+        overflow: hidden;
+    }
+
+    :host.is-collapsed .toggler {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    :host.is-expanded .toggler {
+        visibility: visible;
+        opacity: 1;
+    }
+
 }
