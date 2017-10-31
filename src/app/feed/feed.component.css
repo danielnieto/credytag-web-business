@@ -12,6 +12,26 @@ aside{
     transition: width .2s;
 }
 
+header{
+    display: flex;
+    height: 48px;
+    align-content: center;
+    align-items: center;
+}
+
+header strong {
+    white-space: nowrap;
+}
+
+.icon-wrapper {
+    display: flex;
+    width: 48px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
 .toggler {
     display: block;
     background-color: #fff;
