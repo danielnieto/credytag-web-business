@@ -1,22 +1,15 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { ResponsiveService } from "../responsive.service";
 
 @Component({
-    selector: 'app-feed',
-    templateUrl: './feed.component.html',
-    styleUrls: ['./feed.component.css']
+    selector: "app-feed",
+    templateUrl: "./feed.component.html",
+    styleUrls: ["./feed.component.css"]
 })
 export class FeedComponent implements OnInit {
 
-    @Output("toggleFeed") toggleFeedEvent = new EventEmitter();
-    @Input("feedIsCollapsed") feedIsCollapsed;
+  constructor(public responsiveService: ResponsiveService) {}
 
-    constructor() { }
-
-    ngOnInit() {
-    }
-
-    toggleFeed() {
-        this.toggleFeedEvent.emit();
-    }
+  ngOnInit() {}
 
 }
