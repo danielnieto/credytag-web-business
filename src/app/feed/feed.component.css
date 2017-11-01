@@ -9,7 +9,8 @@ aside{
     overflow-x: hidden;
     display: block;
     padding-bottom: 40px;
-    transition: width .2s;
+    transition: width .2s, height .2s;
+    z-index: 1;
 }
 
 header{
@@ -76,3 +77,28 @@ header strong {
 :host.is-collapsed .toggler {
     width: 48px;
 }
+
+/* MOBILE STYLES */
+
+@media (max-width: 880px) {
+    :host.is-collapsed aside {
+        height: 48px;
+        overflow: hidden;
+    }
+
+    :host.is-collapsed .toggler {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    :host.is-expanded .toggler {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    aside{
+        border-left: 1px solid #ebebeb;
+        border-bottom: 1px solid #ebebeb;
+    }
+}
+
