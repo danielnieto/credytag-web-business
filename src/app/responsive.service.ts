@@ -5,6 +5,7 @@ import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/startWith';
+import 'rxjs/add/operator/map';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Injectable()
@@ -15,15 +16,13 @@ export class ResponsiveService {
   private feedIsCollapsed$: BehaviorSubject<boolean> = new BehaviorSubject(true);
 
   constructor() {
-    //create a stream from window's resize event
-        this.resize$ = Observable.fromEvent(window, "resize").startWith(this.getScreenWidth());
+    // create a stream from window's resize event
+        this.resize$ = Observable.fromEvent(window, 'resize');
   }
 
   // returns an observable which is the current width of the screen
   screenWidth(): Observable<number> {
-        return this.resize$
-            .map(() => this.getScreenWidth())
-            .distinctUntilChanged();
+        return this.resize$.map(() => this.getScreenWidth()).distinctUntilChanged();
   }
 
   // get maximum (supported) screen width
