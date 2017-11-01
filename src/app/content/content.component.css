@@ -1,8 +1,7 @@
 :host{
     margin-left: 216px;
     display: block;
-    transition:  margin-left .2s, margin-right .2s;
-    background-color: #f5f5f5;
+    transition:  margin-left .2s, margin-right .2s, margin-top .2s;
     padding:8px;
 }
 
@@ -15,6 +14,26 @@ section.content{
     background-color: #fff;
     padding: 20px;
     max-width: 870px;
-    min-width: 652px;
     margin-right: 48px;
+}
+
+@media (max-width: 880px) {
+    :host{
+        padding: 0;
+    }
+
+    :host.is-nav-collapsed {
+        margin-left: 0px;
+    }
+
+     :host.is-nav-expanded{
+        margin-left: 216px;
+        background-color: #a6d120;
+    }
+
+    section.content{
+        padding: 0;
+        margin-right: 0;
+    }
+
 }
