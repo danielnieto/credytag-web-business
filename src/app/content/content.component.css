@@ -3,6 +3,7 @@
     display: block;
     transition:  margin-left .2s, margin-right .2s, margin-top .2s;
     padding:8px;
+    overflow-x: hidden;
 }
 
 :host.is-nav-collapsed{
