@@ -7,7 +7,6 @@ import {ResponsiveService} from '../responsive.service';
   styleUrls: ["./shell.component.css"]
 })
 export class ShellComponent implements OnInit {
-  feedIsCollapsed = true;
 
   SIDENAV_COLLAPSE_THRESHOLD_MIN = 986;
   SIDENAV_COLLAPSE_THRESHOLD_MAX = 1192;
@@ -41,8 +40,8 @@ export class ShellComponent implements OnInit {
   }
 
   collapseFeed(screenWidth: number): void {
-    if ( this.feedIsCollapsed && screenWidth >= this.FEED_COLLAPSE_THRESHOLD_MAX ) {
-      this.feedIsCollapsed = false;
+    if ( this.responsiveService.feedIsCollapsed && screenWidth >= this.FEED_COLLAPSE_THRESHOLD_MAX ) {
+      this.responsiveService.expandFeed();
     }
   }
 }
