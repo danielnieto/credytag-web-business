@@ -14,71 +14,73 @@
             </div>
         </div>
         <div class="charge_details" *ngIf="!charge.collapsed">
-            <div>
+            <div class="map-container">
                 <div class="map"></div>
             </div>
-            <div class="column fixed-1">
-                <div>
-                    <strong>Estado de Pago</strong>
-                    <span>
-                        {{statusText(charge)}}
-                    </span>
-                </div>
-                <div>
-                    <strong>Nombre QR</strong>
-                    <span>
-                        {{charge.qrName}}
-                    </span>
-                </div>
-                <div>
-                    <strong>Pagado con Tarjeta</strong>
-                    <span>
-                        <i class="fa fa-credit-card"></i>
-                        {{charge.paidWith}}
-                    </span>
-                </div>
-            </div>
-            <div class="column fixed-2">
-                <div>
-                    <strong>No. Transacción</strong>
-                    <span>
-                        {{charge.id}}
-                    </span>
-                </div>
-                <div>
-                    <strong>Código QR</strong>
-                    <span>
-                        <a>{{charge.qrCode}}</a>
-                    </span>
-                </div>
-                <div>
-                    <strong>Detalle de Transacción</strong>
-                    <div class="transaction-details">
-                        <div>
-                            <span>Venta</span>
-                            <span>{{charge.sell | currency:'USD':true:'1.2-2'}}</span>
-                        </div>
-                        <div>
-                            <span>Comisión</span>
-                            <span>{{charge.comission | currency:'USD':true:'1.2-2'}}</span>
-                        </div>
-                        <div>
-                            <span>SMS</span>
-                            <span>{{charge.sms | currency:'USD':true:'1.2-2'}}</span>
-                        </div>
-                        <div class="sum">
-                            <span>Recibes</span>
-                            <span [ngClass]="'status-' + charge.status">
-                                {{(charge.sell-charge.comission) | currency:'USD':true:'1.2-2'}}
-                            </span>
-                        </div>
+            <div class="columns-container">
+                <div class="column">
+                    <div>
+                        <strong>Estado de Pago</strong>
+                        <span>
+                            {{statusText(charge)}}
+                        </span>
+                    </div>
+                    <div>
+                        <strong>Nombre QR</strong>
+                        <span>
+                            {{charge.qrName}}
+                        </span>
+                    </div>
+                    <div>
+                        <strong>Pagado con Tarjeta</strong>
+                        <span>
+                            <i class="fa fa-credit-card"></i>
+                            {{charge.paidWith}}
+                        </span>
                     </div>
                 </div>
-                <div>
-                    <span class="report-problem">
-                        <i class="fa fa-warning"></i>
-                        <a>Reportar algún problema</a>
-                    </span>
+                <div class="column">
+                    <div>
+                        <strong>No. Transacción</strong>
+                        <span>
+                            {{charge.id}}
+                        </span>
+                    </div>
+                    <div>
+                        <strong>Código QR</strong>
+                        <span>
+                            <a>{{charge.qrCode}}</a>
+                        </span>
+                    </div>
+                    <div>
+                        <strong>Detalle de Transacción</strong>
+                        <div class="transaction-details">
+                            <div>
+                                <span>Venta</span>
+                                <span>{{charge.sell | currency:'USD':true:'1.2-2'}}</span>
+                            </div>
+                            <div>
+                                <span>Comisión</span>
+                                <span>{{charge.comission | currency:'USD':true:'1.2-2'}}</span>
+                            </div>
+                            <div>
+                                <span>SMS</span>
+                                <span>{{charge.sms | currency:'USD':true:'1.2-2'}}</span>
+                            </div>
+                            <div class="sum">
+                                <span>Recibes</span>
+                                <span [ngClass]="'status-' + charge.status">
+                                    {{(charge.sell-charge.comission) | currency:'USD':true:'1.2-2'}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="report-problem">
+                            <i class="fa fa-warning"></i>
+                            <a>Reportar algún problema</a>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
