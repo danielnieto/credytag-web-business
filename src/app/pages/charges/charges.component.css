@@ -140,7 +140,7 @@
 
 .charge_details .map-container {
     display: flex;
-    flex-basis: calc(100%/3);
+    flex-basis: 33.33%;
     flex-grow: 0;
     flex-shrink: 0;
     justify-content: center;
@@ -254,6 +254,11 @@
     .charge_details .columns-container {
         flex-direction: column;
     }
+
+    .charge_details .column {
+        flex-basis: auto;
+    }
+
 }
 
 
