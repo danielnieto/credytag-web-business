@@ -3,7 +3,7 @@
         <app-sidenav [class.is-collapsed]="responsiveService.navIsCollapsed" [class.is-expanded]="!responsiveService.navIsCollapsed">
             sidenav
         </app-sidenav>
-        <app-content [class.is-nav-collapsed]="responsiveService.navIsCollapsed" [class.is-feed-collapsed]="feedIsCollapsed">
+        <app-content [class.is-nav-collapsed]="responsiveService.navIsCollapsed" [class.is-feed-collapsed]="responsiveService.feedIsCollapsed">
             content
         </app-content>
         <app-feed [class.is-collapsed]="responsiveService.feedIsCollapsed" [class.is-expanded]="!responsiveService.feedIsCollapsed">
