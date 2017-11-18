@@ -5,7 +5,7 @@ export const CHARGES: Charge[] = [
     {
         id: "0223456389042",
         client: "samuel heany",
-        timestamp: "01:23 PM",
+        timestamp: '2017-11-15T01:27:10+00:00',
         sell: 202,
         comission: 2,
         sms: 0,
@@ -18,7 +18,7 @@ export const CHARGES: Charge[] = [
     {
         id: "1123456289052",
         client: "alberto rodriguez",
-        timestamp: "02:49 PM",
+        timestamp: '2017-11-15T02:27:10+00:00',
         sell: 202,
         comission: 2,
         sms: 0,
@@ -31,7 +31,7 @@ export const CHARGES: Charge[] = [
     {
         id: "0183457783022",
         client: "enrique gonzalez",
-        timestamp: "05:51 PM",
+        timestamp: '2017-11-15T02:47:10+00:00',
         sell: 2345,
         comission: 245.5,
         sms: 1.5,
@@ -44,7 +44,7 @@ export const CHARGES: Charge[] = [
     {
         id: "0183457783022",
         client: "daniel nieto",
-        timestamp: "08:07 PM",
+        timestamp: '2017-11-15T12:07:10+00:00',
         sell: 1268,
         comission: 245.5,
         sms: 1.5,
@@ -57,7 +57,7 @@ export const CHARGES: Charge[] = [
     {
         id: "0183457775014",
         client: "erika mejia",
-        timestamp: "08:07 PM",
+        timestamp: '2017-11-15T13:32:10+00:00',
         sell: 1268,
         comission: 245.5,
         sms: 1.5,
@@ -70,7 +70,7 @@ export const CHARGES: Charge[] = [
     {
         id: "0183457775014",
         client: "german daniel nieto gutierrez",
-        timestamp: "08:07 PM",
+        timestamp: '2017-11-15T13:52:10+00:00',
         sell: 1268,
         comission: 245.5,
         sms: 1.5,
@@ -83,7 +83,7 @@ export const CHARGES: Charge[] = [
     {
         id: "0183457775014",
         client: "erika mejia",
-        timestamp: "08:07 PM",
+        timestamp: '2017-11-15T14:26:10+00:00',
         sell: 1268,
         comission: 245.5,
         sms: 1.5,
@@ -96,7 +96,7 @@ export const CHARGES: Charge[] = [
     {
         id: "0183457775014",
         client: "erika mejia",
-        timestamp: "08:07 PM",
+        timestamp: '2017-11-15T15:02:10+00:00',
         sell: 1268,
         comission: 245.5,
         sms: 1.5,
@@ -109,7 +109,7 @@ export const CHARGES: Charge[] = [
     {
         id: "0183457775014",
         client: "erika mejia",
-        timestamp: "08:07 PM",
+        timestamp: '2017-11-15T16:01:10+00:00',
         sell: 1268,
         comission: 245.5,
         sms: 1.5,
@@ -122,7 +122,7 @@ export const CHARGES: Charge[] = [
     {
         id: "0183457775014",
         client: "erika mejia",
-        timestamp: "08:07 PM",
+        timestamp: '2017-11-15T15:08:10+00:00',
         sell: 1268,
         comission: 245.5,
         sms: 1.5,
@@ -135,7 +135,7 @@ export const CHARGES: Charge[] = [
     {
         id: "0183457775014",
         client: "erika mejia",
-        timestamp: "08:07 PM",
+        timestamp: '2017-11-15T15:11:10+00:00',
         sell: 1268,
         comission: 245.5,
         sms: 1.5,
@@ -148,7 +148,7 @@ export const CHARGES: Charge[] = [
     {
         id: "0183457775014",
         client: "erika mejia",
-        timestamp: "08:07 PM",
+        timestamp: '2017-11-15T16:48:10+00:00',
         sell: 1268,
         comission: 245.5,
         sms: 1.5,
@@ -161,7 +161,7 @@ export const CHARGES: Charge[] = [
     {
         id: "0183457775014",
         client: "erika mejia",
-        timestamp: "08:07 PM",
+        timestamp: '2017-11-15T16:49:10+00:00',
         sell: 1268,
         comission: 245.5,
         sms: 1.5,
@@ -174,7 +174,7 @@ export const CHARGES: Charge[] = [
     {
         id: "0183457775014",
         client: "erika mejia",
-        timestamp: "08:07 PM",
+        timestamp: '2017-11-15T16:58:10+00:00',
         sell: 1268,
         comission: 245.5,
         sms: 1.5,
@@ -187,7 +187,7 @@ export const CHARGES: Charge[] = [
     {
         id: "0183457775014",
         client: "erika mejia",
-        timestamp: "08:07 PM",
+        timestamp: '2017-11-15T17:08:18+00:00',
         sell: 1268,
         comission: 245.5,
         sms: 1.5,
@@ -200,7 +200,7 @@ export const CHARGES: Charge[] = [
     {
         id: "0183457775014",
         client: "erika mejia",
-        timestamp: "08:07 PM",
+        timestamp: '2017-11-15T17:13:18+00:00',
         sell: 1268,
         comission: 245.5,
         sms: 1.5,
@@ -213,7 +213,7 @@ export const CHARGES: Charge[] = [
     {
         id: "0183457775014",
         client: "erika mejia",
-        timestamp: "08:07 PM",
+        timestamp: '2017-11-15T18:38:18+00:00',
         sell: 1268,
         comission: 245.5,
         sms: 1.5,
@@ -226,7 +226,7 @@ export const CHARGES: Charge[] = [
     {
         id: "0183457775014",
         client: "erika mejia",
-        timestamp: "08:07 PM",
+        timestamp: '2017-11-15T20:48:43+00:00',
         sell: 1268,
         comission: 245.5,
         sms: 1.5,
@@ -239,7 +239,7 @@ export const CHARGES: Charge[] = [
     {
         id: "0183457775014",
         client: "erika mejia",
-        timestamp: "08:07 PM",
+        timestamp: '2017-11-15T22:33:43+00:00',
         sell: 1268,
         comission: 245.5,
         sms: 1.5,
@@ -252,7 +252,7 @@ export const CHARGES: Charge[] = [
     {
         id: "0183455763010",
         client: "roberto lopez",
-        timestamp: "08:07 PM",
+        timestamp: '2017-11-15T23:39:43+00:00',
         sell: 1268,
         comission: 245.5,
         sms: 1.5,

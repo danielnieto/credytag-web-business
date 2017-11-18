@@ -5,7 +5,7 @@
     <li class="charge" *ngFor="let charge of charges">
         <div class="charge_summary">
             <div class="collapse" (click)="onToggleCollapse(charge)"><i class="fa" [class.fa-chevron-down]="!charge.collapsed" [class.fa-chevron-right]="charge.collapsed"></i></div>
-            <div class="timestamp">{{charge.timestamp}}</div>
+            <div class="timestamp">{{charge.timestamp | date:'shortTime':"+0"}}</div>
             <div class="client">{{charge.client}}</div>
             <div class="location">{{charge.qrName}},&nbsp;<a>{{charge.qrCode}}</a></div>
             <div class="transaction">No. {{charge.id}}</div>
