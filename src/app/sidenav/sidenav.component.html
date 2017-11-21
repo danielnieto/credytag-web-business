@@ -5,7 +5,7 @@
         </div>
         <img class="logotype" src="assets/svg/credytag-logotype.svg" alt="Credytag">
     </div>
-    <nav class="nav">
+    <nav class="nav nav-stacked">
         <li class="nav-item" *ngFor="let navItem of navItems" (click)="onClickNavItem(navItem)" [class.active]="navItem===activeNavItem">
             <a routerLink="/{{navItem.route}}" placement="right" [tooltip]="navItem.name" [isDisabled]="!responsiveService.navIsCollapsed">
                 <div class="icon-wrapper">

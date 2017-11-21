@@ -4,6 +4,7 @@
     transition:  margin-left .2s, margin-right .2s, margin-top .2s;
     padding:8px;
     overflow-x: hidden;
+    flex-basis:100%;
 }
 
 :host.is-nav-collapsed{
@@ -15,6 +16,7 @@ section.content{
     background-color: #fff;
     padding: 20px;
     max-width: 875px;
+    flex-basis:100%;
     margin-right: 48px;
 }
 
