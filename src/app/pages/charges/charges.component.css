@@ -1,6 +1,7 @@
 .charges-list {
     padding-left: 0;
     list-style: none;
+    border: solid 1px #ebebeb;
 }
 
 .charge {
