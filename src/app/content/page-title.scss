@@ -23,6 +23,7 @@ h1.page-title{
         position: fixed;
         width: 100vw;
         margin-bottom: 148px;
+        z-index: 1100;
     }
 
     h1.page-title + *{

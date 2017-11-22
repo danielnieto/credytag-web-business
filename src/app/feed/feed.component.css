@@ -81,6 +81,11 @@ header strong {
 /* MOBILE STYLES */
 
 @media (max-width: 880px) {
+
+    :host {
+          z-index: 1101;
+    }
+
     :host.is-collapsed aside {
         height: 48px;
         overflow: hidden;
