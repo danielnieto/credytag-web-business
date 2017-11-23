@@ -7,6 +7,7 @@ import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es-MX';
 
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { AppComponent } from './app.component';
@@ -45,6 +46,7 @@ registerLocaleData(localeEs);
         FormsModule,
         HttpModule,
         TooltipModule.forRoot(),
+        ButtonsModule.forRoot(),
         BsDatepickerModule.forRoot(),
         RouterModule.forRoot([
             { path: 'cobros', component: ChargesComponent },
