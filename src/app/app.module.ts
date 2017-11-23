@@ -1,7 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es-MX';
 
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
@@ -20,6 +23,8 @@ import { ChargeComponent } from './pages/charges/charge/charge.component';
 // services
 import { ResponsiveService } from './responsive.service';
 
+// to make Pipes use es-MX
+registerLocaleData(localeEs);
 
 @NgModule({
     declarations: [
@@ -48,7 +53,7 @@ import { ResponsiveService } from './responsive.service';
         //   { path: '**', component: PageNotFoundComponent }
         ])
     ],
-    providers: [ResponsiveService],
+    providers: [ResponsiveService, { provide: LOCALE_ID, useValue: 'es-MX'} ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
