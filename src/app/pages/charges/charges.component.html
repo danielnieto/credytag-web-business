@@ -1,6 +1,33 @@
 <h1 class="page-title">
   Cobros
 </h1>
+<section class="controls pt-3 pb-3">
+    <button type="button" class="btn btn-secondary today mr-3" (click)="onClickToday()">Hoy</button>
+    <button type="button" class="btn btn-secondary previous-day border-right-0" (click)="onClickPreviousDay()">
+        <i class="fa fa-fw fa-2x fa-angle-left"></i>
+    </button>
+    <div class="date-container text-capitalize" bsDatepicker [(bsValue)]="datePickerValue" [bsConfig]="datePickerConfig" [maxDate]="today">
+        <i class="fa fa-fw fa-calendar mr-2"></i>
+        <div class="full">
+            {{datePickerValue | date: 'EEEE, d MMMM y'}}
+        </div>
+        <div class="short">
+             {{datePickerValue | date: 'd/M/yyyy'}}
+        </div>
+    </div>
+    <button type="button" class="btn btn-secondary next-day border-left-0" (click)="onClickNextDay()">
+        <i class="fa fa-fw fa-2x fa-angle-right"></i>
+    </button>
+
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Código QR" aria-label="Código QR">
+        <span class="input-group-btn">
+            <button class="btn btn-outline-dark" type="button">
+                <i class="fa fa-fw fa-search"></i>
+            </button>
+        </span>
+    </div>
+</section>
 <ul class="charges-list">
     <li class="charge" *ngFor="let charge of charges">
         <div class="charge_summary">

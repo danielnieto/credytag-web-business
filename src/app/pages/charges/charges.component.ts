@@ -5,6 +5,10 @@ import {ChargeStatus} from '../../charge-status';
 
 import {ChargeService} from '../../charge.service';
 
+import { defineLocale } from 'ngx-bootstrap/bs-moment';
+import { es } from 'ngx-bootstrap/locale';
+defineLocale('es', es);
+
 @Component({
   selector: 'app-charges',
   templateUrl: './charges.component.html',
@@ -12,49 +16,67 @@ import {ChargeService} from '../../charge.service';
   providers: [ChargeService]
 })
 export class ChargesComponent implements OnInit {
+  charges: Charge[];
+  datePickerValue = new Date();
+  today = new Date();
 
-  charges:Charge[];
+    datePickerConfig = {
+        'containerClass': 'theme-credytag',
+        'showWeekNumbers': false,
+        'locale': 'es'
+    };
 
-  constructor(private chargeService: ChargeService) {
-
-  }
+  constructor(private chargeService: ChargeService) {}
 
   ngOnInit() {
-      this.charges = this.chargeService.getCharges();
+    this.charges = this.chargeService.getCharges();
   }
 
-  onToggleCollapse(charge:Charge){
-      charge.collapsed = !charge.collapsed;
+  onToggleCollapse(charge: Charge) {
+    charge.collapsed = !charge.collapsed;
   }
 
-  statusText(charge):string{
+  onClickToday(): void {
+    this.datePickerValue = this.today;
+  }
 
-      let text: string;
+  onClickPreviousDay(): void {
+    this.datePickerValue = this.addDays(this.datePickerValue, -1);
+  }
 
-      switch(charge.status){
-          case ChargeStatus.deposited:
+  onClickNextDay(): void {
+    this.datePickerValue = this.addDays(this.datePickerValue, 1);
+  }
+
+    addDays(date, days): Date {
+        const result = new Date(date);
+        return new Date(result.setDate(result.getDate() + days));
+    }
+
+  statusText(charge): string {
+    let text: string;
+
+    switch (charge.status) {
+      case ChargeStatus.deposited:
             text = "depositado"
-            break;
-          case ChargeStatus.paid:
+        break;
+      case ChargeStatus.paid:
             text = "pagado"
-            break;
-          case ChargeStatus.declined:
+        break;
+      case ChargeStatus.declined:
             text = "declinado"
-            break;
-          case ChargeStatus.fraudulent:
+        break;
+      case ChargeStatus.fraudulent:
             text = "fraudulento"
-            break;
-          case ChargeStatus.refunded:
+        break;
+      case ChargeStatus.refunded:
             text = "reembolsado"
-            break;
-          case ChargeStatus.frozen:
+        break;
+      case ChargeStatus.frozen:
             text = "congelado"
-            break;
-      }
+        break;
+    }
 
-      return text;
+    return text;
   }
-
-
-
 }

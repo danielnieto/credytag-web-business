@@ -1,3 +1,68 @@
+.controls {
+    display: flex;
+}
+
+.controls .btn {
+    display: flex;
+    box-sizing: border-box;
+    height: 40px;
+    width: 40px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    border-radius: 3px;
+    background-color: #ffffff;
+    border: solid 1px #ebebeb;
+    color: #555555;
+}
+
+.controls .btn.today {
+     width: 80px;
+}
+
+.controls .btn.next-day {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    color: #999999;
+}
+
+.controls .btn.previous-day {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    color: #999999;
+}
+
+.controls .date-container {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-basis: 228px;
+    border: 1px solid #ebebeb;
+    cursor: pointer;
+}
+
+.controls .date-container .short{
+    display: none;
+}
+
+.controls .input-group {
+    flex-grow: 0;
+    margin-left: auto;
+    flex-basis: 250px;
+}
+
+.controls .input-group input{
+    border-color: #ebebeb;
+
+}
+
+.controls .input-group .btn{
+    border-color: #ebebeb;
+    color: #999999;
+}
+
 .charges-list {
     padding-left: 0;
     list-style: none;
@@ -231,6 +296,20 @@
     .charge_details .column {
         min-width: 150px;
     }
+
+    .controls {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
+    .controls > *{
+        margin-top: 1rem;
+    }
+
+    .controls .input-group{
+        display: none;
+    }
+
 }
 
 
@@ -262,6 +341,15 @@
 
 }
 
+@media (max-width: 420px) {
+    .controls .date-container .full{
+        display: none;
+    }
+
+    .controls .date-container .short{
+        display: block;
+    }
+}
 
 /* reduce paddings and hide client name */
 
