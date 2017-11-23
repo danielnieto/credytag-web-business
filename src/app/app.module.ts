@@ -7,13 +7,14 @@ import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es-MX';
 
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { AppComponent } from './app.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { ShellComponent } from './shell/shell.component';
 import { ContentComponent } from './content/content.component';
 import { FeedComponent } from './feed/feed.component';
-import { RouterModule }   from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { QrcodesComponent } from './pages/qrcodes/qrcodes.component';
 import { PreferencesComponent } from './pages/preferences/preferences.component';
 import { ChargesComponent } from './pages/charges/charges.component';
@@ -44,6 +45,7 @@ registerLocaleData(localeEs);
         FormsModule,
         HttpModule,
         TooltipModule.forRoot(),
+        BsDatepickerModule.forRoot(),
         RouterModule.forRoot([
             { path: 'cobros', component: ChargesComponent },
             { path: 'codigos-qr', component: QrcodesComponent },

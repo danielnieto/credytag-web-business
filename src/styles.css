@@ -6,3 +6,18 @@ html{
 body{
     background-color: #f5f5f5!important;
 }
+
+/* Customize Bootstrap 4 Datepicker */
+.theme-credytag .bs-datepicker-head{
+    background-color: #53437d;
+}
+
+.theme-credytag .current,
+.theme-credytag .bs-datepicker-body table {
+    text-transform: capitalize;
+}
+
+.theme-credytag .bs-datepicker-body table td span.selected,
+.theme-credytag .bs-datepicker-body table td.selected span{
+    background-color: #53437d;
+}
