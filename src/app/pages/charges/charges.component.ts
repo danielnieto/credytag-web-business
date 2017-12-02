@@ -79,4 +79,11 @@ export class ChargesComponent implements OnInit {
 
     return text;
   }
+
+  isToday(): boolean {
+      const a = this.today;
+      const b = this.datePickerValue;
+
+      return a.getDate() === b.getDate() && a.getMonth() === b.getMonth() && a.getFullYear() === b.getFullYear();
+  }
 }

@@ -17,7 +17,13 @@
 }
 
 .controls .btn.today {
-     width: 80px;
+    width: 80px;
+}
+
+.controls .btn.today.is-today {
+    background-color: #4db6ac;
+    color: #fff;
+    border-color: #4db6ac;
 }
 
 .controls .btn.next-day {
