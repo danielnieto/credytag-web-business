@@ -58,22 +58,22 @@ export class ChargesComponent implements OnInit {
 
     switch (charge.status) {
       case ChargeStatus.deposited:
-            text = "depositado"
+            text = 'depositado';
         break;
       case ChargeStatus.paid:
-            text = "pagado"
+            text = 'pagado';
         break;
       case ChargeStatus.declined:
-            text = "declinado"
+            text = 'declinado';
         break;
       case ChargeStatus.fraudulent:
-            text = "fraudulento"
+            text = 'fraudulento';
         break;
       case ChargeStatus.refunded:
-            text = "reembolsado"
+            text = 'reembolsado';
         break;
       case ChargeStatus.frozen:
-            text = "congelado"
+            text = 'congelado';
         break;
     }
 
