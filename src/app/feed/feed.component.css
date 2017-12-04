@@ -1,9 +1,9 @@
-aside{
+aside {
     position: fixed;
     width: 264px;
     background-color: #fff;
     right: 0;
-    top:0;
+    top: 0;
     height: 100vh;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -14,7 +14,7 @@ aside{
     border-left: 1px solid #ebebeb;
 }
 
-header{
+header {
     display: flex;
     height: 48px;
     align-content: center;
@@ -55,22 +55,21 @@ header strong {
 }
 
 @media (min-width: 986px) {
-    aside{
+    aside {
         right: calc(50% - 493px);
     }
 }
 
 @media (min-width: 1410px) {
-    aside{
+    aside {
         right: calc(50% - 707px);
     }
-
-    .toggler{
+    .toggler {
         display: none;
     }
 }
 
-:host.is-collapsed aside{
+:host.is-collapsed aside {
     width: 48px;
 }
 
@@ -78,31 +77,26 @@ header strong {
     width: 48px;
 }
 
+
 /* MOBILE STYLES */
 
 @media (max-width: 880px) {
-
-    :host {
-          z-index: 1101;
+     :host {
+        z-index: 1101;
     }
-
-    :host.is-collapsed aside {
+     :host.is-collapsed aside {
         height: 48px;
         overflow: hidden;
     }
-
-    :host.is-collapsed .toggler {
+     :host.is-collapsed .toggler {
         visibility: hidden;
         opacity: 0;
     }
-
-    :host.is-expanded .toggler {
+     :host.is-expanded .toggler {
         visibility: visible;
         opacity: 1;
     }
-
-    aside{
+    aside {
         border-bottom: 1px solid #ebebeb;
     }
 }
-

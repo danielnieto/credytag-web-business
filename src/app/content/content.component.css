@@ -1,42 +1,38 @@
-:host{
+:host {
     margin-left: 216px;
     display: block;
-    transition:  margin-left .2s, margin-right .2s, margin-top .2s;
-    padding:8px;
+    transition: margin-left .2s, margin-right .2s, margin-top .2s;
+    padding: 8px;
     overflow-x: hidden;
-    flex-basis:100%;
+    flex-basis: 100%;
 }
 
-:host.is-nav-collapsed{
+:host.is-nav-collapsed {
     margin-left: 48px;
 }
 
-section.content{
+section.content {
     box-sizing: border-box;
     background-color: #fff;
     padding: 20px;
     max-width: 875px;
-    flex-basis:100%;
+    flex-basis: 100%;
     margin-right: 48px;
 }
 
 @media (max-width: 880px) {
-    :host{
+     :host {
         padding: 0;
     }
-
-    :host.is-nav-collapsed {
+     :host.is-nav-collapsed {
         margin-left: 0px;
     }
-
-     :host.is-nav-expanded{
+     :host.is-nav-expanded {
         margin-left: 216px;
         background-color: #a6d120;
     }
-
-    section.content{
+    section.content {
         padding: 0;
         margin-right: 0;
     }
-
 }

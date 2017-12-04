@@ -27,15 +27,14 @@ nav {
     user-select: none;
 }
 
-.nav-item{
+.nav-item {
     overflow-x: hidden;
     flex-basis: 100%;
 }
 
 .nav-item a,
 .nav-item a:focus,
-.nav-item a:active
-{
+.nav-item a:active {
     display: flex;
     white-space: nowrap;
     height: 40px;
@@ -48,7 +47,7 @@ nav {
     text-decoration: none;
 }
 
-nav i{
+nav i {
     margin: 0 16px;
     flex-grow: 0;
     flex-shrink: 0;
@@ -61,15 +60,14 @@ nav i{
 .nav-item.active a:focus {
     background-color: #4DB6AC;
     color: #fff;
-
 }
 
-.nav-item a:hover{
+.nav-item a:hover {
     background-color: #6e59a6;
     color: #fff;
 }
 
-:host.is-collapsed aside{
+:host.is-collapsed aside {
     width: 48px;
 }
 
@@ -118,12 +116,12 @@ nav i{
 
 .logo .logotype {
     height: 34px;
-    margin-top:8px;
+    margin-top: 8px;
 }
 
-/deep/ .tooltip-inner{
-    white-space:nowrap;
-    max-width:none;
+/deep/ .tooltip-inner {
+    white-space: nowrap;
+    max-width: none;
 }
 
 @media (min-width: 880px) and (max-width: 933px) {
@@ -138,27 +136,23 @@ nav i{
     }
 }
 
+
 /* MOBILE STYLES */
 
 @media (max-width: 880px) {
-
-    :host{
+     :host {
         z-index: 1101;
     }
-
-    :host.is-collapsed aside {
+     :host.is-collapsed aside {
         height: 48px;
         overflow: hidden;
     }
-
-    :host.is-collapsed .toggler {
+     :host.is-collapsed .toggler {
         visibility: hidden;
         opacity: 0;
     }
-
-    :host.is-expanded .toggler {
+     :host.is-expanded .toggler {
         visibility: visible;
         opacity: 1;
     }
-
 }

@@ -49,7 +49,7 @@
     cursor: pointer;
 }
 
-.controls .date-container .short{
+.controls .date-container .short {
     display: none;
 }
 
@@ -59,12 +59,11 @@
     flex-basis: 250px;
 }
 
-.controls .input-group input{
+.controls .input-group input {
     border-color: #ebebeb;
-
 }
 
-.controls .input-group .btn{
+.controls .input-group .btn {
     border-color: #ebebeb;
     color: #999999;
 }
@@ -302,20 +301,16 @@
     .charge_details .column {
         min-width: 150px;
     }
-
     .controls {
         padding-right: 1rem;
         padding-left: 1rem;
     }
-
-    .controls > *{
+    .controls>* {
         margin-top: 1rem;
     }
-
-    .controls .input-group{
+    .controls .input-group {
         display: none;
     }
-
 }
 
 
@@ -340,22 +335,20 @@
     .charge_details .columns-container {
         flex-direction: column;
     }
-
     .charge_details .column {
         flex-basis: auto;
     }
-
 }
 
 @media (max-width: 420px) {
-    .controls .date-container .full{
+    .controls .date-container .full {
         display: none;
     }
-
-    .controls .date-container .short{
+    .controls .date-container .short {
         display: block;
     }
 }
+
 
 /* reduce paddings and hide client name */
 
