@@ -45,6 +45,7 @@ export class ChargesComponent implements OnInit {
   }
 
   onClickNextDay(): void {
+    if(this.isToday()) { return; }
     this.datePickerValue = this.addDays(this.datePickerValue, 1);
   }
 
