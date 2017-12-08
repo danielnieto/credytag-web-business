@@ -12,7 +12,7 @@ defineLocale('es', es);
 @Component({
   selector: 'app-charges',
   templateUrl: './charges.component.html',
-  styleUrls: ['./charges.component.css', '../../content/page-title.scss'],
+  styleUrls: ['./charges.component.scss', '../../content/page-title.scss'],
   providers: [ChargeService]
 })
 export class ChargesComponent implements OnInit {

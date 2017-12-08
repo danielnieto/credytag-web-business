@@ -1,0 +1,319 @@
+.controls {
+    display: flex;
+    .btn {
+        display: flex;
+        box-sizing: border-box;
+        height: 40px;
+        width: 40px;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        border-radius: 3px;
+        background-color: #ffffff;
+        border: solid 1px #ebebeb;
+        color: #555555;
+    }
+    .btn.today {
+        width: 80px;
+    }
+    .btn.today.is-today {
+        background-color: #4db6ac;
+        color: #fff;
+        border-color: #4db6ac;
+    }
+    .btn.next-day {
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        color: #999999;
+    }
+    .btn.previous-day {
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        color: #999999;
+    }
+    .date-container {
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        flex-basis: 228px;
+        border: 1px solid #ebebeb;
+        cursor: pointer;
+    }
+    .date-container .short {
+        display: none;
+    }
+    .input-group {
+        flex-grow: 0;
+        margin-left: auto;
+        flex-basis: 250px;
+        input {
+            border-color: #ebebeb;
+        }
+        .btn {
+            border-color: #ebebeb;
+            color: #999999;
+        }
+    }
+}
+
+.charges-list {
+    padding-left: 0;
+    list-style: none;
+    border: solid 1px #ebebeb;
+}
+
+.charge {
+    box-shadow: 0 1px 0 0 #ebebeb;
+    * {
+        box-sizing: border-box;
+    }
+    a {
+        color: #4db6ac;
+        cursor: pointer;
+    }
+    i.fa {
+        margin-right: 5px;
+    }
+    /*deposited(1) status, paid(2) status*/
+    .status-1,
+    .status-2 {
+        color: #6E59A6!important;
+    }
+    /*declined(3) status*/
+    .status-3 {
+        color: #FF0000!important;
+    }
+    /*fraudulent(4) status, refunded(5) status*/
+    .status-4,
+    .status-5 {
+        color: #555!important;
+    }
+    /*frozen status*/
+    .status-6 {
+        color: #000!important;
+    }
+}
+
+.charge_summary {
+    display: flex;
+    height: 56px;
+    box-sizing: border-box;
+    align-items: center;
+    padding: 14px;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    color: #666;
+    box-shadow: 0 1px 0 0 #ebebeb;
+    >div {
+        display: flex;
+        text-transform: capitalize;
+    }
+    >div.collapse {
+        flex: 0 0 32px;
+        color: #6e59a6;
+        display: flex;
+        justify-content: center;
+        margin-right: 4px;
+    }
+    >div.collapse>* {
+        margin: 0;
+        padding: 0;
+    }
+    >div.timestamp {
+        flex: 0 0 64px;
+        margin-right: 4px;
+    }
+    >div.client {
+        font-weight: bold;
+        flex-grow: 1;
+        flex-basis: 116px;
+        margin-right: 16px;
+        display: block;
+        min-width: 116px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    >div.location {
+        flex: 0 0 155px;
+    }
+    >div.transaction {
+        flex: 0 0 120px;
+        padding: 0;
+    }
+    >div.sell {
+        justify-content: flex-end;
+        color: #6e59a6;
+        font-weight: bold;
+        text-align: right;
+        align-items: center;
+        flex: 0 0 65px;
+    }
+}
+
+.charge_details {
+    display: flex;
+    color: #666;
+    font-size: 12px;
+    box-sizing: border-box;
+
+    >* {
+        display: flex;
+        flex: 1;
+    }
+
+    .map {
+        background-color: #eee;
+        height: 190px;
+        flex-shrink: 0;
+        flex-grow: 0;
+        width: 190px;
+    }
+    .map-container {
+        display: flex;
+        flex-basis: 33.33%;
+        flex-grow: 0;
+        flex-shrink: 0;
+        justify-content: center;
+        padding-top: 14px;
+    }
+    .columns-container {
+        display: flex;
+        flex-grow: 1;
+    }
+    .column {
+        flex-direction: column;
+        flex-basis: 50%;
+        padding: 14px;
+        box-sizing: border-box;
+    }
+    .column>div {
+        display: flex;
+        flex-direction: column;
+    }
+    .column>div+div {
+        margin-top: 20px;
+    }
+    .column strong {
+        margin-bottom: 4px;
+    }
+    .column span {
+        text-transform: capitalize;
+    }
+    .transaction-details {
+        display: flex;
+        flex-direction: column;
+    }
+    .transaction-details>div {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 4px;
+    }
+    .transaction-details>div.sum {
+        box-shadow: 0 -1px 0 0 #ebebeb;
+        font-weight: bold;
+        padding-top: 4px;
+    }
+    .report-problem {
+        color: #4db6ac;
+    }
+    .report-problem a {
+        text-decoration: underline;
+    }
+}
+
+.is-nav-collapsed .charge_details .report-problem {
+    background-color: blue;
+}
+
+
+/* MOBILE STYLES */
+
+
+/* hide transaction ID */
+
+@media (max-width: 965px) {
+    .charge_summary>div.transaction {
+        display: none;
+    }
+}
+
+
+/* hide location, add padding-left to charge_details and set min width of columns*/
+
+@media (max-width: 880px) {
+    .charge_summary>div.location {
+        display: none;
+    }
+    .charge_details {
+        padding-left: 14px;
+    }
+    .charge_details .column {
+        min-width: 150px;
+    }
+    .controls {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+    .controls>* {
+        margin-top: 1rem;
+    }
+    .controls .input-group {
+        display: none;
+    }
+}
+
+
+/* move columns-container below map-container, keeping 2 columns */
+
+@media (max-width: 590px) {
+    .charge_details {
+        flex-wrap: wrap;
+    }
+    .charge_details .map-container {
+        flex-basis: 100%;
+    }
+    .charge_details .columns-container {
+        flex-basis: 100%
+    }
+}
+
+
+/* use a single column for columns-container */
+
+@media (max-width: 520px) {
+    .charge_details .columns-container {
+        flex-direction: column;
+    }
+    .charge_details .column {
+        flex-basis: auto;
+    }
+}
+
+@media (max-width: 420px) {
+    .controls .date-container .full {
+        display: none;
+    }
+    .controls .date-container .short {
+        display: block;
+    }
+}
+
+
+/* reduce paddings and hide client name */
+
+@media (max-width: 319px) {
+    .charge_summary {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .charge_summary>div.client {
+        display: none;
+    }
+    .charge_summary>div.sell {
+        margin-left: auto;
+        margin-right: 8px;
+    }
+}
