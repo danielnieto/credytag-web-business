@@ -202,27 +202,27 @@
     .column span {
         text-transform: capitalize;
     }
-    .transaction-details {
+.transaction-details {
         display: flex;
         flex-direction: column;
     }
     .transaction-details>div {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 4px;
-    }
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
     .transaction-details>div.sum {
         box-shadow: 0 -1px 0 0 #ebebeb;
-        font-weight: bold;
-        padding-top: 4px;
-    }
+            font-weight: bold;
+            padding-top: 4px;
+        }
     .report-problem {
         color: #4db6ac;
     }
     .report-problem a {
-        text-decoration: underline;
+            text-decoration: underline;
+        }
     }
-}
 
 .is-nav-collapsed .charge_details .report-problem {
     background-color: blue;
@@ -230,8 +230,6 @@
 
 
 /* MOBILE STYLES */
-
-
 /* hide transaction ID */
 
 @media (max-width: 965px) {
@@ -249,19 +247,19 @@
     }
     .charge_details {
         padding-left: 14px;
-    }
-    .charge_details .column {
-        min-width: 150px;
+        .column {
+            min-width: 150px;
+        }
     }
     .controls {
         padding-right: 1rem;
         padding-left: 1rem;
-    }
-    .controls>* {
-        margin-top: 1rem;
-    }
-    .controls .input-group {
-        display: none;
+        >* {
+            margin-top: 1rem;
+        }
+        .input-group {
+            display: none;
+        }
     }
 }
 
@@ -271,12 +269,12 @@
 @media (max-width: 590px) {
     .charge_details {
         flex-wrap: wrap;
-    }
-    .charge_details .map-container {
-        flex-basis: 100%;
-    }
-    .charge_details .columns-container {
-        flex-basis: 100%
+        .map-container {
+            flex-basis: 100%;
+        }
+        .columns-container {
+            flex-basis: 100%
+        }
     }
 }
 
@@ -284,20 +282,24 @@
 /* use a single column for columns-container */
 
 @media (max-width: 520px) {
-    .charge_details .columns-container {
-        flex-direction: column;
-    }
-    .charge_details .column {
-        flex-basis: auto;
+    .charge_details {
+        .columns-container {
+            flex-direction: column;
+        }
+        .column {
+            flex-basis: auto;
+        }
     }
 }
 
 @media (max-width: 420px) {
-    .controls .date-container .full {
-        display: none;
-    }
-    .controls .date-container .short {
-        display: block;
+    .controls .date-container {
+        .full {
+            display: none;
+        }
+        .short {
+            display: block;
+        }
     }
 }
 
@@ -308,12 +310,13 @@
     .charge_summary {
         padding-left: 0px;
         padding-right: 0px;
-    }
-    .charge_summary>div.client {
-        display: none;
-    }
-    .charge_summary>div.sell {
-        margin-left: auto;
-        margin-right: 8px;
+        >div.client {
+            display: none;
+        }
+        >div.sell {
+            margin-left: auto;
+            margin-right: 8px;
+        }
     }
 }
+
