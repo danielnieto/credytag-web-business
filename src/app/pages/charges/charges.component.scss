@@ -1,3 +1,4 @@
+@import "../../variables";
 .controls {
     display: flex;
     .btn {
@@ -9,27 +10,27 @@
         align-content: center;
         align-items: center;
         border-radius: 3px;
-        background-color: #ffffff;
-        border: solid 1px #ebebeb;
-        color: #555555;
+        background-color: $white;
+        border: solid 1px $white-snow;
+        color: $greyish-brown;
     }
     .btn.today {
         width: 80px;
     }
     .btn.today.is-today {
-        background-color: #4db6ac;
-        color: #fff;
-        border-color: #4db6ac;
+        background-color: $dark-mint;
+        color: $white;
+        border-color: $dark-mint;
     }
     .btn.next-day {
         border-top-left-radius: 0px;
         border-bottom-left-radius: 0px;
-        color: #999999;
+        color: $warm-grey;
     }
     .btn.previous-day {
         border-top-right-radius: 0px;
         border-bottom-right-radius: 0px;
-        color: #999999;
+        color: $warm-grey;
     }
     .date-container {
         height: 40px;
@@ -38,7 +39,7 @@
         align-content: center;
         align-items: center;
         flex-basis: 228px;
-        border: 1px solid #ebebeb;
+        border: 1px solid $white-snow;
         cursor: pointer;
     }
     .date-container .short {
@@ -49,11 +50,11 @@
         margin-left: auto;
         flex-basis: 250px;
         input {
-            border-color: #ebebeb;
+            border-color: $white-snow;
         }
         .btn {
-            border-color: #ebebeb;
-            color: #999999;
+            border-color: $white-snow;
+            color: $warm-grey;
         }
     }
 }
@@ -61,16 +62,16 @@
 .charges-list {
     padding-left: 0;
     list-style: none;
-    border: solid 1px #ebebeb;
+    border: solid 1px $white-snow;
 }
 
 .charge {
-    box-shadow: 0 1px 0 0 #ebebeb;
+    box-shadow: 0 1px 0 0 $white-snow;
     * {
         box-sizing: border-box;
     }
     a {
-        color: #4db6ac;
+        color: $dark-mint;
         cursor: pointer;
     }
     i.fa {
@@ -79,20 +80,20 @@
     /*deposited(1) status, paid(2) status*/
     .status-1,
     .status-2 {
-        color: #6E59A6!important;
+        color: $deep-lavender!important;
     }
     /*declined(3) status*/
     .status-3 {
-        color: #FF0000!important;
+        color: $red!important;
     }
     /*fraudulent(4) status, refunded(5) status*/
     .status-4,
     .status-5 {
-        color: #555!important;
+        color: $greyish-brown!important;
     }
     /*frozen status*/
     .status-6 {
-        color: #000!important;
+        color: $dark!important;
     }
 }
 
@@ -104,15 +105,15 @@
     padding: 14px;
     font-size: 12px;
     letter-spacing: 0.4px;
-    color: #666;
-    box-shadow: 0 1px 0 0 #ebebeb;
+    color: $brownish-grey;
+    box-shadow: 0 1px 0 0 $white-snow;
     >div {
         display: flex;
         text-transform: capitalize;
     }
     >div.collapse {
         flex: 0 0 32px;
-        color: #6e59a6;
+        color: $deep-lavender;
         display: flex;
         justify-content: center;
         margin-right: 4px;
@@ -145,7 +146,7 @@
     }
     >div.sell {
         justify-content: flex-end;
-        color: #6e59a6;
+        color: $deep-lavender;
         font-weight: bold;
         text-align: right;
         align-items: center;
@@ -155,17 +156,15 @@
 
 .charge_details {
     display: flex;
-    color: #666;
+    color: $brownish-grey;
     font-size: 12px;
     box-sizing: border-box;
-
     >* {
         display: flex;
         flex: 1;
     }
-
     .map {
-        background-color: #eee;
+        background-color: $white-snow;
         height: 190px;
         flex-shrink: 0;
         flex-grow: 0;
@@ -205,29 +204,25 @@
 .transaction-details {
         display: flex;
         flex-direction: column;
-    }
-    .transaction-details>div {
+        >div {
             display: flex;
             justify-content: space-between;
             margin-bottom: 4px;
         }
-    .transaction-details>div.sum {
-        box-shadow: 0 -1px 0 0 #ebebeb;
+        >div.sum {
+            box-shadow: 0 -1px 0 0 $white-snow;
             font-weight: bold;
             padding-top: 4px;
         }
-    .report-problem {
-        color: #4db6ac;
     }
-    .report-problem a {
+
+    .report-problem {
+        color: $dark-mint;
+        a {
             text-decoration: underline;
         }
     }
-
-.is-nav-collapsed .charge_details .report-problem {
-    background-color: blue;
 }
-
 
 /* MOBILE STYLES */
 /* hide transaction ID */
