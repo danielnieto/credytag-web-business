@@ -1,0 +1,156 @@
+@import "../variables";
+$items-height: 40px;
+$collapsed-nav-width: 48px;
+$expanded-nav-width: 216px;
+:host.is-collapsed aside {
+    width: $collapsed-nav-width;
+}
+
+:host.is-collapsed .toggler {
+    width: $collapsed-nav-width;
+}
+
+aside {
+    left: 0;
+    height: 100vh;
+    padding: 0px;
+    background-color: $twilight;
+    width: $expanded-nav-width;
+    overflow: visible;
+    transition: width .2s, height .2s;
+    position: fixed;
+    z-index: 1;
+    font-size: 14px;
+}
+
+.name {
+    white-space: nowrap;
+}
+
+a {
+    color: $white;
+    font-size: 12px;
+}
+
+nav {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    i {
+        margin: 0 16px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        margin-right: 16px;
+    }
+}
+
+.nav-item {
+    overflow-x: hidden;
+    flex-basis: 100%;
+    a,
+    a:focus,
+    a:active {
+        display: flex;
+        white-space: nowrap;
+        height: $items-height;
+        align-content: center;
+        align-items: center;
+        padding: 0;
+        transition: width .2s;
+        overflow: hidden;
+        background-color: $twilight;
+        text-decoration: none;
+    }
+    a:hover {
+        background-color: $deep-lavender;
+        color: $white;
+    }
+    &.active a,
+    &.active a:hover,
+    &.active a:active,
+    &.active a:focus {
+        background-color: $dark-mint;
+        color: $white;
+    }
+}
+
+.icon-wrapper {
+    display: flex;
+    width: $collapsed-nav-width;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    font-size: 18px;
+}
+
+.toggler {
+    display: flex;
+    background-color: $dusk;
+    position: fixed;
+    bottom: 0;
+    height: $items-height;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    width: $expanded-nav-width;
+    transition: opacity .2s ease-in-out .2s, width .2s;
+    text-decoration: none;
+    i {
+        color: $white;
+    }
+}
+
+.logo {
+    height: 48px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    .icon {
+        height: 26px;
+    }
+    .logotype {
+        height: 34px;
+        margin-top: 8px;
+    }
+}
+
+/deep/ .tooltip-inner {
+    white-space: nowrap;
+    max-width: none;
+}
+
+@media (min-width: 880px) and (max-width: 933px) {
+    .toggler {
+        display: none;
+    }
+}
+
+@media (min-width: 986px) {
+    aside {
+        left: calc(50% - 493px);
+    }
+}
+
+
+/* MOBILE STYLES */
+
+@media (max-width: 880px) {
+     :host {
+        z-index: 1101;
+        &.is-collapsed aside {
+            height: 48px;
+            overflow: hidden;
+        }
+        &.is-collapsed .toggler {
+            visibility: hidden;
+            opacity: 0;
+        }
+        &.is-expanded .toggler {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}
