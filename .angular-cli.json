@@ -24,6 +24,11 @@
         "../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
         "../node_modules/font-awesome/css/font-awesome.min.css"
       ],
+      "stylePreprocessorOptions": {
+        "includePaths": [
+          "app"
+        ]
+      },
       "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
