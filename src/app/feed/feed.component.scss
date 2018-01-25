@@ -1,7 +1,8 @@
+@import "../_variables";
 aside {
     position: fixed;
     width: 264px;
-    background-color: #fff;
+    background-color: $white;
     right: 0;
     top: 0;
     height: 100vh;
@@ -11,7 +12,7 @@ aside {
     padding-bottom: 40px;
     transition: width .2s, height .2s;
     z-index: 2;
-    border-left: 1px solid #ebebeb;
+    border-left: 1px solid $white-snow;
 }
 
 header {
@@ -19,10 +20,9 @@ header {
     height: 48px;
     align-content: center;
     align-items: center;
-}
-
-header strong {
-    white-space: nowrap;
+    strong {
+        white-space: nowrap;
+    }
 }
 
 .icon-wrapper {
@@ -36,7 +36,7 @@ header strong {
 
 .toggler {
     display: flex;
-    background-color: #fff;
+    background-color: $white;
     position: fixed;
     bottom: 0;
     height: 40px;
@@ -46,12 +46,11 @@ header strong {
     width: 264px;
     transition: opacity .2s ease-in-out .2s, width .2s;
     text-decoration: none;
-    border-top: 1px solid #ebebeb;
-}
-
-.toggler i {
-    font-size: 14px;
-    color: #999999;
+    border-top: 1px solid $white-snow;
+    i {
+        font-size: 14px;
+        color: $warm-grey;
+    }
 }
 
 @media (min-width: 986px) {
@@ -69,12 +68,15 @@ header strong {
     }
 }
 
-:host.is-collapsed aside {
-    width: 48px;
-}
-
-:host.is-collapsed .toggler {
-    width: 48px;
+:host {
+    &.is-collapsed {
+        aside {
+            width: 48px;
+        }
+        .toggler {
+            width: 48px;
+        }
+    }
 }
 
 
@@ -83,20 +85,20 @@ header strong {
 @media (max-width: 880px) {
      :host {
         z-index: 1101;
-    }
-     :host.is-collapsed aside {
-        height: 48px;
-        overflow: hidden;
-    }
-     :host.is-collapsed .toggler {
-        visibility: hidden;
-        opacity: 0;
-    }
-     :host.is-expanded .toggler {
-        visibility: visible;
-        opacity: 1;
+        &.is-collapsed aside {
+            height: 48px;
+            overflow: hidden;
+        }
+        &.is-collapsed .toggler {
+            visibility: hidden;
+            opacity: 0;
+        }
+        &.is-expanded .toggler {
+            visibility: visible;
+            opacity: 1;
+        }
     }
     aside {
-        border-bottom: 1px solid #ebebeb;
+        border-bottom: 1px solid $white-snow;
     }
 }
