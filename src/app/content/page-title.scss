@@ -1,22 +1,19 @@
-$brownish-grey: #666666;
-$white-two: #ebebeb;
-$white: #ffffff;
-
-h1.page-title{
+@import "variables";
+h1.page-title {
     color: $brownish-grey;
     font-size: 18px;
     margin: 0;
     padding-bottom: 20px;
-    border-bottom: 1px solid $white-two;
+    border-bottom: 1px solid $white-snow;
 }
 
 @media (max-width: 880px) {
-    h1.page-title{
+    h1.page-title {
         display: flex;
         justify-content: center;
         align-content: center;
         align-items: center;
-        height:48px;
+        height: 48px;
         background-color: $white;
         box-sizing: border-box;
         padding: 0;
@@ -24,10 +21,8 @@ h1.page-title{
         width: 100vw;
         margin-bottom: 148px;
         z-index: 1100;
+        &+* {
+            padding-top: 48px!important;
+        }
     }
-
-    h1.page-title + *{
-        padding-top:48px!important;
-    }
-
 }
