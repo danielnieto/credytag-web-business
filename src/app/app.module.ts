@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es-MX';
@@ -39,12 +39,12 @@ registerLocaleData(localeEs);
         PreferencesComponent,
         ChargesComponent,
         BankAccountComponent,
-        ChargeComponent,
+        ChargeComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
-        HttpModule,
+        HttpClientModule,
         TooltipModule.forRoot(),
         ButtonsModule.forRoot(),
         BsDatepickerModule.forRoot(),
