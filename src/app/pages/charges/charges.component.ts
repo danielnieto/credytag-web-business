@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {Charge} from '../../charge';
 import {ChargeStatus} from '../../charge-status';
 
-import {ChargeService} from '../../charge.service';
+import {ChargesService} from '../../charges.service';
 
 import { defineLocale } from 'ngx-bootstrap/bs-moment';
 import { es } from 'ngx-bootstrap/locale';
@@ -13,7 +13,7 @@ defineLocale('es', es);
   selector: 'app-charges',
   templateUrl: './charges.component.html',
   styleUrls: ['./charges.component.scss', '../../content/page-title.scss'],
-  providers: [ChargeService]
+  providers: [ChargesService]
 })
 export class ChargesComponent implements OnInit {
   charges: Charge[];
@@ -26,10 +26,10 @@ export class ChargesComponent implements OnInit {
         'locale': 'es'
     };
 
-  constructor(private chargeService: ChargeService) {}
+  constructor(private chargesService: ChargesService) {}
 
   ngOnInit() {
-    this.charges = this.chargeService.getCharges();
+    this.charges = this.chargesService.getCharges();
   }
 
   onToggleCollapse(charge: Charge) {

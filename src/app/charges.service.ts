@@ -4,11 +4,11 @@ import {ChargeStatus} from './charge-status';
 import {CHARGES} from './mock/mock-charges';
 
 @Injectable()
-export class ChargeService {
+export class ChargesService {
 
   constructor() { }
 
-  getCharges():Charge[]{
+  getCharges(): Charge[] {
       return CHARGES;
   }
 
