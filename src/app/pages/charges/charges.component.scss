@@ -80,20 +80,20 @@
     /*deposited(1) status, paid(2) status*/
     .status-1,
     .status-2 {
-        color: $deep-lavender!important;
+        color: $deep-lavender !important;
     }
     /*declined(3) status*/
     .status-3 {
-        color: $red!important;
+        color: $red !important;
     }
     /*fraudulent(4) status, refunded(5) status*/
     .status-4,
     .status-5 {
-        color: $greyish-brown!important;
+        color: $greyish-brown !important;
     }
     /*frozen status*/
     .status-6 {
-        color: $dark!important;
+        color: $dark !important;
     }
 }
 
@@ -116,21 +116,18 @@
         color: $deep-lavender;
         display: flex;
         justify-content: center;
-        margin-right: 4px;
     }
     >div.collapse>* {
         margin: 0;
         padding: 0;
     }
     >div.timestamp {
-        flex: 0 0 64px;
-        margin-right: 4px;
+        flex: 0 0 50px;
     }
     >div.client {
         font-weight: bold;
         flex-grow: 1;
         flex-basis: 116px;
-        margin-right: 16px;
         display: block;
         min-width: 116px;
         white-space: nowrap;
@@ -145,12 +142,13 @@
         padding: 0;
     }
     >div.sell {
+        display: flex;
         justify-content: flex-end;
         color: $deep-lavender;
         font-weight: bold;
         text-align: right;
         align-items: center;
-        flex: 0 0 65px;
+        flex: 0 0 90px;
     }
 }
 
@@ -175,11 +173,10 @@
         overflow: hidden;
         max-height: 150px;
         margin-right: 14px;
-        img{
+        img {
             width: 300%;
         }
     }
-
     .columns-container {
         display: flex;
         flex-grow: 1;
@@ -202,7 +199,7 @@
     .column span {
         text-transform: capitalize;
     }
-.transaction-details {
+    .transaction-details {
         display: flex;
         flex-direction: column;
         >div {
@@ -216,7 +213,6 @@
             padding-top: 4px;
         }
     }
-
     .report-problem {
         color: $dark-mint;
         a {
@@ -226,6 +222,7 @@
 }
 
 /* MOBILE STYLES */
+
 /* hide transaction ID */
 
 @media (max-width: 965px) {
@@ -233,7 +230,6 @@
         display: none;
     }
 }
-
 
 /* hide location, add padding-left to charge_details and set min width of columns*/
 
@@ -259,7 +255,6 @@
     }
 }
 
-
 /* move columns-container below map-container, keeping 2 columns */
 
 @media (max-width: 590px) {
@@ -271,9 +266,14 @@
         .columns-container {
             flex-basis: 100%
         }
+        .map-container {
+            max-height: 300px;
+        }
+        .column {
+            margin-top: 20px;
+        }
     }
 }
-
 
 /* use a single column for columns-container */
 
@@ -284,6 +284,9 @@
         }
         .column {
             flex-basis: auto;
+        }
+        .map-container {
+            max-height: 200px;
         }
     }
 }
@@ -299,7 +302,6 @@
     }
 }
 
-
 /* reduce paddings and hide client name */
 
 @media (max-width: 319px) {
@@ -312,7 +314,7 @@
         >div.sell {
             margin-left: auto;
             margin-right: 8px;
+            flex: 0 0 65px;
         }
     }
 }
-
