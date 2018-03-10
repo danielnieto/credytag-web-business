@@ -122,7 +122,8 @@
         padding: 0;
     }
     >div.timestamp {
-        flex: 0 0 50px;
+        flex: 0 0 75px;
+        margin-right: .5rem;
     }
     >div.client {
         font-weight: bold;
@@ -226,8 +227,24 @@
 /* hide transaction ID */
 
 @media (max-width: 965px) {
-    .charge_summary>div.transaction {
-        display: none;
+    
+    .charge_summary{
+        &>div.transaction {
+            display: none;
+        }
+        &>div.collapse {
+            flex-basis: 16px;
+            margin-right: .5em;
+        }
+
+        &>div.timestamp{
+            margin-right: .2rem;
+            flex-basis: 60px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
     }
 }
 
