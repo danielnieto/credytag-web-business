@@ -8,6 +8,7 @@ export class Charge{
     qrCode: string;
     qrName: string;
     comission: number;
+    map: any;
     sms: number;
     paidWith: string;
     status: ChargeStatus;
