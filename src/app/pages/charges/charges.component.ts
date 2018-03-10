@@ -1,24 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 
-import {Charge} from '../../charge';
-import {ChargeStatus} from '../../charge-status';
+import { Charge } from '../../charge';
+import { ChargeStatus } from '../../charge-status';
 
-import {ChargesService} from '../../charges.service';
+import { ChargesService } from '../../charges.service';
 
 import { defineLocale } from 'ngx-bootstrap/bs-moment';
 import { es } from 'ngx-bootstrap/locale';
+import { DatePipe } from '@angular/common';
+
 defineLocale('es', es);
 
 @Component({
-  selector: 'app-charges',
-  templateUrl: './charges.component.html',
-  styleUrls: ['./charges.component.scss', '../../content/page-title.scss'],
-  providers: [ChargesService]
+    selector: 'app-charges',
+    templateUrl: './charges.component.html',
+    styleUrls: ['./charges.component.scss', '../../content/page-title.scss'],
+    providers: [ChargesService, DatePipe]
 })
 export class ChargesComponent implements OnInit {
-  charges: Charge[];
-  datePickerValue = new Date();
-  today = new Date();
+    charges: Charge[];
+    datePickerValue = new Date();
+    today = new Date();
 
     datePickerConfig = {
         'containerClass': 'theme-credytag',
@@ -26,65 +28,81 @@ export class ChargesComponent implements OnInit {
         'locale': 'es'
     };
 
-  constructor(private chargesService: ChargesService) {}
+    constructor(private chargesService: ChargesService, private datePipe: DatePipe) {}
 
-  ngOnInit() {
-    this.charges = this.chargesService.getCharges();
-  }
+    ngOnInit() {
 
-  onToggleCollapse(charge: Charge) {
-    charge.collapsed = !charge.collapsed;
-  }
+    }
 
-  onClickToday(): void {
-    this.datePickerValue = this.today;
-  }
+    onToggleCollapse(charge: Charge) {
+        charge.collapsed = !charge.collapsed;
+    }
 
-  onClickPreviousDay(): void {
-    this.datePickerValue = this.addDays(this.datePickerValue, -1);
-  }
+    onClickToday(): void {
+        this.datePickerValue = this.today;
+    }
 
-  onClickNextDay(): void {
-    if(this.isToday()) { return; }
-    this.datePickerValue = this.addDays(this.datePickerValue, 1);
-  }
+    onClickPreviousDay(): void {
+        this.datePickerValue = this.addDays(this.datePickerValue, -1);
+    }
+
+    onClickNextDay(): void {
+        if (this.isToday()) {
+            return;
+        }
+        this.datePickerValue = this.addDays(this.datePickerValue, 1);
+    }
 
     addDays(date, days): Date {
         const result = new Date(date);
         return new Date(result.setDate(result.getDate() + days));
     }
 
-  statusText(charge): string {
-    let text: string;
+    statusText(charge): string {
+        let text: string;
 
-    switch (charge.status) {
-      case ChargeStatus.deposited:
-            text = 'depositado';
-        break;
-      case ChargeStatus.paid:
-            text = 'pagado';
-        break;
-      case ChargeStatus.declined:
-            text = 'declinado';
-        break;
-      case ChargeStatus.fraudulent:
-            text = 'fraudulento';
-        break;
-      case ChargeStatus.refunded:
-            text = 'reembolsado';
-        break;
-      case ChargeStatus.frozen:
-            text = 'congelado';
-        break;
+        switch (charge.status) {
+            case ChargeStatus.deposited:
+                text = 'depositado';
+                break;
+            case ChargeStatus.paid:
+                text = 'pagado';
+                break;
+            case ChargeStatus.declined:
+                text = 'declinado';
+                break;
+            case ChargeStatus.fraudulent:
+                text = 'fraudulento';
+                break;
+            case ChargeStatus.refunded:
+                text = 'reembolsado';
+                break;
+            case ChargeStatus.frozen:
+                text = 'congelado';
+                break;
+        }
+
+        return text;
     }
 
-    return text;
-  }
+    isToday(): boolean {
+        const a = this.today;
+        const b = this.datePickerValue;
 
-  isToday(): boolean {
-      const a = this.today;
-      const b = this.datePickerValue;
+        return a.getDate() === b.getDate() && a.getMonth() === b.getMonth() && a.getFullYear() === b.getFullYear();
+    }
 
-      return a.getDate() === b.getDate() && a.getMonth() === b.getMonth() && a.getFullYear() === b.getFullYear();
-  }
+    fetchCharges(): void {
+
+        const date = this.datePipe.transform(this.datePickerValue, 'yyyy-MM-dd');
+
+        this.chargesService.getCharges(date).subscribe((charges: Charge[]) => {
+            this.charges = charges;
+        }, (error: any) => {
+            console.log(error);
+        });
+
+    }
+
+
 }

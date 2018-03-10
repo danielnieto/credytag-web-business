@@ -159,25 +159,27 @@
     color: $brownish-grey;
     font-size: 12px;
     box-sizing: border-box;
+    padding: 14px 14px;
     >* {
         display: flex;
         flex: 1;
     }
-    .map {
-        background-color: $white-snow;
-        height: 190px;
-        flex-shrink: 0;
-        flex-grow: 0;
-        width: 190px;
-    }
     .map-container {
         display: flex;
-        flex-basis: 33.33%;
+        flex-basis: 190px;
         flex-grow: 0;
         flex-shrink: 0;
         justify-content: center;
         padding-top: 14px;
+        align-items: center;
+        overflow: hidden;
+        max-height: 150px;
+        margin-right: 14px;
+        img{
+            width: 300%;
+        }
     }
+
     .columns-container {
         display: flex;
         flex-grow: 1;
@@ -185,7 +187,6 @@
     .column {
         flex-direction: column;
         flex-basis: 50%;
-        padding: 14px;
         box-sizing: border-box;
     }
     .column>div {

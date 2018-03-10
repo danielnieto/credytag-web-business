@@ -6,7 +6,7 @@
     <button type="button" class="btn btn-secondary previous-day border-right-0" (click)="onClickPreviousDay()">
         <i class="fa fa-fw fa-2x fa-angle-left"></i>
     </button>
-    <div class="date-container text-capitalize" bsDatepicker [(bsValue)]="datePickerValue" [bsConfig]="datePickerConfig" [maxDate]="today">
+    <div class="date-container text-capitalize" bsDatepicker [(bsValue)]="datePickerValue" [bsConfig]="datePickerConfig" [maxDate]="today" (bsValueChange)="fetchCharges()">
         <i class="fa fa-fw fa-calendar mr-2"></i>
         <div class="full">
             {{datePickerValue | date: 'EEEE, d MMMM y'}}
@@ -42,7 +42,7 @@
         </div>
         <div class="charge_details" *ngIf="!charge.collapsed">
             <div class="map-container">
-                <div class="map"></div>
+                <img [src]="charge.map" alt="Mapa del negocio">
             </div>
             <div class="columns-container">
                 <div class="column">
