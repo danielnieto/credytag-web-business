@@ -1,0 +1,7 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "variables";
+@import "bootstrap-overrides";
+// after overriding bootstrap scss variables, load bootstrap; otherwise, variables would not be overwritten
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "global";

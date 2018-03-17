@@ -1,18 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
-
 html {
     font-size: 12px;
 }
 
 body {
-    background-color: #f5f5f5!important;
+    background-color: $white-smoke !important;
 }
-
 
 /* Customize Bootstrap 4 Datepicker */
 
 .theme-credytag .bs-datepicker-head {
-    background-color: #53437d;
+    background-color: $twilight;
 }
 
 .theme-credytag .current,
@@ -22,5 +19,5 @@ body {
 
 .theme-credytag .bs-datepicker-body table td span.selected,
 .theme-credytag .bs-datepicker-body table td.selected span {
-    background-color: #53437d;
+    background-color: $twilight;
 }
