@@ -2,17 +2,7 @@
 .controls {
     display: flex;
     .btn {
-        display: flex;
-        box-sizing: border-box;
-        height: 40px;
         width: 40px;
-        justify-content: center;
-        align-content: center;
-        align-items: center;
-        border-radius: 3px;
-        background-color: $white;
-        border: solid 1px $white-snow;
-        color: $greyish-brown;
     }
     .btn.today {
         width: 80px;
@@ -25,12 +15,10 @@
     .btn.next-day {
         border-top-left-radius: 0px;
         border-bottom-left-radius: 0px;
-        color: $warm-grey;
     }
     .btn.previous-day {
         border-top-right-radius: 0px;
         border-bottom-right-radius: 0px;
-        color: $warm-grey;
     }
     .date-container {
         height: 40px;
@@ -49,13 +37,6 @@
         flex-grow: 0;
         margin-left: auto;
         flex-basis: 250px;
-        input {
-            border-color: $white-snow;
-        }
-        .btn {
-            border-color: $white-snow;
-            color: $warm-grey;
-        }
     }
 }
 

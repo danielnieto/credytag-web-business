@@ -21,3 +21,21 @@ body {
 .theme-credytag .bs-datepicker-body table td.selected span {
     background-color: $twilight;
 }
+
+/* Customize bootstrap buttons */
+
+.btn {
+    height: 40px;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    border-radius: 3px;
+    &.btn-outline-secondary {
+        color: $warm-grey;
+        &:hover {
+            color: $warm-grey;
+        }
+    }
+}
