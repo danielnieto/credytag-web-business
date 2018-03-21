@@ -18,11 +18,9 @@ h1.page-title {
         box-sizing: border-box;
         padding: 0;
         position: fixed;
+        top: 0px;
         width: 100vw;
         margin-bottom: 148px;
         z-index: 1100;
-        &+* {
-            padding-top: 48px!important;
-        }
     }
 }
