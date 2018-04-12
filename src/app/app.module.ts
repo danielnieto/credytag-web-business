@@ -9,6 +9,7 @@ import localeEs from '@angular/common/locales/es-MX';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { ModalModule } from 'ngx-bootstrap';
 
 import { AppComponent } from './app.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
@@ -48,6 +49,7 @@ registerLocaleData(localeEs);
         TooltipModule.forRoot(),
         ButtonsModule.forRoot(),
         BsDatepickerModule.forRoot(),
+        ModalModule.forRoot(),
         RouterModule.forRoot([
             { path: 'cobros', component: ChargesComponent },
             { path: 'codigos-qr', component: QrcodesComponent },

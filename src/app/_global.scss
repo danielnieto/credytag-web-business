@@ -32,10 +32,84 @@ body {
     align-content: center;
     align-items: center;
     border-radius: 3px;
+    cursor: pointer;
     &.btn-outline-secondary {
         color: $warm-grey;
         &:hover {
             color: $warm-grey;
+        }
+    }
+}
+
+/* Customize bootstrap modal*/
+
+.modal {
+    z-index: 1101 !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    .modal-credytag {
+        .modal-content {
+            border-radius: 0;
+            width: 500px;
+            border: none;
+            border-radius: 3px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px 1px rgba(0, 0, 0, 0.14);
+            .modal-header {
+                border: none;
+                padding-bottom: 0;
+                .close,
+                .btn {
+                    display: none;
+                }
+            }
+            .modal-footer {
+                border: none;
+                padding-top: 0;
+            }
+        }
+    }
+    @media (max-width: 880px) {
+        // styling for mobile
+        .modal-credytag {
+            min-width: 100vw;
+            margin: 0;
+            .modal-content {
+                border: none;
+                min-height: 100vh;
+                min-width: 100vw;
+                .modal-header {
+                    border-radius: 0;
+                    background-color: $deep-lavender;
+                    color: $white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    padding: 0 1em;
+                    padding-left: 0;
+                    height: 48px;
+                    font-weight: bold;
+                    font-size: 12px !important;
+                    .close,
+                    .btn {
+                        display: inline-block;                                                
+                    }
+                    .close {
+                        color: $white;
+                        text-shadow: none;
+                        cursor: pointer;
+                        margin: 0;
+                        margin-right: .5em;
+                    }
+                    .btn {
+                        margin-left: auto;
+                    }
+                }
+                .modal-footer {
+                    display: none;
+                }
+            }
         }
     }
 }
