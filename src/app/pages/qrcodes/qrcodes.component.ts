@@ -104,4 +104,16 @@ export class QrcodesComponent implements OnInit {
         ));
     }
 
+    showCode(code: any) {
+        alert(`Show: ${code.qrId}`);
+    }
+
+    editCode(code: any) {
+        alert(`Edit: ${code.qrId}`);
+    }
+
+    downloadCode(code: any) {
+        alert(`Download: ${code.qrId}`);
+    }
+
 }

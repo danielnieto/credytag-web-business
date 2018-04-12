@@ -1,9 +1,10 @@
 @import "variables";
-$liHeight: 56px;
-$headingHeight: 40px;
-$mobileHeadingHeight: 32px;
-$mobilePadding: 17px;
-$mobileButtonWidth: 150px;
+$li-height: 56px;
+$heading-height: 40px;
+$mobile-heading-height: 32px;
+$mobile-padding: 17px;
+$mobile-button-width: 150px;
+$actions-button-size: 32px;
 .controls {
     display: flex;
     .input-group {
@@ -24,7 +25,7 @@ $mobileButtonWidth: 150px;
     .heading {
         background-color: $light-gray;
         display: flex;
-        height: $headingHeight;
+        height: $heading-height;
         align-items: center;
         border-bottom: 1px solid $white-snow;
         color: $brownish-grey;
@@ -33,13 +34,13 @@ $mobileButtonWidth: 150px;
         padding: 0;
         margin: 0;
         list-style: none;
-        li {
+        li.list-item {
             list-style: none;
             padding: 0;
             margin: 0;
             display: flex;
             align-items: center;
-            height: $liHeight;
+            height: $li-height;
             color: $greyish-brown;
             border-bottom: 1px solid $white-snow;
             &:last-of-type {
@@ -51,9 +52,6 @@ $mobileButtonWidth: 150px;
             }
         }
     }
-    a {
-        color: $dark-mint;
-    }
     .name-column {
         flex-basis: 40%;
         flex-shrink: 0;
@@ -63,15 +61,25 @@ $mobileButtonWidth: 150px;
     }
     .qr-id-column {
         flex-grow: 0;
-        flex-basis: 130px;
+        flex-basis: 110px;
         flex-shrink: 0;
+        a {
+            color: $dark-mint;
+        }
     }
     .phone-column {
         flex-basis: 30%;
     }
-    .actions-icon {
-        margin-right: $mobilePadding;
+    .actions-button {
         margin-left: auto;
+        margin-right: $mobile-padding;
+        min-width: $actions-button-size;
+        min-height: $actions-button-size;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        cursor: pointer;
     }
     i {
         margin-left: 4px;
@@ -97,21 +105,21 @@ $mobileButtonWidth: 150px;
         .btn-primary {
             position: fixed;
             bottom: 24px;
-            width: $mobileButtonWidth;
-            left: calc(100%/2 - #{$mobileButtonWidth/2});
+            width: $mobile-button-width;
+            left: calc(100%/2 - #{$mobile-button-width/2});
         }
     }
     .qr-codes {
         border-left: none;
         border-right: none;
         .heading {
-            height: $mobileHeadingHeight;
+            height: $mobile-heading-height;
         }
         .name-column {
             flex-basis: 50%;
             white-space: nowrap;
             min-width: 150px;
-            padding-left: $mobilePadding;
+            padding-left: $mobile-padding;
         }
         .qr-id {
             flex-shrink: 0 !important;
@@ -121,8 +129,7 @@ $mobileButtonWidth: 150px;
         }
         padding-bottom: 88px;
         ul.list {
-            li {
-                overflow: hidden;
+            li.list-item {
                 &:last-of-type {
                     border-bottom: 1px solid $white-snow;
                 }

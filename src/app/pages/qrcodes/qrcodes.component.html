@@ -28,7 +28,7 @@
         </div>
     </div>
     <ul class="list">
-        <li *ngFor="let code of qrCodes" [class.is-disabled]="!code.enabled">
+        <li *ngFor="let code of qrCodes" class="list-item" [class.is-disabled]="!code.enabled">
             <div class="name-column">
                 {{code.name}}
             </div>
@@ -45,7 +45,22 @@
             <div class="phone-column">
                 {{code.phone}}
             </div>
-            <i class="fa fa-ellipsis-v actions-icon"></i>
+
+            <div dropdownToggle class="btn-group actions-button" dropdown placement="bottom right">
+                <i class="fa fa-ellipsis-v"></i>
+                <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
+                    <li role="menuitem">
+                        <a class="dropdown-item" (click)="showCode(code)">Mostrar</a>
+                    </li>
+                    <li class="divider dropdown-divider"></li>
+                    <li role="menuitem" >
+                        <a class="dropdown-item" (click)="editCode(code)">Editar</a>
+                    </li>
+                    <li role="menuitem">
+                        <a class="dropdown-item" (click)="downloadCode(code)">Descargar</a>
+                    </li>
+                </ul>
+            </div>
         </li>
     </ul>
 </section>
