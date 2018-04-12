@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 @Component({
     selector: 'app-qrcodes',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./qrcodes.component.scss', '../../content/page-title.scss']
 })
 export class QrcodesComponent implements OnInit {
+
+    modalRef: BsModalRef;
 
     qrCodes = [
         {
@@ -88,9 +92,16 @@ export class QrcodesComponent implements OnInit {
         }
     ];
 
+    constructor(private modalService: BsModalService) {}
 
-    constructor() {}
+    ngOnInit() {
 
-    ngOnInit() {}
+    }
+
+    openModal(template: TemplateRef<any>) {
+        this.modalRef = this.modalService.show(template, Object.assign({},
+            { class: 'modal-credytag', animated: false, keyboard: true, ignoreBackdropClick: true, show: true }
+        ));
+    }
 
 }

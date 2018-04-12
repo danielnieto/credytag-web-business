@@ -10,7 +10,7 @@
             </button>
         </span>
     </div>
-    <button class="btn btn-primary ml-auto">
+    <button class="btn btn-primary ml-auto" (click)="openModal(templateAddQr)">
         <i class="fa fa-plus mr-3" aria-hidden="true"></i>
         <span>Agregar QR</span>
     </button>
@@ -49,3 +49,31 @@
         </li>
     </ul>
 </section>
+
+<ng-template #templateAddQr>
+    <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" (click)="modalRef.hide()">
+            <i class="fa fa-times"></i>
+        </button>
+        <h4 class="modal-title">Agregar QR</h4>
+        <button type="button" class="btn btn-primary">
+            Crear
+        </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" id="name" placeholder="Nombre">
+            </div>
+            <div class="form-group">
+                <label for="phone">Teléfono</label>
+                <input type="tel" class="form-control" id="phone" placeholder="Teléfono">
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-outline-secondary">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Crear</button>
+    </div>
+</ng-template>
