@@ -113,3 +113,27 @@ body {
         }
     }
 }
+
+/*Customize bootstrap dropdowns*/
+
+.dropdown-menu{
+    background-color: $white;
+    border-radius: 3px;
+    border:none;
+    box-shadow: 0 4px 10px 1px rgba(0, 0, 0, 0.14);
+    li a.dropdown-item{
+        height: 40px;
+        box-sizing: border-box;
+        display: flex;
+        align-content: center;
+        align-items: center;
+        color: $greyish-brown;
+        &:hover{
+            background-color: $white-smoke;
+        }
+        &:active{
+            background-color: $deep-lavender;
+            color: $white;
+        }
+    }
+}

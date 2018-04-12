@@ -9,6 +9,7 @@ import localeEs from '@angular/common/locales/es-MX';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap';
 
 import { AppComponent } from './app.component';
@@ -49,6 +50,7 @@ registerLocaleData(localeEs);
         TooltipModule.forRoot(),
         ButtonsModule.forRoot(),
         BsDatepickerModule.forRoot(),
+        BsDropdownModule.forRoot(),
         ModalModule.forRoot(),
         RouterModule.forRoot([
             { path: 'cobros', component: ChargesComponent },
