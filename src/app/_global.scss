@@ -73,12 +73,15 @@ body {
     @media (max-width: 880px) {
         // styling for mobile
         .modal-credytag {
-            min-width: 100vw;
+            width: 100%;
+            max-width: 100%;
             margin: 0;
+            height: 100%;
             .modal-content {
                 border: none;
-                min-height: 100vh;
-                min-width: 100vw;
+                position: absolute;
+                height: 100%;
+                width: 100%;
                 .modal-header {
                     border-radius: 0;
                     background-color: $deep-lavender;
