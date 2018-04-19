@@ -6,6 +6,11 @@ body {
     background-color: $white-smoke !important;
 }
 
+button{
+    &:focus{
+        outline: none;
+    }
+}
 /* Customize Bootstrap 4 Datepicker */
 
 .theme-credytag .bs-datepicker-head {
