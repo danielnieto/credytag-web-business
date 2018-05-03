@@ -13,9 +13,8 @@ import { QrCode } from '../../qrCode';
 export class QrcodesComponent implements OnInit {
 
     modalRef: BsModalRef;
-    newQrName:string;
-    newQrPhone: string;
-    newQrDescription: string;
+
+    addQrData: {name:string , phone: string, description: string};
 
     @ViewChild('templateAddQr') templateAddQr: TemplateRef<any>;
     qrCodes: QrCode[] = [];
@@ -26,7 +25,7 @@ export class QrcodesComponent implements OnInit {
 
     register(){
 
-        this.qrService.register(this.newQrName, this.newQrDescription, this.newQrPhone).then((result)=>{
+        this.qrService.register(this.addQrData.name, this.addQrData.description, this.addQrData.phone).then((result)=>{
             
             this.closeModal();
             this.getCodes();
@@ -57,9 +56,13 @@ export class QrcodesComponent implements OnInit {
     }
 
     addCode() {
-        this.newQrDescription = null;
-        this.newQrPhone = null;
-        this.newQrName = null;
+        
+        this.addQrData = {
+            name: null,
+            phone: null,
+            description: null
+        }
+
         this.openModal(this.templateAddQr);
     }
 

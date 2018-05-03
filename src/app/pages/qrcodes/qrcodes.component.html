@@ -79,15 +79,15 @@
         <form>
             <div class="form-group">
                 <label for="name">Nombre</label>
-                <input [(ngModel)]="newQrName" name="name" type="text" class="form-control" id="name" placeholder="Nombre">
+                <input [(ngModel)]="addQrData.name" name="name" type="text" class="form-control" id="name" placeholder="Nombre">
             </div>
             <div class="form-group">
                 <label for="phone">Teléfono</label>
-                <input [(ngModel)]="newQrPhone" name="phone" type="tel" class="form-control" id="phone" placeholder="Teléfono">
+                <input [(ngModel)]="addQrData.phone" name="phone" type="tel" class="form-control" id="phone" placeholder="Teléfono">
             </div>
             <div class="form-group">
                 <label for="description">Descripción</label>
-                <textarea [(ngModel)]="newQrDescription" name="description" class="form-control no-resize" rows="2" id="description" placeholder="Descripción"></textarea>
+                <textarea [(ngModel)]="addQrData.description" name="description" class="form-control no-resize" rows="2" id="description" placeholder="Descripción"></textarea>
             </div>
         </form>
     </div>
