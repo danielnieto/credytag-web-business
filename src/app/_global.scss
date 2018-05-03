@@ -146,6 +146,11 @@ button{
     }
 }
 
+//helper global classes
+.no-resize {
+    resize: none;
+}
+
 // fix to avoid zoom in when typing on mobile
 @media (max-width: 880px) {
     input[type="color"],
