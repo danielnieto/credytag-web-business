@@ -53,42 +53,42 @@ export class QrcodesService {
 
 	}
 	
-	getCodes(): any {
+	getCodes(): Promise<QrCode[]> {
 
-		return Observable.create((observer) => {
+        const promise = new Promise<QrCode[]>((resolve, reject) => {
 
-			this.httpClient.get(`${this.endpoint}/business/${this.business}/branch/${this.branch}/code`, {
-				headers: this.headers
-			}).subscribe((response: any) => {
+            this.httpClient.get(`${this.endpoint}/business/${this.business}/branch/${this.branch}/code`, {
+                headers: this.headers
+            }).subscribe((response: any) => {
 
-				const codes: QrCode[] = [];
+                const codes: QrCode[] = [];
 
-				if (response !== null) {
+                if (response !== null) {
 
-					response.data.code.forEach((code: any) => {
+                    response.data.code.forEach((code: any) => {
 
-						codes.push({
-							name: code.name,
-							qrId: code.qr,
-							phone: code.mobile,
-							description: code.description,
-							enabled: true
-						});
-					});
+                        codes.push({
+                            name: code.name,
+                            qrId: code.qr,
+                            phone: code.mobile,
+                            description: code.description,
+                            enabled: true
+                        });
+                    });
 
-				}
+                }
 
-				observer.next(codes);
-				observer.complete();
+                resolve(codes);
 
-			}, (error: any) => {
+            }, (error: any) => {
 
-				observer.error(error);
-				observer.complete();
+                reject(error);
 
-			});
+            });
 
-		});
+        });
+
+        return promise;
 
 	}
 

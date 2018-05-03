@@ -64,11 +64,11 @@ export class QrcodesComponent implements OnInit {
 
     getCodes(): void{
 
-        this.qrService.getCodes().subscribe((qrCodes: QrCode[]) => {
+        this.qrService.getCodes().then((qrCodes: QrCode[])=>{
             this.qrCodes = qrCodes;
-        }, (error: any) => {
+        }).catch((error: any) => {
             console.log(error);
-        });
+        })
 
     }
 
