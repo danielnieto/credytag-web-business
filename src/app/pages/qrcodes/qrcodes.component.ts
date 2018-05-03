@@ -2,6 +2,7 @@ import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { QrcodesService} from '../../qrcodes.service';
+import { QrCode } from '../../qrCode';
 
 @Component({
     selector: 'app-qrcodes',
@@ -16,86 +17,7 @@ export class QrcodesComponent implements OnInit {
     newQrPhone: string;
     newQrDescription: string;
 
-    qrCodes = [
-        {
-            name: 'caja 1',
-            qrId: '#ASD32D',
-            phone: '(33) 3312 4567',
-            enabled: true
-        },
-        {
-            name: 'caja 2',
-            qrId: '#HK8SNS',
-            phone: '(33) 1234 5678',
-            enabled: true
-        },
-        {
-            name: 'caja 2',
-            qrId: '#HK8SNS',
-            phone: '(33) 1234 5678',
-            enabled: false
-        },
-        {
-            name: 'caja 2',
-            qrId: '#HK8SNS',
-            phone: '(33) 1234 5678',
-            enabled: true
-        },
-        {
-            name: 'caja 2',
-            qrId: '#HK8SNS',
-            phone: '(33) 1234 5678',
-            enabled: true
-        },
-        {
-            name: 'caja 2',
-            qrId: '#HK8SNS',
-            phone: '(33) 1234 5678',
-            enabled: true
-        },
-        {
-            name: 'caja 2',
-            qrId: '#HK8SNS',
-            phone: '(33) 1234 5678',
-            enabled: false
-        },
-        {
-            name: 'caja 2',
-            qrId: '#HK8SNS',
-            phone: '(33) 1234 5678',
-            enabled: true
-        },
-        {
-            name: 'caja 2',
-            qrId: '#HK8SNS',
-            phone: '(33) 1234 5678',
-            enabled: true
-        },
-        {
-            name: 'caja 2',
-            qrId: '#HK8SNS',
-            phone: '(33) 1234 5678',
-            enabled: false
-        },
-        {
-            name: 'caja 2',
-            qrId: '#HK8SNS',
-            phone: '(33) 1234 5678',
-            enabled: true
-        },
-        {
-            name: 'caja 3',
-            qrId: '#ASD32D',
-            phone: '(33) 3312 4567',
-            enabled: false
-        },
-        {
-            name: 'caja 1',
-            qrId: '#ASD32D',
-            phone: '(33) 3312 4567',
-            enabled: true
-        }
-    ];
+    qrCodes: QrCode[] = [];
 
     constructor(private modalService: BsModalService, private qrService: QrcodesService) {
 
@@ -105,14 +27,15 @@ export class QrcodesComponent implements OnInit {
 
         this.qrService.register(this.newQrName, this.newQrDescription, this.newQrPhone).then((result)=>{
             
-            alert("QR Added!");
-            console.log(result);
             this.modalRef.hide();
+            this.getCodes();
 
         }).catch(err => console.log(err));
     }
 
     ngOnInit() {
+
+       this.getCodes();
 
     }
 
@@ -137,6 +60,16 @@ export class QrcodesComponent implements OnInit {
 
     downloadCode(code: any) {
         alert(`Download: ${code.qrId}`);
+    }
+
+    getCodes(): void{
+
+        this.qrService.getCodes().subscribe((qrCodes: QrCode[]) => {
+            this.qrCodes = qrCodes;
+        }, (error: any) => {
+            console.log(error);
+        });
+
     }
 
 }

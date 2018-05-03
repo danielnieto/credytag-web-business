@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { QrCode } from './qrCode';
 
 @Injectable()
 export class QrcodesService {
@@ -50,6 +51,45 @@ export class QrcodesService {
 
         return promise;
 
-    }
+	}
+	
+	getCodes(): any {
+
+		return Observable.create((observer) => {
+
+			this.httpClient.get(`${this.endpoint}/business/${this.business}/branch/${this.branch}/code`, {
+				headers: this.headers
+			}).subscribe((response: any) => {
+
+				const codes: QrCode[] = [];
+
+				if (response !== null) {
+
+					response.data.code.forEach((code: any) => {
+
+						codes.push({
+							name: code.name,
+							qrId: code.qr,
+							phone: code.mobile,
+							description: code.description,
+							enabled: true
+						});
+					});
+
+				}
+
+				observer.next(codes);
+				observer.complete();
+
+			}, (error: any) => {
+
+				observer.error(error);
+				observer.complete();
+
+			});
+
+		});
+
+	}
 
 }
