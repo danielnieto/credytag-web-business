@@ -17,6 +17,7 @@ export class QrcodesComponent implements OnInit {
     newQrPhone: string;
     newQrDescription: string;
 
+    @ViewChild('templateAddQr') templateAddQr: TemplateRef<any>;
     qrCodes: QrCode[] = [];
 
     constructor(private modalService: BsModalService, private qrService: QrcodesService) {
@@ -27,7 +28,7 @@ export class QrcodesComponent implements OnInit {
 
         this.qrService.register(this.newQrName, this.newQrDescription, this.newQrPhone).then((result)=>{
             
-            this.modalRef.hide();
+            this.closeModal();
             this.getCodes();
 
         }).catch(err => console.log(err));
@@ -40,18 +41,26 @@ export class QrcodesComponent implements OnInit {
     }
 
     openModal(template: TemplateRef<any>) {
-        
-        this.newQrDescription = null;
-        this.newQrPhone = null;
-        this.newQrName = null;
 
         this.modalRef = this.modalService.show(template, Object.assign({},
             { class: 'modal-credytag', animated: false, keyboard: true, ignoreBackdropClick: true, show: true }
         ));
+
+    }
+
+    closeModal(){
+        this.modalRef.hide();
     }
 
     showCode(code: any) {
         alert(`Show: ${code.qrId}`);
+    }
+
+    addCode() {
+        this.newQrDescription = null;
+        this.newQrPhone = null;
+        this.newQrName = null;
+        this.openModal(this.templateAddQr);
     }
 
     editCode(code: any) {
