@@ -1,15 +1,20 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { QrcodesService} from '../../qrcodes.service';
 
 @Component({
     selector: 'app-qrcodes',
     templateUrl: './qrcodes.component.html',
-    styleUrls: ['./qrcodes.component.scss', '../../content/page-title.scss']
+    styleUrls: ['./qrcodes.component.scss', '../../content/page-title.scss'],
+    providers: [QrcodesService]
 })
 export class QrcodesComponent implements OnInit {
 
     modalRef: BsModalRef;
+    newQrName:string;
+    newQrPhone: string;
+    newQrDescription: string;
 
     qrCodes = [
         {
@@ -92,13 +97,31 @@ export class QrcodesComponent implements OnInit {
         }
     ];
 
-    constructor(private modalService: BsModalService) {}
+    constructor(private modalService: BsModalService, private qrService: QrcodesService) {
+
+    }
+
+    register(){
+
+        this.qrService.register(this.newQrName, this.newQrDescription, this.newQrPhone).then((result)=>{
+            
+            alert("QR Added!");
+            console.log(result);
+            this.modalRef.hide();
+
+        }).catch(err => console.log(err));
+    }
 
     ngOnInit() {
 
     }
 
     openModal(template: TemplateRef<any>) {
+        
+        this.newQrDescription = null;
+        this.newQrPhone = null;
+        this.newQrName = null;
+
         this.modalRef = this.modalService.show(template, Object.assign({},
             { class: 'modal-credytag', animated: false, keyboard: true, ignoreBackdropClick: true, show: true }
         ));
