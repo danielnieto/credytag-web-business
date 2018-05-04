@@ -96,3 +96,40 @@
         <button type="submit" class="btn btn-primary" (click)="register()">Crear</button>
     </div>
 </ng-template>
+
+<ng-template #templateEditQr>
+    <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+            <i class="fa fa-times"></i>
+        </button>
+        <h4 class="modal-title">Editar QR</h4>
+        <button type="button" class="btn btn-primary" (click)="edit()">
+            Guardar
+        </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input [(ngModel)]="editQrData.name" name="name" type="text" class="form-control" id="name" placeholder="Nombre">
+            </div>
+            <div class="form-group">
+                <label for="phone">Teléfono</label>
+                <input [(ngModel)]="editQrData.phone" name="phone" type="tel" class="form-control" id="phone" placeholder="Teléfono">
+            </div>
+            <div class="form-group">
+                <label for="description">Descripción</label>
+                <textarea [(ngModel)]="editQrData.description" name="description" class="form-control no-resize" rows="2" id="description" placeholder="Descripción"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="phone">QR</label>
+                <input [(ngModel)]="editQrData.qr" name="qr" type="text" class="form-control" id="qr" disabled>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-outline-secondary" (click)="closeModal()">Cancelar</button>
+        <button type="submit" class="btn btn-primary" (click)="edit()">Guardar</button>
+    </div>
+</ng-template>
+

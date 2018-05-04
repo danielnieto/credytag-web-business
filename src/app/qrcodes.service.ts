@@ -91,6 +91,37 @@ export class QrcodesService {
 
         return promise;
 
-	}
+    }
+    
+    editCode(editQrData: { id: string, name: string, phone: string, description: string, readonly qr: string }): any {
+
+        const payload = {
+            code: {
+                name: editQrData.name,
+                description: editQrData.description,
+                mobile: editQrData.phone
+            }
+        };
+
+        const promise = new Promise((resolve, reject) => {
+
+            this.httpClient.put(`${this.endpoint}/business/${this.business}/branch/${this.branch}/code/${editQrData.id}`, payload, {
+                headers: this.headers,
+                responseType: 'text'
+            }).subscribe((response: any) => {
+
+                resolve(response);
+
+            }, (error: any) => {
+
+                reject(error);
+
+            });
+        });
+
+
+        return promise;
+
+    }
 
 }

@@ -18,6 +18,8 @@ export class QrcodesComponent implements OnInit {
     editQrData: {id: string, name:string , phone: string, description: string, readonly qr: string};
 
     @ViewChild('templateAddQr') templateAddQr: TemplateRef<any>;
+    @ViewChild('templateEditQr') templateEditQr: TemplateRef<any>;
+
     qrCodes: QrCode[] = [];
 
     constructor(private modalService: BsModalService, private qrService: QrcodesService) {
@@ -68,7 +70,18 @@ export class QrcodesComponent implements OnInit {
     }
 
     editCode(code: any) {
-        alert(`Edit: ${code.qrId}`);
+        // alert(JSON.stringify(code));
+        this.editQrData = {...code};
+        this.openModal(this.templateEditQr);
+    }
+
+    edit(){
+        this.qrService.editCode(this.editQrData).then((result) => {
+
+            this.closeModal();
+            this.getCodes();
+
+        }).catch(err => console.log(err));
     }
 
     downloadCode(code: any) {
