@@ -15,6 +15,7 @@ export class QrcodesComponent implements OnInit {
     modalRef: BsModalRef;
 
     addQrData: {name:string , phone: string, description: string};
+    editQrData: {id: string, name:string , phone: string, description: string, readonly qr: string};
 
     @ViewChild('templateAddQr') templateAddQr: TemplateRef<any>;
     qrCodes: QrCode[] = [];
@@ -52,7 +53,7 @@ export class QrcodesComponent implements OnInit {
     }
 
     showCode(code: any) {
-        alert(`Show: ${code.qrId}`);
+        alert(`Show: ${code.qr}`);
     }
 
     addCode() {
@@ -71,7 +72,7 @@ export class QrcodesComponent implements OnInit {
     }
 
     downloadCode(code: any) {
-        alert(`Download: ${code.qrId}`);
+        alert(`Download: ${code.qr}`);
     }
 
     getCodes(): void{

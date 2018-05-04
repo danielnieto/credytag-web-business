@@ -69,9 +69,10 @@ export class QrcodesService {
 
                         codes.push({
                             name: code.name,
-                            qrId: code.qr,
+                            qr: code.qr,
                             phone: code.mobile,
                             description: code.description,
+                            id: code.id,
                             enabled: true
                         });
                     });
