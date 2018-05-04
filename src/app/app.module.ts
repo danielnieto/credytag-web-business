@@ -12,6 +12,9 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap';
 
+// QRCodes
+import { QRCodeModule } from 'angularx-qrcode';
+
 import { AppComponent } from './app.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { ShellComponent } from './shell/shell.component';
@@ -52,6 +55,7 @@ registerLocaleData(localeEs);
         BsDatepickerModule.forRoot(),
         BsDropdownModule.forRoot(),
         ModalModule.forRoot(),
+        QRCodeModule,
         RouterModule.forRoot([
             { path: 'cobros', component: ChargesComponent },
             { path: 'codigos-qr', component: QrcodesComponent },
