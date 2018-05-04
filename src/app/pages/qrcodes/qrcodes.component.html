@@ -133,3 +133,23 @@
     </div>
 </ng-template>
 
+<ng-template class="show-qr-modal" #templateShowQr>
+    <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+            <i class="fa fa-times"></i>
+        </button>
+        <h4 class="modal-title">Mostrar QR</h4>
+    </div>
+    <div class="modal-body modal-body-qr">
+        <div class="qr-code-container">
+            <qrcode [qrdata]="qrToShow" [size]="208" [level]="'M'"></qrcode>
+        </div>
+        <div class="qr-code-text">
+            {{qrToShow}}
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" (click)="closeModal()">Cerrar</button>
+    </div>
+</ng-template>
+
