@@ -14,28 +14,18 @@ export class QrcodesComponent implements OnInit {
 
     modalRef: BsModalRef;
 
-    addQrData: {name:string , phone: string, description: string};
+    createQrData: {name:string , phone: string, description: string};
     qrToShow: string;
-    editQrData: {id: string, name:string , phone: string, description: string, readonly qr: string};
+    updateQrData: {id: string, name:string , phone: string, description: string, readonly qr: string};
 
-    @ViewChild('templateAddQr') templateAddQr: TemplateRef<any>;
-    @ViewChild('templateEditQr') templateEditQr: TemplateRef<any>;
+    @ViewChild('templateCreateQr') templateCreateQr: TemplateRef<any>;
+    @ViewChild('templateUpdateQr') templateUpdateQr: TemplateRef<any>;
     @ViewChild('templateShowQr') templateShowQr: TemplateRef<any>;
 
     qrCodes: QrCode[] = [];
 
     constructor(private modalService: BsModalService, private qrService: QrcodesService) {
 
-    }
-
-    register(){
-
-        this.qrService.register(this.addQrData.name, this.addQrData.description, this.addQrData.phone).then((result)=>{
-            
-            this.closeModal();
-            this.getCodes();
-
-        }).catch(err => console.log(err));
     }
 
     ngOnInit() {
@@ -56,30 +46,35 @@ export class QrcodesComponent implements OnInit {
         this.modalRef.hide();
     }
 
-    showCode(code: any) {
+    showShowQrModal(code: any) {
         this.qrToShow = code.qr;
         this.openModal(this.templateShowQr);
     }
 
-    addCode() {
+    showCreateQrModal() {
         
-        this.addQrData = {
+        this.createQrData = {
             name: null,
             phone: null,
             description: null
         }
 
-        this.openModal(this.templateAddQr);
+        this.openModal(this.templateCreateQr);
     }
 
-    editCode(code: any) {
+    showUpdateQrModal(code: any) {
         // alert(JSON.stringify(code));
-        this.editQrData = {...code};
-        this.openModal(this.templateEditQr);
+        this.updateQrData = {...code};
+        this.openModal(this.templateUpdateQr);
     }
 
-    edit(){
-        this.qrService.editCode(this.editQrData).then((result) => {
+    showDownloadQrModal(code: any) {
+        alert(`Download: ${code.qr}`);
+    }
+
+    create() {
+
+        this.qrService.createQr(this.createQrData.name, this.createQrData.description, this.createQrData.phone).then((result) => {
 
             this.closeModal();
             this.getCodes();
@@ -87,8 +82,13 @@ export class QrcodesComponent implements OnInit {
         }).catch(err => console.log(err));
     }
 
-    downloadCode(code: any) {
-        alert(`Download: ${code.qr}`);
+    update(){
+        this.qrService.updateQr(this.updateQrData).then((result) => {
+
+            this.closeModal();
+            this.getCodes();
+
+        }).catch(err => console.log(err));
     }
 
     getCodes(): void{

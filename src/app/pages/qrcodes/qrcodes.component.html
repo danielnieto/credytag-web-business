@@ -10,7 +10,7 @@
             </button>
         </span>
     </div>
-    <button class="btn btn-primary ml-auto" (click)="addCode()">
+    <button class="btn btn-primary ml-auto" (click)="showCreateQrModal()">
         <i class="fa fa-plus mr-3" aria-hidden="true"></i>
         <span>Agregar QR</span>
     </button>
@@ -50,14 +50,14 @@
                 <i class="fa fa-ellipsis-v"></i>
                 <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
                     <li role="menuitem">
-                        <a class="dropdown-item" (click)="showCode(code)">Mostrar</a>
+                        <a class="dropdown-item" (click)="showShowQrModal(code)">Mostrar</a>
                     </li>
                     <li class="divider dropdown-divider"></li>
                     <li role="menuitem" >
-                        <a class="dropdown-item" (click)="editCode(code)">Editar</a>
+                        <a class="dropdown-item" (click)="showUpdateQrModal(code)">Editar</a>
                     </li>
                     <li role="menuitem">
-                        <a class="dropdown-item" (click)="downloadCode(code)">Descargar</a>
+                        <a class="dropdown-item" (click)="showDownloadQrModal(code)">Descargar</a>
                     </li>
                 </ul>
             </div>
@@ -65,13 +65,13 @@
     </ul>
 </section>
 
-<ng-template #templateAddQr>
+<ng-template #templateCreateQr>
     <div class="modal-header">
         <button type="button" class="close" aria-label="Close" (click)="closeModal()">
             <i class="fa fa-times"></i>
         </button>
         <h4 class="modal-title">Agregar QR</h4>
-        <button type="button" class="btn btn-primary" (click)="register()">
+        <button type="button" class="btn btn-primary" (click)="create()">
             Crear
         </button>
     </div>
@@ -79,31 +79,31 @@
         <form>
             <div class="form-group">
                 <label for="name">Nombre</label>
-                <input [(ngModel)]="addQrData.name" name="name" type="text" class="form-control" id="name" placeholder="Nombre">
+                <input [(ngModel)]="createQrData.name" name="name" type="text" class="form-control" id="name" placeholder="Nombre">
             </div>
             <div class="form-group">
                 <label for="phone">Teléfono</label>
-                <input [(ngModel)]="addQrData.phone" name="phone" type="tel" class="form-control" id="phone" placeholder="Teléfono">
+                <input [(ngModel)]="createQrData.phone" name="phone" type="tel" class="form-control" id="phone" placeholder="Teléfono">
             </div>
             <div class="form-group">
                 <label for="description">Descripción</label>
-                <textarea [(ngModel)]="addQrData.description" name="description" class="form-control no-resize" rows="2" id="description" placeholder="Descripción"></textarea>
+                <textarea [(ngModel)]="createQrData.description" name="description" class="form-control no-resize" rows="2" id="description" placeholder="Descripción"></textarea>
             </div>
         </form>
     </div>
     <div class="modal-footer">
         <button type="submit" class="btn btn-outline-secondary" (click)="closeModal()">Cancelar</button>
-        <button type="submit" class="btn btn-primary" (click)="register()">Crear</button>
+        <button type="submit" class="btn btn-primary" (click)="create()">Crear</button>
     </div>
 </ng-template>
 
-<ng-template #templateEditQr>
+<ng-template #templateUpdateQr>
     <div class="modal-header">
         <button type="button" class="close" aria-label="Close" (click)="closeModal()">
             <i class="fa fa-times"></i>
         </button>
         <h4 class="modal-title">Editar QR</h4>
-        <button type="button" class="btn btn-primary" (click)="edit()">
+        <button type="button" class="btn btn-primary" (click)="update()">
             Guardar
         </button>
     </div>
@@ -111,25 +111,25 @@
         <form>
             <div class="form-group">
                 <label for="name">Nombre</label>
-                <input [(ngModel)]="editQrData.name" name="name" type="text" class="form-control" id="name" placeholder="Nombre">
+                <input [(ngModel)]="updateQrData.name" name="name" type="text" class="form-control" id="name" placeholder="Nombre">
             </div>
             <div class="form-group">
                 <label for="phone">Teléfono</label>
-                <input [(ngModel)]="editQrData.phone" name="phone" type="tel" class="form-control" id="phone" placeholder="Teléfono">
+                <input [(ngModel)]="updateQrData.phone" name="phone" type="tel" class="form-control" id="phone" placeholder="Teléfono">
             </div>
             <div class="form-group">
                 <label for="description">Descripción</label>
-                <textarea [(ngModel)]="editQrData.description" name="description" class="form-control no-resize" rows="2" id="description" placeholder="Descripción"></textarea>
+                <textarea [(ngModel)]="updateQrData.description" name="description" class="form-control no-resize" rows="2" id="description" placeholder="Descripción"></textarea>
             </div>
             <div class="form-group">
                 <label for="phone">QR</label>
-                <input [(ngModel)]="editQrData.qr" name="qr" type="text" class="form-control" id="qr" disabled>
+                <input [(ngModel)]="updateQrData.qr" name="qr" type="text" class="form-control" id="qr" disabled>
             </div>
         </form>
     </div>
     <div class="modal-footer">
         <button type="submit" class="btn btn-outline-secondary" (click)="closeModal()">Cancelar</button>
-        <button type="submit" class="btn btn-primary" (click)="edit()">Guardar</button>
+        <button type="submit" class="btn btn-primary" (click)="update()">Guardar</button>
     </div>
 </ng-template>
 
