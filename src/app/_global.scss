@@ -17,6 +17,11 @@ button{
     background-color: $twilight;
 }
 
+.theme-credytag bs-datepicker-navigation-view {
+    display: flex;
+    justify-content: space-between;
+}
+
 .theme-credytag .current,
 .theme-credytag .bs-datepicker-body table {
     text-transform: capitalize;

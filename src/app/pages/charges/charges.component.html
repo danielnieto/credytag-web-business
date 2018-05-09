@@ -37,7 +37,7 @@
             <div class="location">{{charge.qrName}},&nbsp;<a>{{charge.qrCode}}</a></div>
             <div class="transaction">No. {{charge.id}}</div>
             <div class="sell" [ngClass]="'status-' + charge.status">
-                {{charge.sell | currency:'USD':'symbol':'1.2-2'}}
+                {{charge.sell | currency:'MXN':'symbol':'1.2-2'}}
             </div>
         </div>
         <div class="charge_details" *ngIf="!charge.collapsed">
@@ -84,20 +84,20 @@
                         <div class="transaction-details">
                             <div>
                                 <span>Venta</span>
-                                <span>{{charge.sell | currency:'USD':'symbol':'1.2-2'}}</span>
+                                <span>{{charge.sell | currency:'MXN':'symbol':'1.2-2'}}</span>
                             </div>
                             <div>
                                 <span>Comisión</span>
-                                <span>{{charge.comission | currency:'USD':'symbol':'1.2-2'}}</span>
+                                <span>{{charge.comission | currency:'MXN':'symbol':'1.2-2'}}</span>
                             </div>
                             <div>
                                 <span>SMS</span>
-                                <span>{{charge.sms | currency:'USD':'symbol':'1.2-2'}}</span>
+                                <span>{{charge.sms | currency:'MXN':'symbol':'1.2-2'}}</span>
                             </div>
                             <div class="sum">
                                 <span>Recibes</span>
                                 <span [ngClass]="'status-' + charge.status">
-                                    {{(charge.sell-charge.comission) | currency:'USD':'symbol':'1.2-2'}}
+                                    {{(charge.sell-charge.comission) | currency:'MXN':'symbol':'1.2-2'}}
                                 </span>
                             </div>
                         </div>
