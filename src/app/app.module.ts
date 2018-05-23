@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es-MX';
@@ -56,6 +57,7 @@ registerLocaleData(localeEs);
         BsDropdownModule.forRoot(),
         ModalModule.forRoot(),
         QRCodeModule,
+        ReactiveFormsModule,
         RouterModule.forRoot([
             { path: 'cobros', component: ChargesComponent },
             { path: 'codigos-qr', component: QrcodesComponent },
