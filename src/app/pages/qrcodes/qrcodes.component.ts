@@ -3,6 +3,7 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { QrcodesService} from '../../qrcodes.service';
 import { QrCode } from '../../qrCode';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-qrcodes',
@@ -14,9 +15,10 @@ export class QrcodesComponent implements OnInit {
 
     modalRef: BsModalRef;
 
-    createQrData: {name:string , phone: string, description: string};
     qrToShow: string;
     updateQrData: {id: string, name:string , phone: string, description: string, readonly qr: string};
+
+    createQrForm: FormGroup;
 
     @ViewChild('templateCreateQr') templateCreateQr: TemplateRef<any>;
     @ViewChild('templateUpdateQr') templateUpdateQr: TemplateRef<any>;
@@ -53,11 +55,11 @@ export class QrcodesComponent implements OnInit {
 
     showCreateQrModal() {
         
-        this.createQrData = {
-            name: null,
-            phone: null,
-            description: null
-        }
+        this.createQrForm = new FormGroup({
+            name: new FormControl(null, [Validators.required]),
+            phone: new FormControl(null, [Validators.required]),
+            description: new FormControl(null, [Validators.required])
+        });
 
         this.openModal(this.templateCreateQr);
     }
@@ -74,7 +76,9 @@ export class QrcodesComponent implements OnInit {
 
     create() {
 
-        this.qrService.createQr(this.createQrData.name, this.createQrData.description, this.createQrData.phone).then((result) => {
+        const formValues = this.createQrForm.value;
+
+        this.qrService.createQr(formValues.name, formValues.description, formValues.phone).then((result) => {
 
             this.closeModal();
             this.getCodes();

@@ -76,24 +76,24 @@
         </button>
     </div>
     <div class="modal-body">
-        <form>
+        <form [formGroup]="createQrForm">
             <div class="form-group">
-                <label for="name">Nombre</label>
-                <input [(ngModel)]="createQrData.name" name="name" type="text" class="form-control" id="name" placeholder="Nombre">
+                <label for="name">Nombre *</label>
+                <input formControlName="name" name="name" type="text" class="form-control" id="name" placeholder="Nombre">
             </div>
             <div class="form-group">
-                <label for="phone">Teléfono</label>
-                <input [(ngModel)]="createQrData.phone" name="phone" type="tel" class="form-control" id="phone" placeholder="Teléfono">
+                <label for="phone">Teléfono *</label>
+                <input formControlName="phone" name="phone" type="tel" class="form-control" id="phone" placeholder="Teléfono">
             </div>
             <div class="form-group">
-                <label for="description">Descripción</label>
-                <textarea [(ngModel)]="createQrData.description" name="description" class="form-control no-resize" rows="2" id="description" placeholder="Descripción"></textarea>
+                <label for="description">Descripción *</label>
+                <textarea formControlName="description" name="description" class="form-control no-resize" rows="2" id="description" placeholder="Descripción"></textarea>
             </div>
         </form>
     </div>
     <div class="modal-footer">
         <button type="submit" class="btn btn-outline-secondary" (click)="closeModal()">Cancelar</button>
-        <button type="submit" class="btn btn-primary" (click)="create()">Crear</button>
+        <button type="submit" class="btn btn-primary" (click)="create()" [disabled]="!createQrForm.valid">Crear</button>
     </div>
 </ng-template>
 
@@ -152,4 +152,3 @@
         <button type="submit" class="btn btn-primary" (click)="closeModal()">Cerrar</button>
     </div>
 </ng-template>
-
