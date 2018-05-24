@@ -108,28 +108,29 @@
         </button>
     </div>
     <div class="modal-body">
-        <form>
+        <form [formGroup]="updateQrForm">
+            <input formControlNam="id" type="hidden" name="id">
             <div class="form-group">
                 <label for="name">Nombre</label>
-                <input [(ngModel)]="updateQrData.name" name="name" type="text" class="form-control" id="name" placeholder="Nombre">
+                <input formControlName="name" name="name" type="text" class="form-control" id="name" placeholder="Nombre">
             </div>
             <div class="form-group">
                 <label for="phone">Teléfono</label>
-                <input [(ngModel)]="updateQrData.phone" name="phone" type="tel" class="form-control" id="phone" placeholder="Teléfono">
+                <input formControlName="phone" name="phone" type="tel" class="form-control" id="phone" placeholder="Teléfono">
             </div>
             <div class="form-group">
                 <label for="description">Descripción</label>
-                <textarea [(ngModel)]="updateQrData.description" name="description" class="form-control no-resize" rows="2" id="description" placeholder="Descripción"></textarea>
+                <textarea formControlName="description" name="description" class="form-control no-resize" rows="2" id="description" placeholder="Descripción"></textarea>
             </div>
             <div class="form-group">
-                <label for="phone">QR</label>
-                <input [(ngModel)]="updateQrData.qr" name="qr" type="text" class="form-control" id="qr" disabled>
+                <label for="qr">QR</label>
+                <input formControlName="qr" name="qr" type="text" class="form-control" id="qr">
             </div>
         </form>
     </div>
     <div class="modal-footer">
         <button type="submit" class="btn btn-outline-secondary" (click)="closeModal()">Cancelar</button>
-        <button type="submit" class="btn btn-primary" (click)="update()">Guardar</button>
+        <button type="submit" class="btn btn-primary" (click)="update()" [disabled]="updateQrForm.invalid">Guardar</button>
     </div>
 </ng-template>
 

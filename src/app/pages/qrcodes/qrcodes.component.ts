@@ -16,9 +16,9 @@ export class QrcodesComponent implements OnInit {
     modalRef: BsModalRef;
 
     qrToShow: string;
-    updateQrData: {id: string, name:string , phone: string, description: string, readonly qr: string};
 
     createQrForm: FormGroup;
+    updateQrForm: FormGroup;
 
     @ViewChild('templateCreateQr') templateCreateQr: TemplateRef<any>;
     @ViewChild('templateUpdateQr') templateUpdateQr: TemplateRef<any>;
@@ -64,9 +64,16 @@ export class QrcodesComponent implements OnInit {
         this.openModal(this.templateCreateQr);
     }
 
-    showUpdateQrModal(code: any) {
-        // alert(JSON.stringify(code));
-        this.updateQrData = {...code};
+    showUpdateQrModal(code: QrCode) {
+
+        this.updateQrForm = new FormGroup({
+            id: new FormControl(code.id),
+            name: new FormControl(code.name , [Validators.required]),
+            phone: new FormControl(code.phone, [Validators.required]),
+            description: new FormControl(code.description, [Validators.required]),
+            qr: new FormControl({value: code.qr, disabled: true})
+        });
+        
         this.openModal(this.templateUpdateQr);
     }
 
@@ -87,7 +94,8 @@ export class QrcodesComponent implements OnInit {
     }
 
     update(){
-        this.qrService.updateQr(this.updateQrData).then((result) => {
+
+        this.qrService.updateQr(this.updateQrForm.value).then((result) => {
 
             this.closeModal();
             this.getCodes();
