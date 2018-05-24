@@ -196,3 +196,10 @@ button{
         text-align: center;
     }
 }
+
+
+.form-control{
+    &.ng-touched.ng-invalid{
+        box-shadow: 0 0 0 0.2rem rgba($red, 0.25);
+    }
+}
