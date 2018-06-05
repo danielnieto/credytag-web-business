@@ -13,3 +13,51 @@ $light-gray: #f9f9f9;
 $greyish-brown: #555555;
 $white: #fdfdfd;
 $red: #ee0000;
+
+$secondary-button-bgcolor: transparent;
+$secondary-button-disabled-bgcolor: $white-smoke;
+$secondary-button-hover-bgcolor: #e6e6e6;
+$secondary-button-active-bgcolor: #d9d9d9;
+$secondary-button-focus-bgcolor: $white-smoke;
+
+$secondary-button-color: $deep-lavender;
+$secondary-button-disabled-color: rgba($deep-lavender, .5);
+$secondary-button-hover-color: $deep-lavender;
+$secondary-button-active-color: $deep-lavender;
+$secondary-button-focus-color: $deep-lavender;
+
+$primary-button-bgcolor: $deep-lavender;
+$primary-button-disabled-bgcolor: $deep-lavender;
+$primary-button-hover-bgcolor: #584785;
+$primary-button-active-bgcolor: #423563;
+$primary-button-focus-bgcolor: #584785;
+
+$primary-button-color: $white;
+$primary-button-disabled-color: rgba($white, .5);
+$primary-button-hover-color: $white;
+$primary-button-active-color: $white;
+$primary-button-focus-color: $white;
+
+$green-button-bgcolor: $dark-mint;
+$green-button-disabled-bgcolor: $dark-mint;
+$green-button-hover-bgcolor: #3d928a;
+$green-button-active-bgcolor: #2e6d67;
+$green-button-focus-bgcolor: #3d928a;
+
+$green-button-color: $white;
+$green-button-disabled-color: rgba($white, .5);
+$green-button-hover-color: $white;
+$green-button-active-color: $white;
+$green-button-focus-color: $white;
+
+$control-button-bgcolor: transparent;
+$control-button-disabled-bgcolor: #f5f5f5;
+$control-button-hover-bgcolor: #e6e6e6;
+$control-button-active-bgcolor: #d9d9d9;
+$control-button-focus-bgcolor: #e6e6e6;
+
+$control-button-color: $greyish-brown;
+$control-button-disabled-color: rgba($greyish-brown, .5);
+$control-button-hover-color: $greyish-brown;
+$control-button-active-color: $greyish-brown;
+$control-button-focus-color: $greyish-brown;

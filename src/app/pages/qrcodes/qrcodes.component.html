@@ -5,7 +5,7 @@
     <div class="input-group">
         <input type="text" class="form-control" placeholder="Código QR" aria-label="Código QR">
         <span class="input-group-btn">
-            <button class="btn btn-outline-secondary" type="button">
+            <button class="btn btn-control" type="button">
                 <i class="fa fa-fw fa-search"></i>
             </button>
         </span>
@@ -92,7 +92,7 @@
         </form>
     </div>
     <div class="modal-footer">
-        <button type="submit" class="btn btn-outline-secondary" (click)="closeModal()">Cancelar</button>
+        <button type="submit" class="btn btn-secondary" (click)="closeModal()">Cancelar</button>
         <button type="submit" class="btn btn-primary" (click)="create()" [disabled]="!createQrForm.valid">Crear</button>
     </div>
 </ng-template>
@@ -129,7 +129,7 @@
         </form>
     </div>
     <div class="modal-footer">
-        <button type="submit" class="btn btn-outline-secondary" (click)="closeModal()">Cancelar</button>
+        <button type="submit" class="btn btn-secondary" (click)="closeModal()">Cancelar</button>
         <button type="submit" class="btn btn-primary" (click)="update()" [disabled]="updateQrForm.invalid">Guardar</button>
     </div>
 </ng-template>

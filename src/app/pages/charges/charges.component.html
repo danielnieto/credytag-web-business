@@ -2,8 +2,8 @@
   Cobros
 </h1>
 <section class="controls pt-3 pb-3">
-    <button type="button" class="btn btn-outline-secondary today mr-3" (click)="onClickToday()" [ngClass]="{'is-today': isToday()}">Hoy</button>
-    <button type="button" class="btn btn-outline-secondary previous-day border-right-0" (click)="onClickPreviousDay()">
+    <button type="button" class="btn btn-green today mr-3" (click)="onClickToday()">Hoy</button>
+    <button type="button" class="btn btn-control previous-day border-right-0" (click)="onClickPreviousDay()">
         <i class="fa fa-fw fa-2x fa-angle-left"></i>
     </button>
     <div class="date-container text-capitalize" bsDatepicker [(bsValue)]="datePickerValue" [bsConfig]="datePickerConfig" [maxDate]="today" (bsValueChange)="fetchCharges()">
@@ -15,14 +15,14 @@
              {{datePickerValue | date: 'd/M/yyyy'}}
         </div>
     </div>
-    <button type="button" class="btn btn-outline-secondary next-day border-left-0" (click)="onClickNextDay()" [disabled]="isToday()">
+    <button type="button" class="btn btn-control next-day border-left-0" (click)="onClickNextDay()" [disabled]="isToday()">
         <i class="fa fa-fw fa-2x fa-angle-right"></i>
     </button>
 
     <div class="input-group">
         <input type="text" class="form-control" placeholder="Código QR" aria-label="Código QR">
         <span class="input-group-btn">
-            <button class="btn btn-outline-secondary" type="button">
+            <button class="btn btn-control" type="button">
                 <i class="fa fa-fw fa-search"></i>
             </button>
         </span>

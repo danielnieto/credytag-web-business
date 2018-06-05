@@ -6,11 +6,12 @@ body {
     background-color: $white-smoke !important;
 }
 
-button{
-    &:focus{
+button {
+    &:focus {
         outline: none;
     }
 }
+
 /* Customize Bootstrap 4 Datepicker */
 
 .theme-credytag .bs-datepicker-head {
@@ -43,10 +44,90 @@ button{
     align-items: center;
     border-radius: 3px;
     cursor: pointer;
-    &.btn-outline-secondary {
-        color: $warm-grey;
+    border: none;
+    &:focus{
+       box-shadow: 0 0 0 0.2rem rgba($white-snow, 0.5)!important;
+    }
+    &.btn-primary {
+        color: $primary-button-color;
+        background-color: $primary-button-bgcolor;
         &:hover {
-            color: $warm-grey;
+            color: $primary-button-hover-color;
+            background-color: $primary-button-hover-bgcolor;
+        }
+        &:focus {
+            color: $primary-button-focus-color;
+            background-color: $primary-button-focus-bgcolor;
+        }
+        &:disabled {
+            color: $primary-button-disabled-color;
+            background-color: $primary-button-disabled-bgcolor;
+        }
+        &:active:not(:disabled) {
+            color: $primary-button-active-color !important;
+            background-color: $primary-button-active-bgcolor !important;
+        }
+    }
+    &.btn-secondary {
+        color: $secondary-button-color;
+        background-color: $secondary-button-bgcolor;
+        &:hover {
+            background-color: $secondary-button-hover-bgcolor;
+            color: $secondary-button-hover-color;
+        }
+        &:focus {
+            background-color: $secondary-button-focus-bgcolor;
+            color: $secondary-button-focus-color;
+        }
+        &:disabled {
+            background-color: $secondary-button-disabled-bgcolor;
+            color: $secondary-button-disabled-color;
+        }
+        &:active:not(:disabled) {
+            background-color: $secondary-button-active-bgcolor !important;
+            color: $secondary-button-active-color !important;
+        }
+    }
+    &.btn-green {
+        color: $green-button-color;
+        background-color: $green-button-bgcolor;
+        &:hover {
+            background-color: $green-button-hover-bgcolor;
+            color: $green-button-hover-color;
+        }
+        &:focus {
+            background-color: $green-button-focus-bgcolor;
+            color: $green-button-focus-color;
+        }
+        &:disabled {
+            background-color: $green-button-disabled-bgcolor;
+            color: $green-button-disabled-color;
+        }
+        &:active:not(:disabled) {
+            background-color: $green-button-active-bgcolor !important;
+            color: $green-button-active-color !important;
+        }
+    }
+    &.btn-control {
+        color: $control-button-color;
+        background-color: $control-button-bgcolor;
+        border: solid 1px $white-snow;
+
+        &:hover {
+            background-color: $control-button-hover-bgcolor;
+            color: $control-button-hover-color;
+        }
+        &:focus {
+            background-color: $control-button-focus-bgcolor;
+            color: $control-button-focus-color;
+        }
+        &:disabled {
+            background-color: $control-button-disabled-bgcolor;
+            color: $control-button-disabled-color;
+        }
+        &:active:not(:disabled) {
+            background-color: $control-button-active-bgcolor !important;
+            color: $control-button-active-color !important;
         }
     }
 }
@@ -106,7 +187,7 @@ button{
                     font-size: 12px !important;
                     .close,
                     .btn {
-                        display: inline-block;                                                
+                        display: inline-block;
                     }
                     .close {
                         color: $white;
@@ -129,22 +210,22 @@ button{
 
 /*Customize bootstrap dropdowns*/
 
-.dropdown-menu{
+.dropdown-menu {
     background-color: $white;
     border-radius: 3px;
-    border:none;
+    border: none;
     box-shadow: 0 4px 10px 1px rgba(0, 0, 0, 0.14);
-    li a.dropdown-item{
+    li a.dropdown-item {
         height: 40px;
         box-sizing: border-box;
         display: flex;
         align-content: center;
         align-items: center;
         color: $greyish-brown;
-        &:hover{
+        &:hover {
             background-color: $white-smoke;
         }
-        &:active{
+        &:active {
             background-color: $deep-lavender;
             color: $white;
         }
@@ -174,32 +255,30 @@ button{
     input[type="week"],
     select:focus,
     textarea {
-        font-size: 16px!important;
+        font-size: 16px !important;
     }
 }
 
 // custom styles for specific modals
-
 .modal-body-qr {
-    .qr-code-container{
+    .qr-code-container {
         display: flex;
         justify-content: center;
         align-content: center;
         padding: 32px;
         border-radius: 3px;
         border: solid 1px $white-snow;
-        margin-bottom: 14px;        
+        margin-bottom: 14px;
     }
-    .qr-code-text{
+    .qr-code-text {
         font-size: 18px;
         color: $greyish-brown;
         text-align: center;
     }
 }
 
-
-.form-control{
-    &.ng-touched.ng-invalid{
+.form-control {
+    &.ng-touched.ng-invalid {
         box-shadow: 0 0 0 0.2rem rgba($red, 0.25);
     }
 }
