@@ -3,5 +3,7 @@
 @import "variables";
 @import "bootstrap-overrides";
 // after overriding bootstrap scss variables, load bootstrap; otherwise, variables would not be overwritten
-@import "node_modules/bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/bootstrap";
 @import "global";
+// toastr styles
+@import "~ngx-toastr/toastr";

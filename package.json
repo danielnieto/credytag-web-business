@@ -33,10 +33,11 @@
     "font-awesome": "^4.7.0",
     "intl": "^1.2.5",
     "ngx-bootstrap": "^2.0.0-beta.8",
+    "ngx-toastr": "^8.7.3",
     "rxjs": "6.1.0",
+    "rxjs-compat": "^6.0.0-rc.0",
     "web-animations-js": "^2.3.1",
-    "zone.js": "0.8.26",
-    "rxjs-compat": "^6.0.0-rc.0"
+    "zone.js": "0.8.26"
   },
   "devDependencies": {
     "@angular/cli": "^6.0.0",

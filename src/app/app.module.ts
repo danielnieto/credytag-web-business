@@ -3,6 +3,8 @@ import {LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es-MX';
@@ -12,6 +14,7 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap';
+import { ToastrModule } from 'ngx-toastr';
 
 // QRCodes
 import { QRCodeModule } from 'angularx-qrcode';
@@ -33,6 +36,11 @@ import { ResponsiveService } from './responsive.service';
 
 // to make Pipes use es-MX
 registerLocaleData(localeEs);
+
+const toastrOptions = {
+    timeOut: 3000,
+    progressBar: true
+};
 
 @NgModule({
     declarations: [
@@ -58,6 +66,8 @@ registerLocaleData(localeEs);
         ModalModule.forRoot(),
         QRCodeModule,
         ReactiveFormsModule,
+        BrowserAnimationsModule,
+        ToastrModule.forRoot(toastrOptions),
         RouterModule.forRoot([
             { path: 'cobros', component: ChargesComponent },
             { path: 'codigos-qr', component: QrcodesComponent },
