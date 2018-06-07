@@ -4,6 +4,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { QrcodesService} from '../../qrcodes.service';
 import { QrCode } from '../../qrCode';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'app-qrcodes',
@@ -26,7 +27,7 @@ export class QrcodesComponent implements OnInit {
 
     qrCodes: QrCode[] = [];
 
-    constructor(private modalService: BsModalService, private qrService: QrcodesService) {
+    constructor(private modalService: BsModalService, private qrService: QrcodesService, private toastr: ToastrService) {
 
     }
 
@@ -87,20 +88,28 @@ export class QrcodesComponent implements OnInit {
 
         this.qrService.createQr(formValues.name, formValues.description, formValues.phone).then((result) => {
 
+            this.toastr.success('QR creado correctamente');
             this.closeModal();
             this.getCodes();
 
-        }).catch(err => console.log(err));
+        }).catch(err =>{
+            console.log(err)
+            this.toastr.error('Ocurrió un error creando el QR');
+        });
     }
 
     update(){
 
         this.qrService.updateQr(this.updateQrForm.value).then((result) => {
 
+            this.toastr.success('QR editado correctamente');
             this.closeModal();
             this.getCodes();
 
-        }).catch(err => console.log(err));
+        }).catch(err => {
+            console.log(err)
+            this.toastr.error('Ocurrió un error editando el QR');
+        });
     }
 
     getCodes(): void{
@@ -109,6 +118,7 @@ export class QrcodesComponent implements OnInit {
             this.qrCodes = qrCodes;
         }).catch((error: any) => {
             console.log(error);
+            this.toastr.error('Ocurrió un error obteniendo los QR');
         })
 
     }

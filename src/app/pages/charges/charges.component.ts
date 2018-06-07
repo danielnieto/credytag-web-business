@@ -9,6 +9,8 @@ import { defineLocale } from 'ngx-bootstrap/bs-moment';
 import { es } from 'ngx-bootstrap/locale';
 import { DatePipe } from '@angular/common';
 
+import { ToastrService } from 'ngx-toastr';
+
 defineLocale('es', es);
 
 @Component({
@@ -28,7 +30,7 @@ export class ChargesComponent implements OnInit {
         'locale': 'es'
     };
 
-    constructor(private chargesService: ChargesService, private datePipe: DatePipe) {}
+    constructor(private chargesService: ChargesService, private datePipe: DatePipe, private toastr: ToastrService) {}
 
     ngOnInit() {
 
@@ -99,6 +101,7 @@ export class ChargesComponent implements OnInit {
         this.chargesService.getCharges(date).subscribe((charges: Charge[]) => {
             this.charges = charges;
         }, (error: any) => {
+            this.toastr.error('Ocurrió un error obteniendo los cobros');            
             console.log(error);
         });
 
