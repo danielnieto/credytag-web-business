@@ -26,7 +26,7 @@ import { ContentComponent } from './content/content.component';
 import { FeedComponent } from './feed/feed.component';
 import { RouterModule } from '@angular/router';
 import { QrcodesComponent } from './pages/qrcodes/qrcodes.component';
-import { PreferencesComponent } from './pages/preferences/preferences.component';
+import { SettingsComponent } from './pages/settings/settings.component';
 import { ChargesComponent } from './pages/charges/charges.component';
 import { BankAccountComponent } from './pages/bank-account/bank-account.component';
 import { ChargeComponent } from './pages/charges/charge/charge.component';
@@ -50,7 +50,7 @@ const toastrOptions = {
         ContentComponent,
         FeedComponent,
         QrcodesComponent,
-        PreferencesComponent,
+        SettingsComponent,
         ChargesComponent,
         BankAccountComponent,
         ChargeComponent
@@ -72,7 +72,7 @@ const toastrOptions = {
             { path: 'cobros', component: ChargesComponent },
             { path: 'codigos-qr', component: QrcodesComponent },
             { path: 'cuenta-bancaria', component: BankAccountComponent },
-            { path: 'preferencias', component: PreferencesComponent },
+            { path: 'ajustes', component: SettingsComponent },
             { path: '', component: ChargesComponent },
         //   { path: '**', component: PageNotFoundComponent }
         ])
