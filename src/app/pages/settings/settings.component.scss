@@ -1,0 +1,9 @@
+.tabs-container {
+    margin-top: 1em;
+}
+
+@media (max-width: 880px) {
+    .tabs-container {
+        margin-top: 0;
+    }
+}
