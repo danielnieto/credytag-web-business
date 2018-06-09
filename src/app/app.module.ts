@@ -15,6 +15,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
+import { TabsModule } from 'ngx-bootstrap';
 
 // QRCodes
 import { QRCodeModule } from 'angularx-qrcode';
@@ -68,6 +69,7 @@ const toastrOptions = {
         ReactiveFormsModule,
         BrowserAnimationsModule,
         ToastrModule.forRoot(toastrOptions),
+        TabsModule.forRoot(),
         RouterModule.forRoot([
             { path: 'cobros', component: ChargesComponent },
             { path: 'codigos-qr', component: QrcodesComponent },
