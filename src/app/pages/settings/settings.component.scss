@@ -1,5 +1,28 @@
+@import "variables";
+
 .tabs-container {
     margin-top: 1em;
+    tab{
+        padding-top: 16px;
+        a{
+            color: $deep-lavender;
+            text-decoration: underline;
+            &.change-password{
+                margin-top: 1em;
+                display: block;
+            }
+        }
+    }
+
+    .submit-button-container{
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 1em;
+        button{
+            padding-left: 4em;
+            padding-right: 4em;
+        }
+    }
 }
 
 @media (max-width: 880px) {
