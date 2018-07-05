@@ -16,6 +16,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { TabsModule } from 'ngx-bootstrap';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 // QRCodes
 import { QRCodeModule } from 'angularx-qrcode';
@@ -70,6 +71,7 @@ const toastrOptions = {
         BrowserAnimationsModule,
         ToastrModule.forRoot(toastrOptions),
         TabsModule.forRoot(),
+        NgSelectModule,
         RouterModule.forRoot([
             { path: 'cobros', component: ChargesComponent },
             { path: 'codigos-qr', component: QrcodesComponent },
