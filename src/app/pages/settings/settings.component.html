@@ -46,10 +46,9 @@
                 </div>
                 <div class="form-group">
                     <label for="type">Tipo de Empresa</label>
-                    <select formControlName="type" id="type" class="form-control">
-                        <option value=""></option>
-                        <option value="type-1">Type 1</option>
-                    </select>
+                    <ng-select id="type" [searchable]="false" formControlName="type" placeholder="Tipo de Empresa">
+                        <ng-option [value]="'micro'">Micro-empresa (1 - 10 empleados)</ng-option>
+                    </ng-select>
                 </div>
                 <div class="form-group">
                     <label for="billing-information">Información para facturar *</label>
@@ -64,9 +63,9 @@
             <form [formGroup]="billingForm">
                 <div class="form-group">
                     <label for="person-type">Tipo de Persona *</label>
-                    <select formControlName="personType" class="form-control" id="person-type">
-                        <option value="">Persona Moral</option>
-                    </select>
+                    <ng-select id="person-type" [searchable]="false" formControlName="personType">
+                        <ng-option [value]="'persona moral'">Persona Moral</ng-option>
+                    </ng-select>
                 </div>
                 <div class="form-group">
                     <label for="name">Nombre o Razón Social *</label>
@@ -82,9 +81,9 @@
                 </div>
                 <div class="form-group">
                     <label for="usage">Uso de CFDI</label>
-                    <select formControlName="usage" class="form-control" id="usage">
-                        <option value="">CFDI</option>
-                    </select>
+                    <ng-select id="usage" [searchable]="false" formControlName="usage">
+                        <ng-option [value]="'cfdi'">CFDI</ng-option>
+                    </ng-select>
                 </div>
                 <div class="submit-button-container">
                     <button [disabled]="!billingForm.valid" type="submit" class="btn btn-primary">Guardar</button>
@@ -95,9 +94,9 @@
             <form [formGroup]="bankForm">
                 <div class="form-group">
                     <label for="bank">Banco *</label>
-                    <select formControlName="bank" class="form-control" id="bank">
-                        <option value="">Banco Belloni S.A. de C.V.</option>
-                    </select>
+                    <ng-select id="bank" [searchable]="false" formControlName="bank">
+                        <ng-option [value]="'banbelloni'">Banco Belloni S.A. de C.V.</ng-option>
+                    </ng-select>
                 </div>
                 <div class="form-group">
                     <label for="spei">Número SPEI *</label>
