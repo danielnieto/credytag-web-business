@@ -35,6 +35,7 @@ import { ChargeComponent } from './pages/charges/charge/charge.component';
 
 // services
 import { ResponsiveService } from './responsive.service';
+import { AuthenticationService } from './authentication.service';
 
 // to make Pipes use es-MX
 registerLocaleData(localeEs);
@@ -81,7 +82,7 @@ const toastrOptions = {
         //   { path: '**', component: PageNotFoundComponent }
         ])
     ],
-    providers: [ResponsiveService, { provide: LOCALE_ID, useValue: 'es-MX'} ],
+    providers: [ResponsiveService, { provide: LOCALE_ID, useValue: 'es-MX'}, AuthenticationService ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
