@@ -1,0 +1,7 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <input type="email" name="email" class="form-control" id="email" formControlName="username">
+    <input type="password" name="password" class="form-control" id="password" formControlName="password">
+    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+    <!-- {{loginForm.value | json}} -->
+    <!-- {{SessionService.token | json}} -->
+</form>

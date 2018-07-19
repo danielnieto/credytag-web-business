@@ -22,6 +22,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { QRCodeModule } from 'angularx-qrcode';
 
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { ShellComponent } from './shell/shell.component';
 import { ContentComponent } from './content/content.component';
@@ -36,6 +38,10 @@ import { ChargeComponent } from './pages/charges/charge/charge.component';
 // services
 import { ResponsiveService } from './responsive.service';
 import { AuthenticationService } from './authentication.service';
+import { SessionService } from './session.service';
+
+// guards
+import {AuthGuard} from "./auth.guard";
 
 // to make Pipes use es-MX
 registerLocaleData(localeEs);
@@ -56,7 +62,9 @@ const toastrOptions = {
         SettingsComponent,
         ChargesComponent,
         BankAccountComponent,
-        ChargeComponent
+        ChargeComponent,
+        LoginComponent,
+        LogoutComponent
     ],
     imports: [
         BrowserModule,
@@ -74,15 +82,19 @@ const toastrOptions = {
         TabsModule.forRoot(),
         NgSelectModule,
         RouterModule.forRoot([
-            { path: 'cobros', component: ChargesComponent },
-            { path: 'codigos-qr', component: QrcodesComponent },
-            { path: 'cuenta-bancaria', component: BankAccountComponent },
-            { path: 'ajustes', component: SettingsComponent },
-            { path: '', component: ChargesComponent },
-        //   { path: '**', component: PageNotFoundComponent }
+            { path: 'login', component: LoginComponent },
+            { path: 'logout', component: LogoutComponent },
+            { path: '', component: ShellComponent, canActivate: [AuthGuard], children:[
+                { path: 'cobros', component: ChargesComponent },
+                { path: 'codigos-qr', component: QrcodesComponent },
+                { path: 'cuenta-bancaria', component: BankAccountComponent },
+                { path: 'ajustes', component: SettingsComponent },
+                { path: '', component: ChargesComponent },
+            ] },
+          { path: '', component: LoginComponent }
         ])
     ],
-    providers: [ResponsiveService, { provide: LOCALE_ID, useValue: 'es-MX'}, AuthenticationService ],
+    providers: [ResponsiveService, { provide: LOCALE_ID, useValue: 'es-MX'}, AuthenticationService, SessionService, AuthGuard],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
