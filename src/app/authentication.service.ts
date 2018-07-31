@@ -30,13 +30,8 @@ export class AuthenticationService {
             this.httpClient.post(`${this.endpoint}/businesslogin`, payload, {
                 headers: this.jsonHeaders
             }).subscribe((response: any) => {
-                
-                this.session.token = response.data.merchant.token;
-                this.session.user.firstname = response.data.merchant.firstname;
-                this.session.user.lastname = response.data.merchant.lastname;
-                this.session.user.email = response.data.merchant.email;
 
-                this.session.isLoggedIn = true;
+                this.session.setSession(response);
 
                 resolve(response);
 
