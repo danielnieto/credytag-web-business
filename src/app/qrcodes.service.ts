@@ -94,7 +94,7 @@ export class QrcodesService {
 
                 const codes: QrCode[] = [];
 
-                if (response !== null) {
+                if (response.data !== null) {
 
                     response.data.code.forEach((code: any) => {
 
