@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { httpInterceptorProviders } from './http-interceptors';
 
 
 import { registerLocaleData } from '@angular/common';
@@ -94,7 +95,7 @@ const toastrOptions = {
           { path: '', component: LoginComponent }
         ])
     ],
-    providers: [ResponsiveService, { provide: LOCALE_ID, useValue: 'es-MX'}, AuthenticationService, SessionService, AuthGuard],
+    providers: [ResponsiveService, { provide: LOCALE_ID, useValue: 'es-MX' }, AuthenticationService, SessionService, AuthGuard, httpInterceptorProviders],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
