@@ -51,8 +51,8 @@ export class SessionService {
 
     clearSession() {
         // clear all values from user
-        for (let key in this.user) {
-            this.user[key] = null;
+        for (let key in this.session) {
+            this.session[key] = null;
         }
 
         localStorage.removeItem("session");
