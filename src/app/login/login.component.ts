@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 
     loginForm: FormGroup;
 
-    constructor(private auth: AuthenticationService, private SessionService: SessionService, private router: Router) {
+    constructor(private auth: AuthenticationService, private session: SessionService, private router: Router) {
         this.loginForm = new FormGroup({
             username: new FormControl("business@credytag.com", [Validators.required, Validators.email]),
             password: new FormControl("123456", [Validators.required]),
@@ -22,17 +22,22 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {}
 
-    onSubmit() {
+    async onSubmit() {
         const username = this.loginForm.value.username;
         const password = this.loginForm.value.password;
 
-        this.auth.login(username, password).then(success => {
-                console.log(JSON.stringify(success));
-                this.router.navigate(["/cobros"]);
-            },
-            fail => {
-                alert("logged in failed: " + JSON.stringify(fail));
-            });
+        try{
+            
+            const response = await this.auth.login(username, password);
+            
+            console.log(JSON.stringify(response));
+            this.session.setSession(response);
+            this.router.navigate(["/cobros"]);
+
+        }catch(error){
+            alert("logged in failed:" + JSON.stringify(error));
+        }
+
     }
 
 }

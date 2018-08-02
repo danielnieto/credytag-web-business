@@ -25,23 +25,10 @@ export class AuthenticationService {
             }
         };
 
-        return new Promise((resolve, reject) => {
+        return this.httpClient.post(`${this.endpoint}/businesslogin`, payload, {
+            headers: this.jsonHeaders
+        }).toPromise();      
 
-            this.httpClient.post(`${this.endpoint}/businesslogin`, payload, {
-                headers: this.jsonHeaders
-            }).subscribe((response: any) => {
-
-                this.session.setSession(response);
-
-                resolve(response);
-
-            }, (error: any) => {
-
-                reject(error);
-
-            });
-
-        });
     }
 
     logout(){
