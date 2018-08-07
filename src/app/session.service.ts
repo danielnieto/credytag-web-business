@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
 })
 export class SessionService {
+    
+    endpoint = 'https://credytag-backend-dev.herokuapp.com/api/v1';
+    jsonHeaders = new HttpHeaders({
+        'Content-Type': 'application/json'
+    });
 
 
     public session = {
@@ -15,7 +21,9 @@ export class SessionService {
             firstname: null,
             lastname: null,
             email: null
-        }
+        },
+        business: null,
+        branch: null
     }
 
     public get isLoggedIn(){
@@ -33,20 +41,51 @@ export class SessionService {
         
     }
 
-    constructor() {}
+    constructor(private httpClient: HttpClient) {
+
+    }
 
     getSession(){
         return JSON.parse(localStorage.getItem("session"));
     }
 
-    setSession(data){
+    async setSession(data){
         this.session.token = data.data.merchant.token;
         this.session.user.firstname = data.data.merchant.firstname;
         this.session.user.lastname = data.data.merchant.lastname;
         this.session.user.email = data.data.merchant.email;
 
-        localStorage.setItem("session", JSON.stringify(this.session));
+        this.persistSession();
 
+        try{
+            const businessResponse = await this.getBusiness();
+            this.session.business = businessResponse.data.business[0].id;
+            const branchResponse = await this.getBranch();
+            this.session.branch = branchResponse.data.branch[0].id;
+
+            this.persistSession();
+
+        }catch(err){
+            console.log("cannot get business or branch", err);
+        }
+
+
+    }
+
+    async getBusiness(){
+
+        return this.httpClient.get(`${this.endpoint}/business`, {
+            headers: this.jsonHeaders
+        }).toPromise(); 
+        
+    }
+
+    async getBranch(){
+
+        return this.httpClient.get(`${this.endpoint}/business/${this.session.business}/branch`, {
+            headers: this.jsonHeaders
+        }).toPromise(); 
+        
     }
 
     clearSession() {
@@ -57,5 +96,9 @@ export class SessionService {
 
         localStorage.removeItem("session");
 
+    }
+
+    persistSession(){
+        localStorage.setItem("session", JSON.stringify(this.session));        
     }
 }
