@@ -85,7 +85,7 @@ const toastrOptions = {
         RouterModule.forRoot([
             { path: 'login', component: LoginComponent },
             { path: 'logout', component: LogoutComponent },
-            { path: '', component: ShellComponent, canActivate: [AuthGuard], children:[
+            { path: '', component: ShellComponent, canActivateChild: [AuthGuard], children:[
                 { path: 'cobros', component: ChargesComponent },
                 { path: 'codigos-qr', component: QrcodesComponent },
                 { path: 'cuenta-bancaria', component: BankAccountComponent },

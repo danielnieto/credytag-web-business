@@ -14,31 +14,46 @@ export class SessionService {
 
     public session: UserSession;
 
-    public get isLoggedIn(){
-        return localStorage.getItem("session");
+    public get isLoggedIn() {
+        return this.jwt;
     }
 
     public get jwt(): string {
 
         const session = this.getSession();
 
-        if(session){
-            return session.token.jwt;
-        }else{
+        if (session) {
+
+            try {
+                const jwt = session.token.jwt;
+                return jwt;
+
+            } catch (error) {
+                return null;
+            }
+
+        } else {
             return null;
         }
 
     }
 
-    constructor(private httpClient: HttpClient) {
+    constructor(private httpClient: HttpClient) { }
 
+    getSession(): UserSession {
+
+        const sessionString = localStorage.getItem('session');
+
+        if (!sessionString) {
+            return null;
+        }
+
+        const session: UserSession = JSON.parse(sessionString) as UserSession;
+
+        return session;
     }
 
-    getSession(): UserSession{
-        return JSON.parse(localStorage.getItem("session"));
-    }
-
-    async setSession(data){
+    async setSession(data) {
 
         this.session = new UserSession();
 
@@ -49,7 +64,7 @@ export class SessionService {
 
         this.persistSession();
 
-        try{
+        try {
             const businessResponse = await this.getBusiness();
             this.session.business = businessResponse.data.business[0].id;
             const branchResponse = await this.getBranch();
@@ -57,14 +72,14 @@ export class SessionService {
 
             this.persistSession();
 
-        }catch(err){
-            console.log("cannot get business or branch", err);
+        } catch (error) {
+            console.log('cannot get business or branch', error);
         }
 
 
     }
 
-    async getBusiness(): Promise<{data: any}>{
+    async getBusiness(): Promise<{ data: any }> {
 
         return this.httpClient.get<any>(`${this.endpoint}/business`, {
             headers: this.jsonHeaders
@@ -72,7 +87,7 @@ export class SessionService {
 
     }
 
-    async getBranch(): Promise<{ data: any }>{
+    async getBranch(): Promise<{ data: any }> {
 
         return this.httpClient.get<any>(`${this.endpoint}/business/${this.session.business}/branch`, {
             headers: this.jsonHeaders
@@ -85,11 +100,11 @@ export class SessionService {
         // clear all values from user
         this.session = null;
 
-        localStorage.removeItem("session");
+        localStorage.removeItem('session');
 
     }
 
-    persistSession(){
-        localStorage.setItem("session", JSON.stringify(this.session));
+    persistSession() {
+        localStorage.setItem('session', JSON.stringify(this.session));
     }
 }
