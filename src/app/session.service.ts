@@ -1,55 +1,47 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { UserSession } from './user-session';
 
 @Injectable({
     providedIn: 'root'
 })
 export class SessionService {
-    
+
     endpoint = 'https://credytag-backend-dev.herokuapp.com/api/v1';
     jsonHeaders = new HttpHeaders({
         'Content-Type': 'application/json'
     });
 
-
-    public session = {
-        token: {
-            jwt: "",
-            refresh_token: ""
-        },
-        user: {
-            firstname: null,
-            lastname: null,
-            email: null
-        },
-        business: null,
-        branch: null
-    }
+    public session: UserSession;
 
     public get isLoggedIn(){
         return localStorage.getItem("session");
     }
 
-    public get jwt(){
+    public get jwt(): string {
+
         const session = this.getSession();
-        
+
         if(session){
             return session.token.jwt;
         }else{
             return null;
         }
-        
+
     }
 
     constructor(private httpClient: HttpClient) {
 
     }
 
-    getSession(){
+    getSession(): UserSession{
         return JSON.parse(localStorage.getItem("session"));
     }
 
     async setSession(data){
+
+        this.session = new UserSession();
+
         this.session.token = data.data.merchant.token;
         this.session.user.firstname = data.data.merchant.firstname;
         this.session.user.lastname = data.data.merchant.lastname;
@@ -72,33 +64,32 @@ export class SessionService {
 
     }
 
-    async getBusiness(){
+    async getBusiness(): Promise<{data: any}>{
 
-        return this.httpClient.get(`${this.endpoint}/business`, {
+        return this.httpClient.get<any>(`${this.endpoint}/business`, {
             headers: this.jsonHeaders
-        }).toPromise(); 
-        
+        }).toPromise();
+
     }
 
-    async getBranch(){
+    async getBranch(): Promise<{ data: any }>{
 
-        return this.httpClient.get(`${this.endpoint}/business/${this.session.business}/branch`, {
+        return this.httpClient.get<any>(`${this.endpoint}/business/${this.session.business}/branch`, {
             headers: this.jsonHeaders
-        }).toPromise(); 
-        
+        }).toPromise();
+
     }
 
     clearSession() {
+
         // clear all values from user
-        for (let key in this.session) {
-            this.session[key] = null;
-        }
+        this.session = null;
 
         localStorage.removeItem("session");
 
     }
 
     persistSession(){
-        localStorage.setItem("session", JSON.stringify(this.session));        
+        localStorage.setItem("session", JSON.stringify(this.session));
     }
 }
