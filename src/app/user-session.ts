@@ -1,5 +1,5 @@
-import { UserToken } from "./user-token";
-import { UserData } from "./user-data";
+import { UserToken } from './user-token';
+import { UserData } from './user-data';
 
 export class UserSession {
     token: UserToken;
