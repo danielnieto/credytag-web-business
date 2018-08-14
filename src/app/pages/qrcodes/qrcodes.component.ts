@@ -55,7 +55,7 @@ export class QrcodesComponent implements OnInit {
     }
 
     showCreateQrModal() {
-        
+
         this.createQrForm = new FormGroup({
             name: new FormControl(null, [Validators.required]),
             phone: new FormControl(null, [Validators.required]),
@@ -74,7 +74,7 @@ export class QrcodesComponent implements OnInit {
             description: new FormControl(code.description, [Validators.required]),
             qr: new FormControl({value: code.qr, disabled: true})
         });
-        
+
         this.openModal(this.templateUpdateQr);
     }
 
@@ -82,44 +82,44 @@ export class QrcodesComponent implements OnInit {
         alert(`Download: ${code.qr}`);
     }
 
-    create() {
+    async create() {
 
         const formValues = this.createQrForm.value;
 
-        this.qrService.createQr(formValues.name, formValues.description, formValues.phone).then((result) => {
-
+        try {
+            await this.qrService.createQr(formValues.name, formValues.description, formValues.phone);
             this.toastr.success('QR creado correctamente');
             this.closeModal();
             this.getCodes();
-
-        }).catch(err =>{
+        } catch (error) {
             console.log(err)
             this.toastr.error('Ocurrió un error creando el QR');
-        });
+        }
+
     }
 
-    update(){
+    async update() {
 
-        this.qrService.updateQr(this.updateQrForm.value).then((result) => {
-
+        try {
+            await this.qrService.updateQr(this.updateQrForm.value);
             this.toastr.success('QR editado correctamente');
             this.closeModal();
             this.getCodes();
-
-        }).catch(err => {
-            console.log(err)
+        } catch (error) {
+            console.log(error);
             this.toastr.error('Ocurrió un error editando el QR');
-        });
+        }
+
     }
 
-    getCodes(): void{
+    async getCodes() {
 
-        this.qrService.getCodes().then((qrCodes: QrCode[])=>{
-            this.qrCodes = qrCodes;
-        }).catch((error: any) => {
+        try {
+            this.qrCodes = await this.qrService.getCodes();
+        }catch (error) {
             console.log(error);
             this.toastr.error('Ocurrió un error obteniendo los QR');
-        })
+        }
 
     }
 
