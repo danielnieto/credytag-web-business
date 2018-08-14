@@ -11,6 +11,8 @@ import { DatePipe } from '@angular/common';
 
 import { ToastrService } from 'ngx-toastr';
 
+import { Purchase } from '../../purchase';
+
 defineLocale('es', es);
 
 @Component({
@@ -94,16 +96,44 @@ export class ChargesComponent implements OnInit {
         return a.getDate() === b.getDate() && a.getMonth() === b.getMonth() && a.getFullYear() === b.getFullYear();
     }
 
-    fetchCharges(): void {
+    async fetchCharges() {
 
         const date = this.datePipe.transform(this.datePickerValue, 'yyyy-MM-dd');
 
-        this.chargesService.getCharges(date).subscribe((charges: Charge[]) => {
-            this.charges = charges;
-        }, (error: any) => {
-            this.toastr.error('Ocurrió un error obteniendo los cobros');            
+        try {
+
+            const chargesResponse: {data: {purchases}} = await this.chargesService.getCharges(date);
+
+            if (chargesResponse !== null) {
+
+                const purchases = [];
+
+                chargesResponse.data.purchases.forEach((purchase: Purchase) => {
+
+                    purchases.push({
+                        id: purchase.transaction,
+                        client: `${purchase.buyer.firstname} ${purchase.buyer.lastname}`,
+                        timestamp: purchase.created_at,
+                        sell: purchase.total,
+                        comission: 0,
+                        map: purchase.map_url,
+                        sms: 0,
+                        paidWith: `${purchase.payment.brand} x-${purchase.payment.last4}`,
+                        qrCode: purchase.code.qr,
+                        qrName: purchase.code.name,
+                        status: purchase.order_status,
+                        collapsed: true
+                    });
+                });
+
+                this.charges = purchases;
+            }
+
+        } catch (error) {
+            this.toastr.error('Ocurrió un error obteniendo los cobros');
             console.log(error);
-        });
+        }
+
 
     }
 
