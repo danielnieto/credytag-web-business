@@ -38,6 +38,30 @@ export class SessionService {
 
     }
 
+    public get business(): string {
+
+        const session = this.getSession();
+
+        if (session) {
+            return session.business;
+        } else {
+            return null;
+        }
+
+    }
+
+    public get branch(): string {
+
+        const session = this.getSession();
+
+        if (session) {
+            return session.branch;
+        } else {
+            return null;
+        }
+
+    }
+
     constructor(private httpClient: HttpClient) { }
 
     getSession(): UserSession {
