@@ -1,13 +1,13 @@
 import {ChargeStatus} from './charge-status';
 
-export class Charge{
+export class Charge {
     id: string;
     client: string;
     timestamp: string;
     sell: number;
     qrCode: string;
     qrName: string;
-    comission: number;
+    commission: number;
     map: any;
     sms: number;
     paidWith: string;

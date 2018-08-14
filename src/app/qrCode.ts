@@ -4,5 +4,5 @@ export class QrCode {
     id: string;
     description: string;
     phone: string;
-    enabled: boolean
+    enabled: boolean;
 }

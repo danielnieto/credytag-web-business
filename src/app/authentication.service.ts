@@ -27,12 +27,12 @@ export class AuthenticationService {
 
         return this.httpClient.post(`${this.endpoint}/businesslogin`, payload, {
             headers: this.jsonHeaders
-        }).toPromise();      
+        }).toPromise();
 
     }
 
-    logout(){
+    logout() {
         this.session.clearSession();
     }
-    
+
 }

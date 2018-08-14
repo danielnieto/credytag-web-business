@@ -45,7 +45,7 @@ export class QrcodesComponent implements OnInit {
 
     }
 
-    closeModal(){
+    closeModal() {
         this.modalRef.hide();
     }
 
@@ -92,7 +92,7 @@ export class QrcodesComponent implements OnInit {
             this.closeModal();
             this.getCodes();
         } catch (error) {
-            console.log(err)
+            console.log(error);
             this.toastr.error('Ocurrió un error creando el QR');
         }
 

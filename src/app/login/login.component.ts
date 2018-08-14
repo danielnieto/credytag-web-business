@@ -14,8 +14,8 @@ export class LoginComponent implements OnInit {
 
     constructor(private auth: AuthenticationService, private session: SessionService, private router: Router) {
         this.loginForm = new FormGroup({
-            username: new FormControl("business@credytag.com", [Validators.required, Validators.email]),
-            password: new FormControl("123456", [Validators.required]),
+            username: new FormControl('business@credytag.com', [Validators.required, Validators.email]),
+            password: new FormControl('123456', [Validators.required]),
         });
 
     }
@@ -26,16 +26,16 @@ export class LoginComponent implements OnInit {
         const username = this.loginForm.value.username;
         const password = this.loginForm.value.password;
 
-        try{
-            
+        try {
+
             const response = await this.auth.login(username, password);
-            
+
             console.log(JSON.stringify(response));
             this.session.setSession(response);
-            this.router.navigate(["/cobros"]);
+            this.router.navigate(['/cobros']);
 
-        }catch(error){
-            alert("logged in failed:" + JSON.stringify(error));
+        } catch (error) {
+            alert('logged in failed:' + JSON.stringify(error));
         }
 
     }

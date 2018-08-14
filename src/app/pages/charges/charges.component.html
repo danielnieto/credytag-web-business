@@ -88,7 +88,7 @@
                             </div>
                             <div>
                                 <span>Comisión</span>
-                                <span>{{charge.comission | currency:'MXN':'symbol':'1.2-2'}}</span>
+                                <span>{{charge.commission | currency:'MXN':'symbol':'1.2-2'}}</span>
                             </div>
                             <div>
                                 <span>SMS</span>
@@ -97,7 +97,7 @@
                             <div class="sum">
                                 <span>Recibes</span>
                                 <span [ngClass]="'status-' + charge.status">
-                                    {{(charge.sell-charge.comission) | currency:'MXN':'symbol':'1.2-2'}}
+                                    {{(charge.sell-charge.commission) | currency:'MXN':'symbol':'1.2-2'}}
                                 </span>
                             </div>
                         </div>

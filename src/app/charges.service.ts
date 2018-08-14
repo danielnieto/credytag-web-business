@@ -21,7 +21,6 @@ export class ChargesService {
 
     async getCharges(date: string): Promise<{ data: { purchases } }> {
 
-        // tslint:disable-next-line:max-line-length
         return this.httpClient.get<{ data: { purchases } }>(`${this.endpoint}/business/${this.business}/branch/${this.branch}/purchase?start=${date}`, {
                 headers: this.jsonHeaders
         }).toPromise();

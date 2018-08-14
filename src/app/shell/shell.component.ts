@@ -2,9 +2,9 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import {ResponsiveService} from '../responsive.service';
 
 @Component({
-  selector: "app-shell",
-  templateUrl: "./shell.component.html",
-  styleUrls: ["./shell.component.scss"]
+  selector: 'app-shell',
+  templateUrl: './shell.component.html',
+  styleUrls: ['./shell.component.scss']
 })
 export class ShellComponent implements OnInit {
 

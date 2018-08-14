@@ -1,4 +1,4 @@
-export enum ChargeStatus{
+export enum ChargeStatus {
     deposited = 'deposited',
     paid = 'paid',
     declined = 'declined',

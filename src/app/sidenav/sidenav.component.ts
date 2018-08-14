@@ -9,11 +9,11 @@ import {ResponsiveService} from '../responsive.service';
 export class SidenavComponent implements OnInit {
 
     navItems = [
-        {name: "Cobros", icon: "money", route: "cobros"},
-        {name: "Códigos QR", icon: "qrcode", route: "codigos-qr"},
-        {name: "Cuenta Bancaria", icon: "bank", route: "cuenta-bancaria"},
-        {name: "Ajustes", icon: "cog", route: "ajustes"}
-    ]
+        {name: 'Cobros', icon: 'money', route: 'cobros'},
+        {name: 'Códigos QR', icon: 'qrcode', route: 'codigos-qr'},
+        {name: 'Cuenta Bancaria', icon: 'bank', route: 'cuenta-bancaria'},
+        {name: 'Ajustes', icon: 'cog', route: 'ajustes'}
+    ];
 
     activeNavItem = this.navItems[0];
 
@@ -22,7 +22,7 @@ export class SidenavComponent implements OnInit {
     ngOnInit() {
     }
 
-    onClickNavItem(navItem:any){
+    onClickNavItem(navItem: any) {
         this.activeNavItem = navItem;
     }
 

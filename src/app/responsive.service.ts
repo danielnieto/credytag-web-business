@@ -18,7 +18,7 @@ export class ResponsiveService {
 
   // returns an observable which is the current width of the screen
   screenWidth(): Observable<number> {
-        return this.resize$.pipe(map(() => this.getScreenWidth()),distinctUntilChanged(),);
+        return this.resize$.pipe(map(() => this.getScreenWidth()), distinctUntilChanged());
   }
 
   // get maximum (supported) screen width

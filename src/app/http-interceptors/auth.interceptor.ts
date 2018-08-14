@@ -7,8 +7,8 @@ import { SessionService } from '../session.service';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-    constructor(private session: SessionService){
-        
+    constructor(private session: SessionService) {
+
     }
 
     intercept(req: HttpRequest<any>,
@@ -18,13 +18,12 @@ export class AuthInterceptor implements HttpInterceptor {
 
         if (jwt) {
             const cloned = req.clone({
-                headers: req.headers.set("Authorization",
-                    "Bearer " + jwt)
+                headers: req.headers.set('Authorization',
+                    'Bearer ' + jwt)
             });
 
             return next.handle(cloned);
-        }
-        else {
+        } else {
             return next.handle(req);
         }
     }

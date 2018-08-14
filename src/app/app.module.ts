@@ -42,7 +42,7 @@ import { AuthenticationService } from './authentication.service';
 import { SessionService } from './session.service';
 
 // guards
-import {AuthGuard} from "./auth.guard";
+import {AuthGuard} from './auth.guard';
 
 // to make Pipes use es-MX
 registerLocaleData(localeEs);
@@ -85,7 +85,7 @@ const toastrOptions = {
         RouterModule.forRoot([
             { path: 'login', component: LoginComponent },
             { path: 'logout', component: LogoutComponent },
-            { path: '', component: ShellComponent, canActivateChild: [AuthGuard], children:[
+            { path: '', component: ShellComponent, canActivateChild: [AuthGuard], children: [
                 { path: 'cobros', component: ChargesComponent },
                 { path: 'codigos-qr', component: QrcodesComponent },
                 { path: 'cuenta-bancaria', component: BankAccountComponent },

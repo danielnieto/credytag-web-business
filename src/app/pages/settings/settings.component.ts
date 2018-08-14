@@ -13,8 +13,8 @@ export class SettingsComponent implements OnInit {
   billingForm: FormGroup;
   bankForm: FormGroup;
 
-  
-  constructor() { 
+
+  constructor() {
 
     this.userForm = new FormGroup({
       fullName: new FormControl(null, [Validators.required]),
@@ -30,7 +30,7 @@ export class SettingsComponent implements OnInit {
       type: new FormControl(),
       billingInformation: new FormControl(null, [Validators.required]),
     });
-    
+
     this.billingForm = new FormGroup({
       personType: new FormControl(null, [Validators.required]),
       name: new FormControl(null, [Validators.required]),
