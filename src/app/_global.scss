@@ -68,6 +68,27 @@ button {
             background-color: $primary-button-active-bgcolor !important;
         }
     }
+     &.btn-outline-primary {
+         color: $primary-button-bgcolor;
+         background-color: transparent;
+         border: solid 1px $primary-button-bgcolor;
+         &:hover {
+             color: $primary-button-hover-color;
+             background-color: $primary-button-bgcolor;
+         }
+         &:focus {
+             color: $primary-button-focus-color;
+             background-color: $primary-button-focus-bgcolor;
+         }
+         &:disabled {
+             color: $primary-button-disabled-color;
+             background-color: $primary-button-disabled-bgcolor;
+         }
+         &:active:not(:disabled) {
+             color: $primary-button-active-color !important;
+             background-color: $primary-button-active-bgcolor !important;
+         }
+     }
     &.btn-secondary {
         color: $secondary-button-color;
         background-color: $secondary-button-bgcolor;
