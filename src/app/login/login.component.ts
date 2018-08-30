@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthenticationService } from '../authentication.service';
-import { SessionService } from '../session.service';
+import { AuthenticationService } from '../authentication.service'; import { SessionService } from '../session.service';
 import { Router } from '@angular/router';
 @Component({
     selector: 'app-login',
@@ -11,11 +10,13 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
     loginForm: FormGroup;
+    loginError: boolean;
+    @ViewChild('errorMessage') errorMessage: ElementRef;
 
     constructor(private auth: AuthenticationService, private session: SessionService, private router: Router) {
         this.loginForm = new FormGroup({
-            username: new FormControl('business@credytag.com', [Validators.required, Validators.email]),
-            password: new FormControl('123456', [Validators.required]),
+            username: new FormControl('', [Validators.required, Validators.email]),
+            password: new FormControl('', [Validators.required]),
         });
 
     }
@@ -35,7 +36,11 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/cobros']);
 
         } catch (error) {
-            alert('logged in failed:' + JSON.stringify(error));
+            this.loginError = true;
+            this.errorMessage.nativeElement.classList.add('shake');
+            setTimeout(() => {
+                this.errorMessage.nativeElement.classList.remove('shake');
+            }, 500);
         }
 
     }
