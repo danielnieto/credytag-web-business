@@ -12,7 +12,8 @@ export class SidenavComponent implements OnInit {
         {name: 'Cobros', icon: 'money', route: 'cobros'},
         {name: 'Códigos QR', icon: 'qrcode', route: 'codigos-qr'},
         {name: 'Cuenta Bancaria', icon: 'bank', route: 'cuenta-bancaria'},
-        {name: 'Ajustes', icon: 'cog', route: 'ajustes'}
+        {name: 'Ajustes', icon: 'cog', route: 'ajustes'},
+        {name: 'Cerrar Sesión', icon: 'sign-out', route: 'logout' }
     ];
 
     activeNavItem = this.navItems[0];
