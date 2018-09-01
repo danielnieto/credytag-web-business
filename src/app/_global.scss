@@ -256,6 +256,7 @@ button {
 // Customize bootstrap tabs
 ul.nav-tabs {
     border-bottom: 1px solid $white-snow;
+    flex-wrap: nowrap;
 }
 
 .credytag-tabs {
@@ -276,6 +277,20 @@ ul.nav-tabs {
             color: $deep-lavender;
             background-color: transparent;
             box-shadow: inset 0 -2px $deep-lavender;
+        }
+    }
+}
+
+@media all and (max-width: 880px) {
+    .credytag-tabs {
+        &.nav-item {
+            flex: 0 0 25% !important;
+            min-width: 25%;
+        }
+        a.nav-link {
+            padding: 12px 0;
+            display: flex;
+            justify-content: center;
         }
     }
 }
