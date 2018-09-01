@@ -28,9 +28,7 @@ section.content {
     box-sizing: border-box;
     background-color: #fff;
     padding: 20px;
-    max-width: 875px;
     flex-basis: 100%;
-    margin-right: 48px;
     min-height: calc(100vh - #{$padding*2});
     @media (max-width: 880px) {
         & {
