@@ -340,6 +340,35 @@ ul.nav-tabs {
     }
 }
 
+.modal-body-change-password {
+    .validations {
+        h3 {
+            font-size: 12px;
+        }
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            li {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                color: $green;
+                height: 24px;
+                display: flex;
+                align-content: center;
+                align-items: center;
+                &.has-error {
+                    color: $red;
+                }
+                i {
+                    margin-right: .3em;
+                }
+            }
+        }
+    }
+}
+
 .form-control {
     &.ng-touched.ng-invalid {
         box-shadow: 0 0 0 0.2rem rgba($red, 0.25);

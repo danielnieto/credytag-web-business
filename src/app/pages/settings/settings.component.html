@@ -11,15 +11,15 @@
                 </div>
                 <div class="form-group">
                     <label for="email">Correo *</label>
-                    <input formControlName="email" type="email" class="form-control" id="email" aria-describedby="email">
+                    <input formControlName="email" type="email" class="form-control" id="email-user" aria-describedby="email">
                 </div>
                 <div class="form-group">
                     <label for="phone">Teléfono *</label>
-                    <input formControlName="phone" type="tel" class="form-control" id="phone" aria-describedby="phone">
+                    <input formControlName="phone" type="tel" class="form-control" id="phone-user" aria-describedby="phone">
                 </div>
                 <div class="form-group">
                     <label>Contraseña *</label>
-                    <a class="change-password" href="#">Cambiar Contraseña</a>
+                    <a class="change-password" (click)="showChangePasswordModal()">Cambiar Contraseña</a>
                 </div>
                 <div class="submit-button-container">
                     <button [disabled]="!userForm.valid" type="submit" class="btn btn-primary">Guardar</button>
@@ -30,11 +30,11 @@
             <form [formGroup]="companyForm">
                 <div class="form-group">
                     <label for="name">Nombre *</label>
-                    <input formControlName="name" type="text" class="form-control" id="name" aria-describedby="name">
+                    <input formControlName="name" type="text" class="form-control" id="name-company" aria-describedby="name">
                 </div>
                 <div class="form-group">
                     <label for="phone">Teléfono *</label>
-                    <input formControlName="phone" type="tel" class="form-control" id="phone" aria-describedby="phone">
+                    <input formControlName="phone" type="tel" class="form-control" id="phone-company" aria-describedby="phone">
                 </div>
                 <div class="form-group">
                     <label for="website">Sitio Web</label>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="form-group">
                     <label for="email">Correo Electrónico de contacto</label>
-                    <input formControlName="email" type="email" class="form-control" id="email">
+                    <input formControlName="email" type="email" class="form-control" id="email-company">
                 </div>
                 <div class="form-group">
                     <label for="type">Tipo de Empresa</label>
@@ -113,3 +113,56 @@
         </tab>
     </tabset>
 </section>
+
+<ng-template #templateChangePassword>
+    <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+            <i class="fa fa-check-circle"></i>
+        </button>
+        <h4 class="modal-title">Cambiar Contraseña</h4>
+        <button type="button" class="btn btn-primary" (click)="create()">
+            Guardar
+        </button>
+    </div>
+    <div class="modal-body modal-body-change-password">
+        <form [formGroup]="changePasswordForm">
+            <div class="form-group">
+                <label for="current">Contraseña actual *</label>
+                <input formControlName="current" name="current" type="password" class="form-control" id="current">
+            </div>
+            <div class="form-group">
+                <label for="newPassword">Nueva contraseña *</label>
+                <input formControlName="newPassword" name="newPassword" type="password" class="form-control" id="newPassword">
+            </div>
+            <div class="form-group">
+                <label for="newPasswordConfirmation">Confirmar nueva contraseña*</label>
+                <input formControlName="newPasswordConfirmation" name="newPasswordConfirmation" type="password" class="form-control"
+                    id="newPasswordConfirmation">
+                <div *ngIf="changePasswordForm.errors?.match" class="form-control-feedback">La confirmación de la
+                    contraseña no coincide.</div>
+            </div>
+        </form>
+        <div class="validations mt-4">
+
+            <h3>Requisitos</h3>
+            <ul>
+                <li [ngClass]="{'has-error': changePasswordForm.controls.newPassword.errors?.minLength}">
+                    <i class="fa fa-fw" [ngClass]="{'fa-times': changePasswordForm.controls.newPassword.errors?.minLength,'fa-check-circle': !changePasswordForm.controls.newPassword.errors?.minLength }"></i>
+                    <span>8 Caracteres</span>
+                </li>
+                <li [ngClass]="{'has-error': changePasswordForm.controls.newPassword.errors?.uppercaseLetter}">
+                    <i class="fa fa-fw" [ngClass]="{'fa-times': changePasswordForm.controls.newPassword.errors?.uppercaseLetter,'fa-check-circle': !changePasswordForm.controls.newPassword.errors?.uppercaseLetter }"></i>
+                    <span>Mínimo una letra mayúscula</span>
+                </li>
+                <li [ngClass]="{'has-error': changePasswordForm.controls.newPassword.errors?.specialCharacter}">
+                    <i class="fa fa-fw" [ngClass]="{'fa-times': changePasswordForm.controls.newPassword.errors?.specialCharacter,'fa-check-circle': !changePasswordForm.controls.newPassword.errors?.specialCharacter }"></i>
+                    <span>Mínimo un carácter especial</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-secondary" (click)="closeModal()">Cancelar</button>
+        <button type="submit" class="btn btn-primary" (click)="create()" [disabled]="!changePasswordForm.valid">Guardar</button>
+    </div>
+</ng-template>
