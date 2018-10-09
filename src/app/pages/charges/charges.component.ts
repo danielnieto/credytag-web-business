@@ -22,7 +22,7 @@ defineLocale('es', es);
     providers: [ChargesService, DatePipe]
 })
 export class ChargesComponent implements OnInit {
-    charges: Charge[];
+    charges: Charge[] = [];
     datePickerValue = new Date();
     today = new Date();
 
@@ -35,7 +35,7 @@ export class ChargesComponent implements OnInit {
     constructor(private chargesService: ChargesService, private datePipe: DatePipe, private toastr: ToastrService) {}
 
     ngOnInit() {
-
+        this.fetchCharges();
     }
 
     onToggleCollapse(charge: Charge) {
@@ -127,6 +127,8 @@ export class ChargesComponent implements OnInit {
                 });
 
                 this.charges = purchases;
+            } else {
+                this.charges = [];
             }
 
         } catch (error) {
