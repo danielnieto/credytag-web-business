@@ -8,7 +8,7 @@ export class ChargesService {
     jsonHeaders = new HttpHeaders({
         'Content-Type': 'application/json'
     });
-    endpoint = 'https://credytag-backend-staging.herokuapp.com/api/v1';
+    endpoint = 'https://credytag-backend-dev.herokuapp.com/api/v1';
     business: string;
     branch: string;
 

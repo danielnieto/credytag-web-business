@@ -7,7 +7,7 @@ import { SessionService } from './session.service';
 })
 export class AuthenticationService {
 
-    endpoint = 'https://credytag-backend-staging.herokuapp.com/api/v1';
+    endpoint = 'https://credytag-backend-dev.herokuapp.com/api/v1';
     jsonHeaders = new HttpHeaders({
         'Content-Type': 'application/json'
     });
