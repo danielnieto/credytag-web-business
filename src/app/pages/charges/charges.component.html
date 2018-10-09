@@ -28,7 +28,7 @@
         </span>
     </div>
 </section>
-<ul class="charges-list">
+<ul class="charges-list" *ngIf="charges.length">
     <li class="charge" *ngFor="let charge of charges">
         <div class="charge_summary">
             <div class="collapse" (click)="onToggleCollapse(charge)"><i class="fa" [class.fa-chevron-down]="!charge.collapsed" [class.fa-chevron-right]="charge.collapsed"></i></div>
@@ -113,3 +113,18 @@
         </div>
     </li>
 </ul>
+<div *ngIf="charges.length === 0" class="empty-state">
+    <div class="image"></div>
+    <div class="text">
+        <div>
+            <strong class="mr-1">0</strong> Transacciones
+        </div>
+        <div>
+            No se encontraron resultados
+        </div>
+        <div>
+            Intenta modificando tus criterios de búsqueda
+        </div>
+    </div>
+
+</div>
