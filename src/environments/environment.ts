@@ -5,5 +5,7 @@
 
 export const environment = {
   production: false,
-  hmr: false
+  hmr: false,
+  apiUrl: 'https://credytag-backend-dev.herokuapp.com/api/v1',
+  environment: 'development'
 };

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SessionService } from './session.service';
+import { environment } from '../environments/environment';
 
 @Injectable()
 export class ChargesService {
@@ -8,7 +9,7 @@ export class ChargesService {
     jsonHeaders = new HttpHeaders({
         'Content-Type': 'application/json'
     });
-    endpoint = 'https://credytag-backend-dev.herokuapp.com/api/v1';
+    endpoint = environment.apiUrl;
     business: string;
     branch: string;
 

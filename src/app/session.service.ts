@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserSession } from './user-session';
+import { environment } from '../environments/environment';
 
 @Injectable({
     providedIn: 'root'
 })
 export class SessionService {
 
-    endpoint = 'https://credytag-backend-dev.herokuapp.com/api/v1';
+    endpoint = environment.apiUrl;
     jsonHeaders = new HttpHeaders({
         'Content-Type': 'application/json'
     });
