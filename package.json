@@ -10,7 +10,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "hmr": "ng serve --hmr --configuration=hmr",
-    "build-for-gh": "ng build --prod --base-href 'https://danielnieto.github.io/credytag-web-business/'"
+    "build-for-gh": "ng build --prod --base-href 'https://danielnieto.github.io/credytag-web-business/'",
+    "build-for-prod": "ng build --prod --base-href 'http://credytag.com/app-negocio/'"
   },
   "browserslist": [
     "> 0%"
