@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
             const response = await this.auth.login(username, password);
 
             console.log(JSON.stringify(response));
-            this.session.setSession(response);
+            await this.session.setSession(response);
             this.router.navigate(['/cobros']);
 
         } catch (error) {
