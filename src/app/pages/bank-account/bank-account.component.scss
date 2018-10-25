@@ -1,0 +1,30 @@
+@import "variables";
+.empty-state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 32px;
+    color: $greyish-brown;
+
+    .image {
+        width: 315px;
+        height: 215px;
+        background-image: url(../../../assets/svg/undercons.svg);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    h2 {
+        margin-top: 32px;
+        font-weight: bold;
+        font-size: 32px;
+        color: $greyish-brown;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+}
