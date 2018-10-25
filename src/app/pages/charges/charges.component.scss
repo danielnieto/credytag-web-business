@@ -208,8 +208,10 @@
     .image {
         width: 215px;
         height: 215px;
-        background-color: #EFEFEF;
-        border-radius: 50%;
+        background-image: url(../../../assets/svg/placeholder-historial.svg);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
     }
     .text {
         margin-top: 32px;

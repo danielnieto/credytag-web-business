@@ -15,7 +15,7 @@
         <span>Agregar QR</span>
     </button>
 </section>
-<section class="qr-codes">
+<section class="qr-codes" *ngIf="qrCodes.length">
     <div class="heading">
         <div class="name-column">
             Nombre <i class="fa fa-chevron-down"></i>
@@ -64,6 +64,20 @@
         </li>
     </ul>
 </section>
+<div *ngIf="qrCodes.length === 0" class="empty-state">
+    <div class="image"></div>
+    <div class="text">
+        <div>
+            <strong class="mr-1">0</strong> Códigos QR
+        </div>
+        <div>
+            No se encontraron resultados
+        </div>
+        <div>
+            Intenta modificando tus criterios de búsqueda
+        </div>
+    </div>
+</div>
 
 <ng-template #templateCreateQr>
     <div class="modal-header">
