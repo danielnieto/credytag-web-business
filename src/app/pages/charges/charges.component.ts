@@ -12,6 +12,7 @@ import { DatePipe } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 
 import { Purchase } from '../../purchase';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 defineLocale('es', es);
 
@@ -32,7 +33,7 @@ export class ChargesComponent implements OnInit {
         'locale': 'es'
     };
 
-    constructor(private chargesService: ChargesService, private datePipe: DatePipe, private toastr: ToastrService) {}
+    constructor(private chargesService: ChargesService, private datePipe: DatePipe, private toastr: ToastrService, private spinner: NgxSpinnerService) {}
 
     ngOnInit() {
         this.fetchCharges();
@@ -97,6 +98,7 @@ export class ChargesComponent implements OnInit {
     }
 
     async fetchCharges() {
+        this.spinner.show();
 
         const date = this.datePipe.transform(this.datePickerValue, 'yyyy-MM-dd');
 
@@ -130,8 +132,10 @@ export class ChargesComponent implements OnInit {
             } else {
                 this.charges = [];
             }
+            this.spinner.hide();
 
         } catch (error) {
+            this.spinner.hide();
             this.toastr.error('Ocurrió un error obteniendo los cobros');
             console.log(error);
         }

@@ -5,6 +5,7 @@ import { QrcodesService} from '../../qrcodes.service';
 import { QrCode } from '../../qrCode';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
     selector: 'app-qrcodes',
@@ -27,7 +28,7 @@ export class QrcodesComponent implements OnInit {
 
     qrCodes: QrCode[] = [];
 
-    constructor(private modalService: BsModalService, private qrService: QrcodesService, private toastr: ToastrService) {
+    constructor(private modalService: BsModalService, private qrService: QrcodesService, private toastr: ToastrService, private spinner: NgxSpinnerService) {
 
     }
 
@@ -85,40 +86,48 @@ export class QrcodesComponent implements OnInit {
     async create() {
 
         const formValues = this.createQrForm.value;
-
+        this.spinner.show();
         try {
             await this.qrService.createQr(formValues.name, formValues.description, formValues.phone);
             this.toastr.success('QR creado correctamente');
             this.closeModal();
             this.getCodes();
+            this.spinner.hide();
         } catch (error) {
             console.log(error);
             this.toastr.error('Ocurrió un error creando el QR');
+            this.spinner.hide();
         }
 
     }
 
     async update() {
 
+        this.spinner.show();
+
         try {
             await this.qrService.updateQr(this.updateQrForm.value);
             this.toastr.success('QR editado correctamente');
             this.closeModal();
             this.getCodes();
+            this.spinner.hide();
         } catch (error) {
             console.log(error);
             this.toastr.error('Ocurrió un error editando el QR');
+            this.spinner.hide();
         }
 
     }
 
     async getCodes() {
-
+        this.spinner.show();
         try {
             this.qrCodes = await this.qrService.getCodes();
+            this.spinner.hide();
         }catch (error) {
             console.log(error);
             this.toastr.error('Ocurrió un error obteniendo los QR');
+            this.spinner.hide();
         }
 
     }

@@ -18,6 +18,7 @@ import { ModalModule } from 'ngx-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { TabsModule } from 'ngx-bootstrap';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 // QRCodes
 import { QRCodeModule } from 'angularx-qrcode';
@@ -82,6 +83,7 @@ const toastrOptions = {
         ToastrModule.forRoot(toastrOptions),
         TabsModule.forRoot(),
         NgSelectModule,
+        NgxSpinnerModule,
         RouterModule.forRoot([
             { path: 'login', component: LoginComponent },
             { path: 'logout', component: LogoutComponent },
