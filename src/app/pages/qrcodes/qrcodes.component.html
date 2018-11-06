@@ -64,7 +64,7 @@
         </li>
     </ul>
 </section>
-<div *ngIf="qrCodes.length === 0" class="empty-state">
+<div *ngIf="qrCodes.length === 0" class="empty-state" [hidden]="!isLoading">
     <div class="image"></div>
     <div class="text">
         <div>

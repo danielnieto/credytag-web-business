@@ -27,6 +27,7 @@ export class QrcodesComponent implements OnInit {
     @ViewChild('templateShowQr') templateShowQr: TemplateRef<any>;
 
     qrCodes: QrCode[] = [];
+    isLoading = true;
 
     constructor(private modalService: BsModalService, private qrService: QrcodesService, private toastr: ToastrService, private spinner: NgxSpinnerService) {
 
@@ -128,6 +129,7 @@ export class QrcodesComponent implements OnInit {
             this.toastr.error('Ocurrió un error obteniendo los QR');
         } finally {
             this.spinner.hide();
+            this.isLoading = false;
         }
 
     }
