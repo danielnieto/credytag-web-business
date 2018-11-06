@@ -92,10 +92,10 @@ export class QrcodesComponent implements OnInit {
             this.toastr.success('QR creado correctamente');
             this.closeModal();
             this.getCodes();
-            this.spinner.hide();
         } catch (error) {
             console.log(error);
             this.toastr.error('Ocurrió un error creando el QR');
+        } finally {
             this.spinner.hide();
         }
 
@@ -110,10 +110,10 @@ export class QrcodesComponent implements OnInit {
             this.toastr.success('QR editado correctamente');
             this.closeModal();
             this.getCodes();
-            this.spinner.hide();
         } catch (error) {
             console.log(error);
             this.toastr.error('Ocurrió un error editando el QR');
+        } finally {
             this.spinner.hide();
         }
 
@@ -123,10 +123,10 @@ export class QrcodesComponent implements OnInit {
         this.spinner.show();
         try {
             this.qrCodes = await this.qrService.getCodes();
-            this.spinner.hide();
-        }catch (error) {
+        } catch (error) {
             console.log(error);
             this.toastr.error('Ocurrió un error obteniendo los QR');
+        } finally {
             this.spinner.hide();
         }
 

@@ -132,12 +132,12 @@ export class ChargesComponent implements OnInit {
             } else {
                 this.charges = [];
             }
-            this.spinner.hide();
 
         } catch (error) {
-            this.spinner.hide();
             this.toastr.error('Ocurrió un error obteniendo los cobros');
             console.log(error);
+        } finally {
+            this.spinner.hide();
         }
 
 

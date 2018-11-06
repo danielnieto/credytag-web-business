@@ -37,16 +37,16 @@ export class LoginComponent implements OnInit {
 
             console.log(JSON.stringify(response));
             await this.session.setSession(response);
-            this.spinner.hide();
             this.router.navigate(['/cobros']);
 
         } catch (error) {
             this.loginError = true;
             this.errorMessage.nativeElement.classList.add('shake');
-            this.spinner.hide();
             setTimeout(() => {
                 this.errorMessage.nativeElement.classList.remove('shake');
             }, 500);
+        } finally {
+            this.spinner.hide();
         }
 
     }
