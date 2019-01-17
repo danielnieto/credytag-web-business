@@ -45,6 +45,9 @@ import { SessionService } from './session.service';
 // guards
 import {AuthGuard} from './auth.guard';
 
+// custom pipes
+import {CentsToUnitsPipe} from './cents-to-units.pipe';
+
 // to make Pipes use es-MX
 registerLocaleData(localeEs);
 
@@ -66,7 +69,8 @@ const toastrOptions = {
         BankAccountComponent,
         ChargeComponent,
         LoginComponent,
-        LogoutComponent
+        LogoutComponent,
+        CentsToUnitsPipe
     ],
     imports: [
         BrowserModule,
