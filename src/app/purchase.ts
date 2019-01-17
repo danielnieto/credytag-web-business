@@ -11,11 +11,12 @@ export interface Purchase {
     lng: string;
     order_status: ChargeStatus;
     payment_id: string;
-    tip: number;
-    total: number;
+    tip: string;
+    total: string;
     transaction: string;
     updated_at: string;
     map_url: string;
+    fee: string;
     payment: { last4: string, brand: string };
     code: { name: string, qr: string, description: string };
     buyer: { firstname: string, lastname: string };

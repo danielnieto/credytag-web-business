@@ -117,7 +117,7 @@ export class ChargesComponent implements OnInit {
                         client: `${purchase.buyer.firstname} ${purchase.buyer.lastname}`,
                         timestamp: purchase.created_at,
                         sell: purchase.total,
-                        commission: 0,
+                        commission: purchase.fee,
                         map: purchase.map_url,
                         sms: 0,
                         paidWith: `${purchase.payment.brand} x-${purchase.payment.last4}`,
