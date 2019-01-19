@@ -2,6 +2,8 @@ import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { SessionService } from '../../session.service';
+import { UserSession } from '../../user-session';
 
 @Component({
   selector: 'app-settings',
@@ -15,41 +17,58 @@ export class SettingsComponent implements OnInit {
   billingForm: FormGroup;
   bankForm: FormGroup;
   changePasswordForm: FormGroup;
+  branchDetails: any;
+  session: UserSession;
 
   modalRef: BsModalRef;
 
   @ViewChild('templateChangePassword') templateChangePassword: TemplateRef<any>;
 
-  constructor(private modalService: BsModalService) {
+  constructor(private modalService: BsModalService, private sessionService: SessionService) {
+    this.session = this.sessionService.getSession();
+    this.branchDetails = this.session.branchDetails;
+    console.log(this.branchDetails);
+
+    const fullname = `${this.session.user.firstname} ${this.session.user.lastname}`;
+    const personType = parseInt(this.branchDetails.person_type, 10) === 1 ? 'Moral' : 'Física';
+    const usage = parseInt(this.branchDetails.person_type, 10) === 1 ? 'Otros' : 'Gastos en general';
 
     this.userForm = new FormGroup({
-      fullName: new FormControl(null, [Validators.required]),
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      phone: new FormControl(null, [Validators.required])
+      fullName: new FormControl(fullname, [Validators.required]),
+      email: new FormControl(this.session.user.email, [Validators.required, Validators.email]),
+      phone: new FormControl(this.session.user.mobile, [Validators.required])
     });
 
+    this.userForm.disable();
+
     this.companyForm = new FormGroup({
-      name: new FormControl(null, [Validators.required]),
-      phone: new FormControl(null, [Validators.required]),
-      website: new FormControl(),
-      email: new FormControl(null, [Validators.email]),
-      type: new FormControl(),
+      name: new FormControl(this.branchDetails.name, [Validators.required]),
+      phone: new FormControl(this.branchDetails.mobile, [Validators.required]),
+      website: new FormControl(this.branchDetails.website),
+      email: new FormControl(this.branchDetails.email, [Validators.email]),
+      type: new FormControl(this.branchDetails.type),
       billingInformation: new FormControl(null, [Validators.required]),
     });
 
+    this.companyForm.disable();
+
     this.billingForm = new FormGroup({
-      personType: new FormControl(null, [Validators.required]),
-      name: new FormControl(null, [Validators.required]),
-      rfc: new FormControl(null, [Validators.required]),
-      zipCode: new FormControl(null, [Validators.email]),
-      usage: new FormControl(null, [Validators.required])
+      personType: new FormControl(personType, [Validators.required]),
+      name: new FormControl(this.branchDetails.legal_name, [Validators.required]),
+      rfc: new FormControl(this.branchDetails.rfc, [Validators.required]),
+      zipCode: new FormControl(this.branchDetails.cp, [Validators.email]),
+      usage: new FormControl(usage, [Validators.required])
     });
 
+    this.billingForm.disable();
+
     this.bankForm = new FormGroup({
-      bank: new FormControl(null, [Validators.required]),
-      spei: new FormControl(null, [Validators.required]),
-      beneficiary: new FormControl(null, [Validators.required])
+      bank: new FormControl(this.branchDetails.bank, [Validators.required]),
+      spei: new FormControl(this.branchDetails.spei, [Validators.required]),
+      beneficiary: new FormControl(this.branchDetails.bank_account_name, [Validators.required])
     });
+
+    this.bankForm.disable();
 
     this.changePasswordForm = new FormGroup({
       current: new FormControl(null, [Validators.required]),

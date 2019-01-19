@@ -86,6 +86,7 @@ export class SessionService {
         this.session.user.firstname = data.data.merchant.firstname;
         this.session.user.lastname = data.data.merchant.lastname;
         this.session.user.email = data.data.merchant.email;
+        this.session.user.mobile = data.data.merchant.mobile;
 
         this.persistSession();
 
@@ -93,7 +94,8 @@ export class SessionService {
             const businessResponse = await this.getBusiness();
             this.session.business = businessResponse.data.business[0].id;
             const branchResponse = await this.getBranch();
-            this.session.branch = branchResponse.data.branch[0].id;
+            this.session.branchDetails = branchResponse.data.branch[0];
+            this.session.branch = this.session.branchDetails.id;
 
             this.persistSession();
 

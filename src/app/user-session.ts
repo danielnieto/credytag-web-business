@@ -7,6 +7,7 @@ export class UserSession {
 
     business: string;
     branch: string;
+    branchDetails: any;
 
     constructor() {
         this.token = new UserToken();

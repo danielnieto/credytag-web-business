@@ -6,15 +6,15 @@
         <tab heading="Usuario" customClass="credytag-tabs">
             <form [formGroup]="userForm">
                 <div class="form-group">
-                    <label for="full-name">Nombre Completo *</label>
+                    <label for="full-name">Nombre Completo</label>
                     <input formControlName="fullName" type="text" class="form-control" id="full-name" aria-describedby="full-name">
                 </div>
                 <div class="form-group">
-                    <label for="email">Correo *</label>
+                    <label for="email">Correo</label>
                     <input formControlName="email" type="email" class="form-control" id="email-user" aria-describedby="email">
                 </div>
                 <div class="form-group">
-                    <label for="phone">Teléfono *</label>
+                    <label for="phone">Teléfono</label>
                     <input formControlName="phone" type="tel" class="form-control" id="phone-user" aria-describedby="phone">
                 </div>
                 <div class="form-group" hidden>
@@ -29,11 +29,11 @@
         <tab heading="Empresa" customClass="credytag-tabs">
             <form [formGroup]="companyForm">
                 <div class="form-group">
-                    <label for="name">Nombre *</label>
+                    <label for="name">Nombre</label>
                     <input formControlName="name" type="text" class="form-control" id="name-company" aria-describedby="name">
                 </div>
                 <div class="form-group">
-                    <label for="phone">Teléfono *</label>
+                    <label for="phone">Teléfono</label>
                     <input formControlName="phone" type="tel" class="form-control" id="phone-company" aria-describedby="phone">
                 </div>
                 <div class="form-group">
@@ -46,12 +46,16 @@
                 </div>
                 <div class="form-group">
                     <label for="type">Tipo de Empresa</label>
+                    <input formControlName="type" type="text" class="form-control" id="type">
+                </div>
+                <!-- <div class="form-group">
+                    <label for="type">Tipo de Empresa</label>
                     <ng-select id="type" [searchable]="false" formControlName="type" placeholder="Tipo de Empresa">
                         <ng-option [value]="'micro'">Micro-empresa (1 - 10 empleados)</ng-option>
                     </ng-select>
-                </div>
-                <div class="form-group">
-                    <label for="billing-information">Información para facturar *</label>
+                </div> -->
+                <div class="form-group" hidden>
+                    <label for="billing-information">Información para facturar</label>
                     <textarea formControlName="billingInformation" class="form-control" cols="30" rows="10"></textarea>
                 </div>
                 <div class="submit-button-container" hidden>
@@ -61,29 +65,37 @@
         </tab>
         <tab heading="Factura" customClass="credytag-tabs">
             <form [formGroup]="billingForm">
-                <div class="form-group">
-                    <label for="person-type">Tipo de Persona *</label>
+                <!-- <div class="form-group">
+                    <label for="person-type">Tipo de Persona</label>
                     <ng-select id="person-type" [searchable]="false" formControlName="personType">
                         <ng-option [value]="'persona moral'">Persona Moral</ng-option>
                     </ng-select>
+                </div> -->
+                <div class="form-group">
+                    <label for="person-type">Tipo de Persona</label>
+                    <input formControlName="personType" type="text" class="form-control" id="person-type">
                 </div>
                 <div class="form-group">
-                    <label for="name">Nombre o Razón Social *</label>
+                    <label for="name">Nombre o Razón Social</label>
                     <input formControlName="name" type="text" class="form-control" id="name">
                 </div>
                 <div class="form-group">
-                    <label for="rfc">RFC *</label>
+                    <label for="rfc">RFC</label>
                     <input formControlName="rfc" type="text" class="form-control" id="rfc">
                 </div>
                 <div class="form-group">
                     <label for="zip-code">Código Postal</label>
                     <input formControlName="zipCode" type="text" class="form-control" id="zip-code">
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="usage">Uso de CFDI</label>
                     <ng-select id="usage" [searchable]="false" formControlName="usage">
                         <ng-option [value]="'cfdi'">CFDI</ng-option>
                     </ng-select>
+                </div> -->
+                <div class="form-group">
+                    <label for="usage">Uso de CFDI</label>
+                    <input formControlName="usage" type="text" class="form-control" id="usage">
                 </div>
                 <div class="submit-button-container" hidden>
                     <button [disabled]="!billingForm.valid" type="submit" class="btn btn-primary">Guardar</button>
@@ -92,18 +104,22 @@
         </tab>
         <tab heading="Banco" customClass="credytag-tabs">
             <form [formGroup]="bankForm">
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="bank">Banco *</label>
                     <ng-select id="bank" [searchable]="false" formControlName="bank">
                         <ng-option [value]="'banbelloni'">Banco Belloni S.A. de C.V.</ng-option>
                     </ng-select>
+                </div> -->
+                <div class="form-group">
+                <label for="bank">Banco</label>
+                    <input formControlName="bank" type="text" class="form-control" id="bank">
                 </div>
                 <div class="form-group">
-                    <label for="spei">Número SPEI *</label>
+                    <label for="spei">Número SPEI</label>
                     <input formControlName="spei" type="text" class="form-control" id="spei">
                 </div>
                 <div class="form-group">
-                    <label for="beneficiary">Nombre del beneficiario *</label>
+                    <label for="beneficiary">Nombre del beneficiario</label>
                     <input formControlName="beneficiary" type="text" class="form-control" id="beneficiary">
                 </div>
                 <div class="submit-button-container" hidden>
@@ -135,7 +151,7 @@
                 <input formControlName="newPassword" name="newPassword" type="password" class="form-control" id="newPassword">
             </div>
             <div class="form-group">
-                <label for="newPasswordConfirmation">Confirmar nueva contraseña*</label>
+                <label for="newPasswordConfirmation">Confirmar nueva contraseña *</label>
                 <input formControlName="newPasswordConfirmation" name="newPasswordConfirmation" type="password" class="form-control"
                     id="newPasswordConfirmation">
                 <div *ngIf="changePasswordForm.errors?.match" class="form-control-feedback">La confirmación de la
