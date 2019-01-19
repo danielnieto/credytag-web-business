@@ -27,7 +27,6 @@ export class SettingsComponent implements OnInit {
   constructor(private modalService: BsModalService, private sessionService: SessionService) {
     this.session = this.sessionService.getSession();
     this.branchDetails = this.session.branchDetails;
-    console.log(this.branchDetails);
 
     const fullname = `${this.session.user.firstname} ${this.session.user.lastname}`;
     const personType = parseInt(this.branchDetails.person_type, 10) === 1 ? 'Moral' : 'Física';

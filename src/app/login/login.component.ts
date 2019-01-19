@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
 
             const response = await this.auth.login(username, password);
 
-            console.log(JSON.stringify(response));
             await this.session.setSession(response);
             this.router.navigate(['/cobros']);
 
