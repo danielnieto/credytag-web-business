@@ -137,7 +137,7 @@ export class SettingsComponent implements OnInit {
   openModal(template: TemplateRef<any>) {
 
     this.modalRef = this.modalService.show(template, Object.assign({},
-      { class: 'modal-credytag', animated: false, keyboard: true, ignoreBackdropClick: true, show: true }
+      { class: 'modal-luegoluego', animated: false, keyboard: true, ignoreBackdropClick: true, show: true }
     ));
 
   }

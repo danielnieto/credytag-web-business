@@ -28,7 +28,7 @@ export class ChargesComponent implements OnInit {
     today = new Date();
 
     datePickerConfig = {
-        'containerClass': 'theme-credytag',
+        'containerClass': 'theme-luegoluego',
         'showWeekNumbers': false,
         'locale': 'es'
     };
